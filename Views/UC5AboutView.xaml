@@ -40,13 +40,13 @@
                             <TextBlock
                                 Margin="5"
                                 FontSize="18"
-                                Foreground="#FF80AB"
+                                Foreground="#F06292"
                                 Style="{StaticResource TextBlockStyle_IconFontHCVC}"
                                 Text="&#xe61b;" />
                             <TextBlock
                                 Margin="0,5,5,5"
                                 FontSize="14"
-                                Foreground="#FF80AB"
+                                Foreground="#F06292"
                                 Text="捐赠作者" />
                         </StackPanel>
                     </Expander.Header>
@@ -54,7 +54,7 @@
                         <TextBlock
                             Margin="10,10,10,5"
                             HorizontalAlignment="Center"
-                            Foreground="#FF80AB"
+                            Foreground="#F06292"
                             TextWrapping="WrapWithOverflow">
                             如果您觉得这个软件对你有帮助，可以扫描下面的二维码捐赠作者，<LineBreak />
                             以帮助作者把这个软件做的更好，感谢大家的支持 (*^_^*)</TextBlock>

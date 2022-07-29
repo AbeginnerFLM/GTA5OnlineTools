@@ -269,7 +269,7 @@
                                     Text="LSCHax 载具改装编辑器" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
                                     一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5载具改装编辑器。<LineBreak /><LineBreak />
-                                    主要用来改装载具，使用频率较少，目前尚未汉化</TextBlock>
+                                    主要用来改装载具，使用频率较少，目前尚未汉化。</TextBlock>
                             </StackPanel>
                         </DockPanel>
                     </DockPanel>
@@ -325,9 +325,9 @@
                                     FontWeight="Bold"
                                     Text="YimMenu 注入式菜单" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验<LineBreak /><LineBreak />
+                                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验。<LineBreak /><LineBreak />
                                     项目地址：https://github.com/YimMenu/YimMenu<LineBreak />
-                                    PS：注入成功后按Ins键显示/隐藏菜单，点击左上角卸载注入</TextBlock>
+                                    PS：注入成功后按Ins键显示/隐藏菜单，点击左上角卸载注入。</TextBlock>
                             </StackPanel>
                         </DockPanel>
                     </DockPanel>

@@ -18,11 +18,21 @@
                     简介
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验。汉化 By Aure
+                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验。By Aure汉化
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     项目地址：https://github.com/YimMenu/YimMenu
                 </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    字体
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    默认情况下程序会使用微软雅黑字体，如果想获取更好的体验，可以下载该字体<Run />
+                    <Hyperlink NavigateUri="https://www.123pan.com/s/QEorVv-Yfzv3" RequestNavigate="Hyperlink_RequestNavigate">
+                        ArialUni
+                    </Hyperlink>
+                    <LineBreak />
+                    选择为所有用户安装，然后重新注入游戏即可</Paragraph>
 
             </FlowDocument>
         </RichTextBox>

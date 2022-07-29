@@ -32,7 +32,7 @@
                     ● 进入黑名单的衣服是不能保存的，但是可以穿在身上
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    ● 详细使用教程请查看小助手帮助<LineBreak />
+                    ● 详细使用教程请查看小助手帮助<Run />
                     <Hyperlink NavigateUri="https://crazyzhang.cn" RequestNavigate="Hyperlink_RequestNavigate">
                         https://crazyzhang.cn
                     </Hyperlink>
