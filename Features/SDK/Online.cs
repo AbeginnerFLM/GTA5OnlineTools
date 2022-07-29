@@ -331,7 +331,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void RemoveBunkerSupplyDelay(bool isEnable)
     {
-        Hacks.WriteGA<int>(262145 + 21349, isEnable ? 0 : 600);
+        Hacks.WriteGA<int>(262145 + 21601, isEnable ? 0 : 600);
     }
 
     /// <summary>
@@ -484,7 +484,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void SetMCResupplyCosts(bool isEnable)
     {
-        Hacks.WriteGA<int>(262145 + 18748, isEnable ? 200 : 15000);       // Discounted Resupply Cost, BIKER_PURCHASE_SUPPLIES_COST_PER_SEGMENT
+        Hacks.WriteGA<int>(262145 + 18998, isEnable ? 200 : 15000);       // Discounted Resupply Cost, BIKER_PURCHASE_SUPPLIES_COST_PER_SEGMENT
     }
 
     /// <summary>
