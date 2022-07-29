@@ -150,7 +150,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void OffRadar(bool isEnable)
     {
-        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 451 + 207, isEnable ? 1 : 0);
+        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 453 + 208, isEnable ? 1 : 0);
         if (isEnable)
             Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 56, Hacks.GetNetworkTime() + 3600000);
         Hacks.WriteGA<int>(Offsets.oVMYCar + 4630, isEnable ? 3 : 0);
@@ -162,7 +162,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void GhostOrganization(bool isEnable)
     {
-        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 451 + 207, isEnable ? 1 : 0);
+        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 453 + 208, isEnable ? 1 : 0);
         if (isEnable)
             Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 56, Hacks.GetNetworkTime() + 3600000);        // iVar0 = NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME()
         Hacks.WriteGA<int>(Offsets.oVMYCar + 4630, isEnable ? 4 : 0);
@@ -196,7 +196,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void RevealPlayers(bool isEnable)
     {
-        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 451 + 210, isEnable ? 1 : 0);
+        Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 453 + 211, isEnable ? 1 : 0);
         Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 57, isEnable ? Hacks.GetNetworkTime() + 3600000 : 0);
     }
 
