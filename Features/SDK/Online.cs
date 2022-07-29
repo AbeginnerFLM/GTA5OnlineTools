@@ -493,7 +493,7 @@ public static class Online
     /// <param name="serverId"></param>
     public static void MerryWeatherServices(int serverId)
     {
-        Hacks.WriteGA<int>(2810701 + serverId, 1);
+        Hacks.WriteGA<int>(2815059 + serverId, 1);
     }
 
     /// <summary>
