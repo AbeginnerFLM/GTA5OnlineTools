@@ -54,10 +54,6 @@
                     </Border>
                     <WrapPanel Margin="3,0,3,0">
                         <Button
-                            x:Name="Button_Disconnect"
-                            Click="Button_Disconnect_Click"
-                            Content="断开战局链接" />
-                        <Button
                             x:Name="Button_EmptySession"
                             Click="Button_EmptySession_Click"
                             Content="空战局" />

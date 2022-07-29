@@ -96,26 +96,26 @@ public static class Online
     }
 
     /// <summary>
+    /// 移除被动模式CD
+    /// </summary>
+    /// <param name="isEnable"></param>
+    public static void RemovePassiveModeCooldown(bool isEnable)
+    {
+        Hacks.WriteGA<int>(2815059 + 4460, isEnable ? 0 : 1);
+        Hacks.WriteGA<int>(1966337, isEnable ? 0 : 1);
+    }
+
+    /// <summary>
     /// 移除自杀CD
     /// </summary>
     /// <param name="isEnable"></param>
     public static void RemoveSuicideCooldown(bool isEnable)
     {
         if (isEnable)
-            Hacks.WriteGA<int>(2810701 + 6729, 0);
+            Hacks.WriteGA<int>(2815059 + 6774, 0);
 
-        Hacks.WriteGA<int>(262145 + 28072, isEnable ? 3 : 300000);
-        Hacks.WriteGA<int>(262145 + 28073, isEnable ? 3 : 60000);
-    }
-
-    /// <summary>
-    /// 移除被动模式CD
-    /// </summary>
-    /// <param name="isEnable"></param>
-    public static void RemovePassiveModeCooldown(bool isEnable)
-    {
-        Hacks.WriteGA<int>(2810701 + 4460, isEnable ? 0 : 1);
-        Hacks.WriteGA<int>(1966542, isEnable ? 0 : 1);
+        Hacks.WriteGA<int>(262145 + 28396, isEnable ? 3 : 300000);
+        Hacks.WriteGA<int>(262145 + 28397, isEnable ? 3 : 60000);
     }
 
     /// <summary>
@@ -124,7 +124,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void DisableOrbitalCooldown(bool isEnable)
     {
-        Hacks.WriteGA<int>(262145 + 22853, isEnable ? 0 : 2880000);
+        Hacks.WriteGA<int>(262145 + 23112, isEnable ? 0 : 2880000);         // -1707434973
     }
 
     /// <summary>
@@ -164,7 +164,7 @@ public static class Online
     {
         Hacks.WriteGA<int>(Offsets.oPlayerIDHelp + 1 + Hacks.GetPlayerID() * 451 + 207, isEnable ? 1 : 0);
         if (isEnable)
-            Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 56, Hacks.GetNetworkTime() + 3600000);
+            Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 56, Hacks.GetNetworkTime() + 3600000);        // iVar0 = NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME()
         Hacks.WriteGA<int>(Offsets.oVMYCar + 4630, isEnable ? 4 : 0);
     }
 
@@ -231,12 +231,12 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void InstantBullShark(bool isEnable)
     {
-        if(isEnable) 
+        if (isEnable)
             Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 3576, 1);
         else
         {
             int temp = Hacks.ReadGA<int>(Offsets.oNETTimeHelp + 3576);
-            if(temp != 0)
+            if (temp != 0)
                 Hacks.WriteGA<int>(Offsets.oNETTimeHelp + 3576, 5);
         }
     }
@@ -513,9 +513,9 @@ public static class Online
     /// </summary>
     public static void Disconnect()
     {
-        Hacks.WriteGA<int>(31788, 1);
+        Hacks.WriteGA<int>(32236, 1);       // 2022/07/29 没效果
         Thread.Sleep(20);
-        Hacks.WriteGA<int>(31788, 0);
+        Hacks.WriteGA<int>(32236, 0);
     }
 
     /// <summary>

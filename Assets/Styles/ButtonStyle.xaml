@@ -103,7 +103,7 @@
 
     <!--  普通按钮样式  -->
     <Style x:Key="ButtonStyle_Normal" TargetType="{x:Type Button}">
-        <Setter Property="Margin" Value="5,5,0,0" />
+        <Setter Property="Margin" Value="3" />
         <Setter Property="Padding" Value="10,7,10,7" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#2D6EB9" />

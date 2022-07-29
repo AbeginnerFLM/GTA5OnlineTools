@@ -301,8 +301,9 @@
                     x:Name="Button_InjectMenu"
                     Margin="5,5,5,10"
                     Click="Button_InjectMenu_Click"
-                    Content="启用注入式ESP功能（测试版）"
+                    Content="启用注入式ESP功能（已禁用）"
                     DockPanel.Dock="Right"
+                    IsEnabled="False"
                     Style="{StaticResource ButtonStyle_Normal}" />
                 <TextBlock
                     Margin="5"

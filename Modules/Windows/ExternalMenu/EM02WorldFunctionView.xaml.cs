@@ -32,13 +32,6 @@ public partial class EM02WorldFunctionView : UserControl
             Online.LoadSession(MiscData.Sessions[index].ID);
     }
 
-    private void Button_Disconnect_Click(object sender, RoutedEventArgs e)
-    {
-        AudioUtil.ClickSound();
-
-        Online.Disconnect();
-    }
-
     private void Button_EmptySession_Click(object sender, RoutedEventArgs e)
     {
         AudioUtil.ClickSound();
