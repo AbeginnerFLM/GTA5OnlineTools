@@ -64,7 +64,7 @@ public static class Hacks
     /// <returns></returns>
     public static int GetNetworkTime()
     {
-        return ReadGA<int>(1574755 + 11);
+        return ReadGA<int>(1574757 + 11);
     }
 
     /// <summary>
