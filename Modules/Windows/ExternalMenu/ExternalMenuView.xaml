@@ -38,7 +38,7 @@
                                 <Grid>
                                     <Border
                                         Name="win_content"
-                                        BorderBrush="Gray"
+                                        BorderBrush="#34A853"
                                         BorderThickness="1">
                                         <ContentPresenter />
                                     </Border>

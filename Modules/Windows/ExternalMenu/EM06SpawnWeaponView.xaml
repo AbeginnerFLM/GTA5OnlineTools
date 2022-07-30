@@ -27,6 +27,7 @@
         <ListBox
             x:Name="ListBox_WeaponList"
             Grid.Column="0"
+            Margin="5,5,2.5,5"
             SelectedIndex="0"
             SelectionChanged="ListBox_WeaponList_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />
@@ -34,7 +35,7 @@
         <ListBox
             x:Name="ListBox_WeaponInfo"
             Grid.Column="1"
-            Margin="5,0,5,0"
+            Margin="2.5,5,0,5"
             SelectedIndex="0"
             SelectionChanged="ListBox_WeaponInfo_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />

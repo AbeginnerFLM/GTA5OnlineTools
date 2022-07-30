@@ -21,12 +21,13 @@
         <!--  面板1  -->
         <ListBox
             x:Name="ListBox_VehicleClass"
+            Margin="5,5,2.5,5"
             SelectionChanged="ListBox_VehicleClass_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />
         <!--  面板2  -->
         <ListBox
             x:Name="ListBox_VehicleInfo"
-            Margin="5,0,5,0"
+            Margin="2.5,5,0,5"
             SelectionChanged="ListBox_VehicleInfo_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />
         <!--  面板3  -->

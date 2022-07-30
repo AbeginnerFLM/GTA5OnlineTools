@@ -16,8 +16,9 @@
             <Setter Property="IsDocumentEnabled" Value="True" />
             <Setter Property="Cursor" Value="Arrow" />
             <Setter Property="Padding" Value="5" />
-            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
             <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
             <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
