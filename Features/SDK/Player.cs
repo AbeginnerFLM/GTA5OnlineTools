@@ -26,32 +26,19 @@ public static class Player
     /// <summary>
     /// 挂机防踢
     /// </summary>
+    /// <param name="isEnable"></param>
     public static void AntiAFK(bool isEnable)
     {
-        if (isEnable)
-        {
-            Hacks.WriteGA<int>(262145 + 87, 2000000000);
-            Hacks.WriteGA<int>(262145 + 88, 2000000000);
-            Hacks.WriteGA<int>(262145 + 89, 2000000000);
-            Hacks.WriteGA<int>(262145 + 90, 2000000000);
-
-            Hacks.WriteGA<int>(262145 + 8041, 2000000000);
-            Hacks.WriteGA<int>(262145 + 8042, 2000000000);
-            Hacks.WriteGA<int>(262145 + 8043, 2000000000);
-            Hacks.WriteGA<int>(262145 + 8044, 2000000000);
-        }
-        else
-        {
-            Hacks.WriteGA<int>(262145 + 87, 120000);
-            Hacks.WriteGA<int>(262145 + 88, 300000);
-            Hacks.WriteGA<int>(262145 + 89, 600000);
-            Hacks.WriteGA<int>(262145 + 90, 900000);
-
-            Hacks.WriteGA<int>(262145 + 8041, 30000);
-            Hacks.WriteGA<int>(262145 + 8042, 60000);
-            Hacks.WriteGA<int>(262145 + 8043, 90000);
-            Hacks.WriteGA<int>(262145 + 8044, 120000);
-        }
+        // joaat("weapon_minigun");
+        Hacks.WriteGA<int>(262145 + 87, isEnable ? 99999999 : 120000);        // 120000 
+        Hacks.WriteGA<int>(262145 + 88, isEnable ? 99999999 : 300000);        // 300000 
+        Hacks.WriteGA<int>(262145 + 89, isEnable ? 99999999 : 600000);        // 600000 
+        Hacks.WriteGA<int>(262145 + 90, isEnable ? 99999999 : 900000);        // 900000 
+        // 742014
+        Hacks.WriteGA<int>(262145 + 8248, isEnable ? 2000000000 : 30000);     // 30000  
+        Hacks.WriteGA<int>(262145 + 8249, isEnable ? 2000000000 : 60000);     // 60000  
+        Hacks.WriteGA<int>(262145 + 8250, isEnable ? 2000000000 : 90000);     // 90000  
+        Hacks.WriteGA<int>(262145 + 8251, isEnable ? 2000000000 : 120000);    // 120000 
     }
 
     /// <summary>
@@ -77,21 +64,87 @@ public static class Player
     }
 
     /// <summary>
-    /// 角色水下行走
+    /// 角色防子弹
     /// </summary>
-    public static void WaterProof(bool isEnable)
+    public static void ProofBullet(bool isEnable)
     {
-        long waterProof = Memory.Read<long>(Globals.WorldPTR, Offsets.PlayerWaterProof);
-        waterProof %= 0x1000000;
-
-        if (isEnable)
-            Memory.Write<long>(Globals.WorldPTR, Offsets.PlayerWaterProof, waterProof + 0x1000000);
-        else
-            Memory.Write<long>(Globals.WorldPTR, Offsets.PlayerWaterProof, waterProof);
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 4)) : (uint)(proof & ~(1 << 4));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
     }
 
     /// <summary>
-    /// 角色隐形
+    /// 角色防火烧
+    /// </summary>
+    public static void ProofFire(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 5)) : (uint)(proof & ~(1 << 5));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防撞击
+    /// </summary>
+    public static void ProofCollision(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 6)) : (uint)(proof & ~(1 << 6));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防近战
+    /// </summary>
+    public static void ProofMelee(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 7)) : (uint)(proof & ~(1 << 7));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防爆炸
+    /// </summary>
+    public static void ProofExplosion(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 11)) : (uint)(proof & ~(1 << 11));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防蒸汽
+    /// </summary>
+    public static void ProofSteam(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 15)) : (uint)(proof & ~(1 << 15));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防溺水
+    /// </summary>
+    public static void ProofDrown(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 16)) : (uint)(proof & ~(1 << 16));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色防海水
+    /// </summary>
+    public static void ProofWater(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 24)) : (uint)(proof & ~(1 << 24));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
+    /// 角色隐形（虚假）
     /// </summary>
     public static void Invisibility(bool isEnable)
     {

@@ -17,21 +17,28 @@
         <Style BasedOn="{StaticResource ButtonStyle_Normal}" TargetType="{x:Type Button}" />
     </UserControl.Resources>
 
-    <UniformGrid Columns="3">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <!--  面板1  -->
         <ListBox
             x:Name="ListBox_VehicleClass"
+            Grid.Column="0"
             Margin="5,5,2.5,5"
             SelectionChanged="ListBox_VehicleClass_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />
         <!--  面板2  -->
         <ListBox
             x:Name="ListBox_VehicleInfo"
+            Grid.Column="1"
             Margin="2.5,5,0,5"
             SelectionChanged="ListBox_VehicleInfo_SelectionChanged"
             Style="{StaticResource ListBoxStyle}" />
         <!--  面板3  -->
-        <DockPanel>
+        <DockPanel Grid.Column="2">
             <StackPanel DockPanel.Dock="Top">
                 <Label
                     attached:Icon.Value="☕"
@@ -134,6 +141,6 @@
                     TextWrapping="Wrap" />
             </StackPanel>
         </DockPanel>
-    </UniformGrid>
+    </Grid>
 
 </UserControl>

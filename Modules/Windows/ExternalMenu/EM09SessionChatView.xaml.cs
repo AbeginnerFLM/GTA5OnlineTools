@@ -121,10 +121,10 @@ public partial class EM09SessionChatView : UserControl
     {
         try
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
             string str = await HttpHelper.HttpClientGET(youdaoAPI + TextBox_InputMessage.Text);
-            ReceiveObj rb = JsonUtil.JsonDese<ReceiveObj>(str);
+            var rb = JsonUtil.JsonDese<ReceiveObj>(str);
 
             foreach (var item in rb.translateResult)
             {

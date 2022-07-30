@@ -36,14 +36,6 @@ public static class EnumData
         ARMY                        // 29 军队
     };
 
-    public enum FrameFlags
-    {
-        ExplosiveAmmo = 1 << 11,
-        FireAmmo = 1 << 12,
-        ExplosiveMelee = 1 << 13,
-        SuperJump = 1 << 14,
-    }
-
     public enum BlipIcons
     {
         Null,

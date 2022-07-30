@@ -18,8 +18,12 @@
                 <ResourceDictionary Source="Assets/Styles/ButtonStyle.xaml" />
                 <ResourceDictionary Source="Assets/Styles/ToggleButtonStyle.xaml" />
 
+                <ResourceDictionary Source="Assets/Styles/CheckBoxStyle.xaml" />
+                <ResourceDictionary Source="Assets/Styles/RadioButtonStyle.xaml" />
+
                 <ResourceDictionary Source="Assets/Styles/GroupBoxStyle.xaml" />
                 <ResourceDictionary Source="Assets/Styles/ListBoxStyle.xaml" />
+
                 <ResourceDictionary Source="Assets/Styles/TabControlStyle.xaml" />
 
                 <ResourceDictionary Source="Assets/Styles/UserControlStyle.xaml" />

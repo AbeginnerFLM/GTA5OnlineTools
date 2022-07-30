@@ -69,24 +69,6 @@ public static class Online
     }
 
     /// <summary>
-    /// 挂机防踢
-    /// </summary>
-    /// <param name="isEnable"></param>
-    public static void AntiAFK(bool isEnable)
-    {
-        // joaat("weapon_minigun");
-        Hacks.WriteGA<int>(262145 + 87, isEnable ? 99999999 : 120000);        // 120000 
-        Hacks.WriteGA<int>(262145 + 88, isEnable ? 99999999 : 300000);        // 300000 
-        Hacks.WriteGA<int>(262145 + 89, isEnable ? 99999999 : 600000);        // 600000 
-        Hacks.WriteGA<int>(262145 + 90, isEnable ? 99999999 : 900000);        // 900000 
-        // 742014
-        Hacks.WriteGA<int>(262145 + 8248, isEnable ? 2000000000 : 30000);     // 30000  
-        Hacks.WriteGA<int>(262145 + 8249, isEnable ? 2000000000 : 60000);     // 60000  
-        Hacks.WriteGA<int>(262145 + 8250, isEnable ? 2000000000 : 90000);     // 90000  
-        Hacks.WriteGA<int>(262145 + 8251, isEnable ? 2000000000 : 120000);    // 120000 
-    }
-
-    /// <summary>
     /// 允许非公共战局运货
     /// </summary>
     /// <param name="isEnable"></param>

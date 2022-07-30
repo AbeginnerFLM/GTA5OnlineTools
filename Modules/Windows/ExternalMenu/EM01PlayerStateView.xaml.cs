@@ -23,13 +23,9 @@ public partial class EM01PlayerStateView : UserControl
         thread0.IsBackground = true;
         thread0.Start();
 
-        var thread1 = new Thread(SpecialThread);
+        var thread1 = new Thread(CommonThread);
         thread1.IsBackground = true;
         thread1.Start();
-
-        var thread2 = new Thread(CommonThread);
-        thread2.IsBackground = true;
-        thread2.Start();
 
         MainHotKeys = new HotKeys();
         MainHotKeys.AddKey(WinVK.F3);
@@ -62,36 +58,42 @@ public partial class EM01PlayerStateView : UserControl
                     if (CheckBox_FillCurrentAmmo.IsChecked == true)
                     {
                         Weapon.FillCurrentAmmo();
+                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F4:
                     if (CheckBox_MovingFoward.IsChecked == true)
                     {
                         Teleport.MovingFoward();
+                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F5:
                     if (CheckBox_ToWaypoint.IsChecked == true)
                     {
                         Teleport.ToWaypoint();
+                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F6:
                     if (CheckBox_ToObjective.IsChecked == true)
                     {
                         Teleport.ToObjective();
+                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F7:
                     if (CheckBox_FillHealthArmor.IsChecked == true)
                     {
                         Player.FillHealthArmor();
+                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F8:
                     if (CheckBox_ClearWanted.IsChecked == true)
                     {
                         Player.WantedLevel(0x00);
+                        Console.Beep(700, 75);
                     }
                     break;
             }
@@ -164,27 +166,6 @@ public partial class EM01PlayerStateView : UserControl
         }
     }
 
-    private void SpecialThread()
-    {
-        while (true)
-        {
-            switch (FrameFlag)
-            {
-                case 1:
-                    Memory.Write<int>(Globals.WorldPTR, Offsets.SpecialAmmo, (int)EnumData.FrameFlags.SuperJump);
-                    break;
-                case 2:
-                    Memory.Write<int>(Globals.WorldPTR, Offsets.SpecialAmmo, (int)EnumData.FrameFlags.FireAmmo);
-                    break;
-                case 3:
-                    Memory.Write<int>(Globals.WorldPTR, Offsets.SpecialAmmo, (int)EnumData.FrameFlags.ExplosiveAmmo);
-                    break;
-            }
-
-            Thread.Sleep(1);
-        }
-    }
-
     private void CommonThread()
     {
         while (true)
@@ -252,11 +233,6 @@ public partial class EM01PlayerStateView : UserControl
         Settings.Player.AntiAFK = CheckBox_AntiAFK.IsChecked == true;
     }
 
-    private void CheckBox_WaterProof_Click(object sender, RoutedEventArgs e)
-    {
-        Player.WaterProof(CheckBox_WaterProof.IsChecked == true);
-    }
-
     private void CheckBox_Invisibility_Click(object sender, RoutedEventArgs e)
     {
         Player.Invisibility(CheckBox_Invisibility.IsChecked == true);
@@ -317,26 +293,6 @@ public partial class EM01PlayerStateView : UserControl
         Settings.Common.AutoKillPolice = CheckBox_AutoKillPolice.IsChecked == true;
     }
 
-    private void RadioButton_FrameFlags_Click(object sender, RoutedEventArgs e)
-    {
-        if (RadioButton_FrameFlags_Default.IsChecked == true)
-        {
-            FrameFlag = 0;
-        }
-        else if (RadioButton_FrameFlags_SuperJump.IsChecked == true)
-        {
-            FrameFlag = 1;
-        }
-        //else if (RadioButton_FrameFlags_FireAmmo.IsChecked == true)
-        //{
-        //    FrameFlag = 2;
-        //}
-        //else if (RadioButton_FrameFlags_ExplosiveAmmo.IsChecked == true)
-        //{
-        //    FrameFlag = 3;
-        //}
-    }
-
     private void CheckBox_NoCollision_Click(object sender, RoutedEventArgs e)
     {
         Player.NoCollision(CheckBox_NoCollision.IsChecked == true);
@@ -381,5 +337,45 @@ public partial class EM01PlayerStateView : UserControl
     private void Slider_MovingFoward_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
         Settings.Forward = (float)Slider_MovingFoward.Value;
+    }
+
+    private void CheckBox_ProofBullet_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofBullet(CheckBox_ProofBullet.IsChecked == true);
+    }
+
+    private void CheckBox_ProofFire_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofFire(CheckBox_ProofFire.IsChecked == true);
+    }
+
+    private void CheckBox_ProofCollision_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofCollision(CheckBox_ProofCollision.IsChecked == true);
+    }
+
+    private void CheckBox_ProofMelee_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofMelee(CheckBox_ProofMelee.IsChecked == true);
+    }
+
+    private void CheckBox_ProofExplosion_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofExplosion(CheckBox_ProofExplosion.IsChecked == true);
+    }
+
+    private void CheckBox_ProofSteam_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofSteam(CheckBox_ProofSteam.IsChecked == true);
+    }
+
+    private void CheckBox_ProofDrown_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofDrown(CheckBox_ProofDrown.IsChecked == true);
+    }
+
+    private void CheckBox_ProofWater_Click(object sender, RoutedEventArgs e)
+    {
+        Player.ProofWater(CheckBox_ProofWater.IsChecked == true);
     }
 }

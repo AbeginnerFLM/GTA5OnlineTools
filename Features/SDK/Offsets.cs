@@ -141,7 +141,7 @@ public static class Offsets
     public static int[] PlayerCos = new int[] { 0x08, 0x30, 0x30 };
 
     public static int[] InVehicle = new int[] { 0x08, 0x14C7 };       // byte 0x10:false 0x00:true
-    public static int[] PlayerWaterProof = new int[] { 0x08, 0x188 };
+    public static int[] PlayerProof = new int[] { 0x08, 0x188 };
 
     // 角色在载具中，坐标偏移多了个pCVehicle = 0xD30
     public static int[] VehicleVisualX = new int[] { 0x08, 0xD30, 0x90 };
