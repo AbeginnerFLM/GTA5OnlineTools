@@ -29,8 +29,8 @@ public static class Locals
             var pointer = Memory.Read<long>(Globals.LocalScriptsPTR);
             pointer = Memory.Read<long>(pointer + i * 0x8);
 
-            var str = Memory.ReadString(pointer + 0xD0, null, name.Length + 1);
-            if (str == name)
+            var str = Memory.ReadString(pointer + 0xD4, null, name.Length + 1);
+            if (str.ToLower() == name.ToLower())
                 return pointer + 0xB0;
         }
 

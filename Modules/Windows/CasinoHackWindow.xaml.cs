@@ -56,7 +56,7 @@ public partial class CasinoHackWindow : Window
                 if (p != 0)
                 {
                     p = Memory.Read<long>(p);
-                    int i = Memory.Read<int>(p + 0x3F60);
+                    int i = Memory.Read<int>(p + (2026 + 2 + (1 + 1 * 1)) * 8);
 
                     var sb = new StringBuilder();
                     if ((i - 1) / 13 == 0)
@@ -78,7 +78,7 @@ public partial class CasinoHackWindow : Window
                 if (p != 0)
                 {
                     p = Memory.Read<long>(p);
-                    int i = Memory.Read<int>(p + 0x3948);
+                    int i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 2 * 1)) * 8);
 
                     var sb = new StringBuilder();
                     if ((i - 1) / 13 == 0)
@@ -91,7 +91,7 @@ public partial class CasinoHackWindow : Window
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
                     sb.Append(" ");
-                    i = Memory.Read<int>(p + 0x3938);
+                    i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 0 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
                     if ((i - 1) / 13 == 1)
@@ -102,7 +102,7 @@ public partial class CasinoHackWindow : Window
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
                     sb.Append(" ");
-                    i = Memory.Read<int>(p + 0x3940);
+                    i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 1 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
                     if ((i - 1) / 13 == 1)
@@ -124,7 +124,7 @@ public partial class CasinoHackWindow : Window
                     p = Memory.Read<long>(p);
                     for (int i = 0; i < 6; i++)
                     {
-                        Memory.Write<int>(p + 0x32D0 + i * 0x8, CasinoHackModel.RouletteSelectedIndex);
+                        Memory.Write<int>(p + (117 + 1357 + 153 + (1 + i * 1)) * 8, CasinoHackModel.RouletteSelectedIndex);
                     }
                 }
             }
@@ -139,7 +139,7 @@ public partial class CasinoHackWindow : Window
                     {
                         for (int j = 0; j < 64; j++)
                         {
-                            int index = 1339 + 1 + 1 + i * 65 + 1 + j;
+                            int index = 1341 + 1 + (1 + i * 65) + (1 + j * 1);
                             Memory.Write<int>(p + index * 8, CasinoHackModel.SlotMachineSelectedIndex);
                         }
                     }
@@ -153,7 +153,7 @@ public partial class CasinoHackWindow : Window
                 if (p != 0)
                 {
                     p = Memory.Read<long>(p);
-                    int index = 271 + 14;
+                    int index = 273 + 14;
                     Memory.Write<int>(p + index * 8, CasinoHackModel.LuckyWheelSelectedIndex);
                 }
             }
