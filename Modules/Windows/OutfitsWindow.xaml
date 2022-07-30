@@ -117,7 +117,7 @@
                         <TextBlock
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Text="TOP（上衣）" />
+                            Text="TOP（外衣）" />
                         <TextBox x:Name="TextBox_TOP" />
                         <TextBlock
                             HorizontalAlignment="Right"
@@ -130,7 +130,7 @@
                         <TextBlock
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Text="UNDERSHIRT（外套）" />
+                            Text="UNDERSHIRT（内衣）" />
                         <TextBox x:Name="TextBox_UNDERSHIRT" />
                         <TextBlock
                             HorizontalAlignment="Right"

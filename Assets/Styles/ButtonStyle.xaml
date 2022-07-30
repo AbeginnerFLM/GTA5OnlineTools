@@ -58,7 +58,7 @@
         <Setter Property="Margin" Value="0,0,3,3" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="#767676" />
+        <Setter Property="Background" Value="#696969" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -69,6 +69,7 @@
                         Margin="{TemplateBinding Margin}"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
+                        BorderBrush="Transparent"
                         BorderThickness="0"
                         CornerRadius="0"
                         SnapsToDevicePixels="True">
@@ -90,6 +91,7 @@
                             <Setter TargetName="border" Property="Background" Value="#5D5A58" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="BorderThickness" Value="2" />
                             <Setter TargetName="border" Property="Background" Value="#4C4A48" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">

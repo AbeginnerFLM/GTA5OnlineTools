@@ -61,6 +61,14 @@
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button
+                attached:Icon.Value="&#xe666;"
+                attached:Text.Value="Casino Hack"
+                Command="{Binding ModelsClickCommand}"
+                CommandParameter="CasinoHack"
+                Content="赌场黑客"
+                Style="{StaticResource ButtonStyle_FunctionSelf}" />
+
+            <Button
                 attached:Icon.Value="&#xe63b;"
                 attached:Text.Value="BigBaseV2"
                 Command="{Binding ModelsClickCommand}"

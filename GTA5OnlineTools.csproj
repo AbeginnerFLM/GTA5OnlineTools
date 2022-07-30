@@ -25,8 +25,8 @@
     <None Remove="Assets\Images\Hacks\LSCHax.png" />
     <None Remove="Assets\Images\Hacks\YimMenu.png" />
     <None Remove="Assets\Images\Launch.png" />
-    <None Remove="Assets\Images\Tips\Cayo01.png" />
-    <None Remove="Assets\Images\Tips\Cayo02.png" />
+    <None Remove="Assets\Images\Poster\Casino01.jpg" />
+    <None Remove="Assets\Images\Poster\Casino02.jpg" />
     <None Remove="Assets\Images\Tips\InputENG.png" />
     <None Remove="Assets\Images\Tips\PericoHeist01.png" />
     <None Remove="Assets\Images\Tips\PericoHeist02.png" />
@@ -87,8 +87,8 @@
     <Resource Include="Assets\Images\Hacks\LSCHax.png" />
     <Resource Include="Assets\Images\Hacks\YimMenu.png" />
     <Resource Include="Assets\Images\Launch.png" />
-    <Resource Include="Assets\Images\Tips\Cayo01.png" />
-    <Resource Include="Assets\Images\Tips\Cayo02.png" />
+    <Resource Include="Assets\Images\Poster\Casino01.jpg" />
+    <Resource Include="Assets\Images\Poster\Casino02.jpg" />
     <Resource Include="Assets\Images\Tips\InputENG.png" />
     <Resource Include="Assets\Images\Tips\PericoHeist01.png" />
     <Resource Include="Assets\Images\Tips\PericoHeist02.png" />

@@ -23,7 +23,7 @@ public partial class HeistCutWindow : Window
             Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
             Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
 
-            Application.Current.Dispatcher.Invoke(() =>
+            this.Dispatcher.Invoke(() =>
             {
                 ReadHeistCutData();
             });

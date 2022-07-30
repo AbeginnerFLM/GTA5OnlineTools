@@ -104,6 +104,16 @@ public static class Player
     }
 
     /// <summary>
+    /// 角色防无敌
+    /// </summary>
+    public static void ProofGod(bool isEnable)
+    {
+        var proof = Memory.Read<uint>(Globals.WorldPTR, Offsets.PlayerProof);
+        proof = isEnable ? (uint)(proof | (1 << 8)) : (uint)(proof & ~(1 << 8));
+        Memory.Write<uint>(Globals.WorldPTR, Offsets.PlayerProof, proof);
+    }
+
+    /// <summary>
     /// 角色防爆炸
     /// </summary>
     public static void ProofExplosion(bool isEnable)

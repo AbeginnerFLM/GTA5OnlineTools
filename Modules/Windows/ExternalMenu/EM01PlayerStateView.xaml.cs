@@ -12,8 +12,6 @@ public partial class EM01PlayerStateView : UserControl
 {
     // 快捷键
     private HotKeys MainHotKeys;
-    // 特殊功能
-    private int FrameFlag = 0;
 
     public EM01PlayerStateView()
     {

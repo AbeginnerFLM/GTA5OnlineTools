@@ -18,6 +18,7 @@ public partial class UC2ModulesView : UserControl
     private HeistCutWindow HeistCutWindow = null;
     private StatAutoScriptsWindow StatAutoScriptsWindow = null;
     private HeistPrepsWindow HeistPrepsWindow = null;
+    private CasinoHackWindow CasinoHackWindow = null;
     private BigBaseV2Window BigBaseV2Window = null;
 
     public RelayCommand<string> ModelsClickCommand { get; private set; }
@@ -57,6 +58,9 @@ public partial class UC2ModulesView : UserControl
                     break;
                 case "HeistPreps":
                     HeistPrepsClick();
+                    break;
+                case "CasinoHack":
+                    CasinoHackClick();
                     break;
                 case "BigBaseV2":
                     BigBaseV2Click();
@@ -213,6 +217,30 @@ public partial class UC2ModulesView : UserControl
                 GTAHaxWindow = null;
                 GTAHaxWindow = new GTAHaxWindow();
                 GTAHaxWindow.Show();
+            }
+        }
+    }
+
+    private void CasinoHackClick()
+    {
+        if (CasinoHackWindow == null)
+        {
+            CasinoHackWindow = new CasinoHackWindow();
+            CasinoHackWindow.Show();
+        }
+        else
+        {
+            if (CasinoHackWindow.IsVisible)
+            {
+                CasinoHackWindow.Topmost = true;
+                CasinoHackWindow.Topmost = false;
+                CasinoHackWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                CasinoHackWindow = null;
+                CasinoHackWindow = new CasinoHackWindow();
+                CasinoHackWindow.Show();
             }
         }
     }
