@@ -28,6 +28,9 @@ public partial class CasinoHackWindow : Window
 
             Globals.TempPTR = Memory.FindPattern(Offsets.Mask.LocalScriptsMask);
             Globals.LocalScriptsPTR = Memory.Rip_37(Globals.TempPTR);
+
+            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
+            Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
         });
 
         var thread0 = new Thread(MainThread);
@@ -69,6 +72,23 @@ public partial class CasinoHackWindow : Window
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
                     CasinoHackModel.BlackjackContent = sb.ToString();
+
+                    int current_table = Memory.Read<int>(p + (1769 + (1 + Hacks.ReadGA<int>(2681762 + 1) * 8) + 4) * 8);
+                    int nums = Memory.Read<int>(p + (109 + 1 + (1 + current_table * 211) + 209) * 8);
+
+                    i = Memory.Read<int>(p + (2026 + 2 + (1 + nums * 1)) * 8);
+
+                    sb = new StringBuilder();
+                    if ((i - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
+                    if ((i - 1) / 13 == 1)
+                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
+                    if ((i - 1) / 13 == 2)
+                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
+                    if ((i - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+
+                    CasinoHackModel.BlackjackContent_Next = sb.ToString();
                 }
             }
 
@@ -257,6 +277,16 @@ public class CasinoHackModel : ObservableObject
     {
         get => _blackjackContent;
         set => SetProperty(ref _blackjackContent, value);
+    }
+
+    private string _blackjackContent_Next;
+    /// <summary>
+    /// 黑杰克 下一张牌
+    /// </summary>
+    public string BlackjackContent_Next
+    {
+        get => _blackjackContent_Next;
+        set => SetProperty(ref _blackjackContent_Next, value);
     }
 
     private string _pokerContent;

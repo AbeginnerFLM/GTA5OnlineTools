@@ -50,7 +50,7 @@
             DockPanel.Dock="Top">
             <!--  面板1  -->
             <StackPanel Margin="5">
-                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="黑杰克" />
+                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="黑杰克(21点)" />
                 <CheckBox
                     HorizontalAlignment="Center"
                     Content="开启预测"
@@ -58,6 +58,8 @@
                 <UniformGrid Columns="2">
                     <TextBlock Text="庄家底牌" />
                     <TextBox Text="{Binding CasinoHackModel.BlackjackContent}" />
+                    <TextBlock Text="下一张牌" />
+                    <TextBox Text="{Binding CasinoHackModel.BlackjackContent_Next}" />
                 </UniformGrid>
 
                 <TextBlock />
