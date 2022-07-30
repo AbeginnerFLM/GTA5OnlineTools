@@ -175,7 +175,7 @@
         </Grid.RowDefinitions>
 
         <Border
-            Background="#606266"
+            Background="#34A853"
             BorderBrush="Gray"
             BorderThickness="0,0,0,1"
             IsHitTestVisible="True">

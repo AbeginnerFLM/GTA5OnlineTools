@@ -2,6 +2,7 @@
     x:Class="GTA5OnlineTools.Modules.Windows.ExternalMenu.EM07CustomTPView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attached="clr-namespace:GTA5OnlineTools.Assets.Styles.Attached"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="600"
@@ -9,11 +10,11 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <Style TargetType="TextBlock">
+        <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="5" />
         </Style>
 
-        <Style TargetType="TextBox">
+        <Style TargetType="{x:Type TextBox}">
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="Padding" Value="5" />
