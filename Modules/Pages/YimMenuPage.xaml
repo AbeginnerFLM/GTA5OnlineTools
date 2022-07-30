@@ -24,7 +24,7 @@
                     项目地址：https://github.com/YimMenu/YimMenu
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    字体
+                    字体美化
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     默认情况下程序会使用微软雅黑字体，如果想获取更好的体验，可以下载该字体<Run />
@@ -33,6 +33,15 @@
                     </Hyperlink>
                     <LineBreak />
                     选择为所有用户安装，然后重新注入游戏即可</Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    配置文件
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    默认配置文件路径：C:\Users\用户名\AppData\Roaming\BigBaseV2<LineBreak />
+                    如果你不小心修改了某些设置导致Yim无法正常使用，请先卸载注入，到这个文件夹清理里面内容，然后重新注入Yim即可恢复默认设置</Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    一键找到该路径：小助手主页面-》工具设置-》BigBaseV2配置目录
+                </Paragraph>
 
             </FlowDocument>
         </RichTextBox>
@@ -40,7 +49,17 @@
         <RichTextBox Margin="2.5,5,5,5" Style="{StaticResource RichTextBoxStyle_Page}">
             <FlowDocument>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    说明
+                    按钮
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    注入成功了，按Ins键显示/隐藏菜单，鼠标点击操作
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    如果鼠标卡在屏幕中心不动，请在游戏中按ESC-》设置-》键盘/鼠标-》鼠标输入方法，改成原始输入即可
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    提示
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     建议大家进入故事模式后再注入游戏，不要直接在线上模式注入，注入成功后再进入线上模式

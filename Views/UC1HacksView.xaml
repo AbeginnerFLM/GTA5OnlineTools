@@ -73,7 +73,7 @@
                                     FontWeight="Bold"
                                     Text="Kiddion 外置辅助菜单" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    一款国外UnKnoWnCheaTs论坛Kiddion大佬制作的免费GTA5外置菜单，功能十分实用，由CrazyZhang和mAsk°汉化。<LineBreak /><LineBreak />
+                                    一款国外UnKnoWnCheaTs论坛Kiddion大佬制作的免费GTA5外置菜单，功能十分实用。By CrazyZhang和mAsk°汉化<LineBreak /><LineBreak />
                                     支持自定义Lua脚本，支持87键和104键，具体按键说明请点击下面使用说明查看。</TextBlock>
                             </StackPanel>
                         </DockPanel>
@@ -114,13 +114,6 @@
                                     HorizontalAlignment="Right"
                                     DockPanel.Dock="Right"
                                     Orientation="Horizontal">
-                                    <TextBlock
-                                        Margin="0,0,5,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        FontWeight="Bold"
-                                        Foreground="Red"
-                                        Text="已过期" />
                                     <ToggleButton IsChecked="{Binding UC1HacksModel.GTAHaxIsRun}" Style="{StaticResource ToggleButtonStyle_Normal}">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="Click">
@@ -138,7 +131,7 @@
                                     FontWeight="Bold"
                                     Text="GTAHax 全局变量修改工具" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5全局变量修改工具，由CrazyZhang汉化。<LineBreak /><LineBreak />
+                                    一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5全局变量修改工具。By CrazyZhang汉化<LineBreak /><LineBreak />
                                     主要用途是解锁服装、奖杯、跳过任务前置、修改全局属性等功能，支持int32类型和bool类型。</TextBlock>
                             </StackPanel>
                         </DockPanel>
@@ -179,13 +172,6 @@
                                     HorizontalAlignment="Right"
                                     DockPanel.Dock="Right"
                                     Orientation="Horizontal">
-                                    <TextBlock
-                                        Margin="0,0,5,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        FontWeight="Bold"
-                                        Foreground="Red"
-                                        Text="已过期" />
                                     <ToggleButton IsChecked="{Binding UC1HacksModel.BincoHaxIsRun}" Style="{StaticResource ToggleButtonStyle_Normal}">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="Click">
@@ -203,7 +189,7 @@
                                     FontWeight="Bold"
                                     Text="BincoHax 角色服装修改工具" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5角色服装修改工具，由CrazyZhang汉化。<LineBreak /><LineBreak />
+                                    一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5角色服装修改工具。By CrazyZhang汉化<LineBreak /><LineBreak />
                                     可以用来自定义GTA5线上模式角色服装，包括使用一些特殊的服装，比如警察服装等。</TextBlock>
                             </StackPanel>
                         </DockPanel>
@@ -244,13 +230,6 @@
                                     HorizontalAlignment="Right"
                                     DockPanel.Dock="Right"
                                     Orientation="Horizontal">
-                                    <TextBlock
-                                        Margin="0,0,5,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        FontWeight="Bold"
-                                        Foreground="Red"
-                                        Text="已过期" />
                                     <ToggleButton IsChecked="{Binding UC1HacksModel.LSCHaxIsRun}" Style="{StaticResource ToggleButtonStyle_Normal}">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="Click">
@@ -325,8 +304,7 @@
                                     FontWeight="Bold"
                                     Text="YimMenu 注入式菜单" />
                                 <TextBlock Margin="5" TextWrapping="Wrap">
-                                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验。<LineBreak /><LineBreak />
-                                    项目地址：https://github.com/YimMenu/YimMenu<LineBreak />
+                                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止崩溃（目前并非全部）并改善整体体验。By Aure汉化<LineBreak /><LineBreak />
                                     PS：注入成功后按Ins键显示/隐藏菜单，点击左上角卸载注入。</TextBlock>
                             </StackPanel>
                         </DockPanel>
