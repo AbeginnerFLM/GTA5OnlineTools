@@ -12,19 +12,15 @@ public partial class EM08ExternalOverlayView : UserControl
 {
     private Overlay overlay;
 
-    private Memory.WindowData windowData;
-
     private InjectInfo InjectInfo { get; set; }
 
     public EM08ExternalOverlayView()
     {
         InitializeComponent();
 
-        windowData = Memory.GetGameWindowData();
-
         Settings.Overlay.AimBot_BoneIndex = 0;
         Settings.Overlay.AimBot_Key = WinVK.CONTROL;
-        Settings.Overlay.AimBot_Fov = windowData.Height / 4.0f;
+        Settings.Overlay.AimBot_Fov = 8848.0f;
 
         Settings.Overlay.VSync = true;
         Settings.Overlay.FPS = 300;
@@ -313,7 +309,13 @@ public partial class EM08ExternalOverlayView : UserControl
 
     private void RadioButton_AimbotFov_Height_Click(object sender, RoutedEventArgs e)
     {
-        if (RadioButton_AimbotFov_14Height.IsChecked == true)
+        var windowData = Memory.GetGameWindowData();
+
+        if (RadioButton_AimbotFov_All.IsChecked == true)
+        {
+            Settings.Overlay.AimBot_Fov = 8848.0f;
+        }
+        else if (RadioButton_AimbotFov_14Height.IsChecked == true)
         {
             Settings.Overlay.AimBot_Fov = windowData.Height / 4.0f;
         }
@@ -328,10 +330,6 @@ public partial class EM08ExternalOverlayView : UserControl
         else if (RadioButton_AimbotFov_Width.IsChecked == true)
         {
             Settings.Overlay.AimBot_Fov = windowData.Width;
-        }
-        else if (RadioButton_AimbotFov_All.IsChecked == true)
-        {
-            Settings.Overlay.AimBot_Fov = 8848.0f;
         }
     }
 

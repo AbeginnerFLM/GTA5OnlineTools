@@ -173,11 +173,16 @@
                 Style="{StaticResource GroupBoxWebStyle}">
                 <WrapPanel Orientation="Horizontal">
                     <RadioButton
+                        x:Name="RadioButton_AimbotFov_All"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_AimbotFov_Height_Click"
+                        Content="全部范围"
+                        IsChecked="True" />
+                    <RadioButton
                         x:Name="RadioButton_AimbotFov_14Height"
                         Margin="5,5,10,5"
                         Click="RadioButton_AimbotFov_Height_Click"
-                        Content="1/4屏幕高度"
-                        IsChecked="True" />
+                        Content="1/4屏幕高度" />
                     <RadioButton
                         x:Name="RadioButton_AimbotFov_12Height"
                         Margin="5,5,10,5"
@@ -193,11 +198,6 @@
                         Margin="5,5,10,5"
                         Click="RadioButton_AimbotFov_Height_Click"
                         Content="屏幕宽度" />
-                    <RadioButton
-                        x:Name="RadioButton_AimbotFov_All"
-                        Margin="5,5,10,5"
-                        Click="RadioButton_AimbotFov_Height_Click"
-                        Content="全部范围" />
                 </WrapPanel>
             </GroupBox>
 
