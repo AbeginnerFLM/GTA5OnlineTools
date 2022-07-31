@@ -128,7 +128,7 @@
                             </Style>
                         </ComboBox.Resources>
 
-                        <ComboBoxItem Content="奖品一" />
+                        <ComboBoxItem Content="奖品一(不中奖)" />
                         <ComboBoxItem Content="奖品二" />
                         <ComboBoxItem Content="奖品三" />
                         <ComboBoxItem Content="奖品四" />
