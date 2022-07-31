@@ -12,13 +12,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
+    <UniformGrid Columns="3">
         <Grid Margin="5">
             <Border Style="{StaticResource BorderStyle_DropShadowEffect}" />
             <DockPanel LastChildFill="True">
@@ -46,7 +40,7 @@
             </DockPanel>
         </Grid>
 
-        <DockPanel Grid.Column="1" LastChildFill="True">
+        <DockPanel LastChildFill="True">
             <TextBlock
                 DockPanel.Dock="Top"
                 Style="{StaticResource TextBlockStyle_Title000}"
@@ -58,7 +52,7 @@
                 Style="{StaticResource ListBoxStyle}" />
         </DockPanel>
 
-        <StackPanel Grid.Column="2">
+        <StackPanel>
             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="设置" />
             <Button
                 x:Name="Button_ExecuteAutoScript"
@@ -73,9 +67,9 @@
             <TextBlock
                 Margin="5"
                 Foreground="Green"
-                Text="提示：如果代码执行成功，游戏中会出现“大受好评”的奖章，并给予少于经验值"
+                Text="提示：如果代码执行成功，游戏中会出现《大受好评》的奖章，并给予少于经验值"
                 TextWrapping="Wrap" />
         </StackPanel>
-    </Grid>
+    </UniformGrid>
 
 </Window>

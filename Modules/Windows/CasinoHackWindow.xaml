@@ -50,16 +50,16 @@
             DockPanel.Dock="Top">
             <!--  面板1  -->
             <StackPanel Margin="5">
-                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="黑杰克(21点)" />
+                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="黑杰克（21点）" />
                 <CheckBox
                     HorizontalAlignment="Center"
                     Content="开启预测"
                     IsChecked="{Binding CasinoHackModel.BlackjackIsCheck}" />
                 <UniformGrid Columns="2">
                     <TextBlock Text="庄家底牌" />
-                    <TextBox Text="{Binding CasinoHackModel.BlackjackContent}" />
+                    <TextBox IsReadOnly="True" Text="{Binding CasinoHackModel.BlackjackContent}" />
                     <TextBlock Text="下一张牌" />
-                    <TextBox Text="{Binding CasinoHackModel.BlackjackNextContent}" />
+                    <TextBox IsReadOnly="True" Text="{Binding CasinoHackModel.BlackjackNextContent}" />
                 </UniformGrid>
 
                 <TextBlock />
@@ -70,8 +70,17 @@
                     IsChecked="{Binding CasinoHackModel.PokerIsCheck}" />
                 <UniformGrid Columns="2">
                     <TextBlock Text="您的牌" />
-                    <TextBox Text="{Binding CasinoHackModel.PokerContent}" />
+                    <TextBox
+                        Height="60"
+                        IsReadOnly="True"
+                        Text="{Binding CasinoHackModel.PokerContent}" />
                 </UniformGrid>
+
+                <TextBlock />
+                <emoji:TextBlock
+                    Margin="5"
+                    Text="🏷 你需要先开启对应功能，然后去赌场游玩对应设备"
+                    TextAlignment="Right" />
 
             </StackPanel>
             <!--  面板2  -->

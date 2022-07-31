@@ -129,12 +129,7 @@
                 </TabItem>
 
                 <TabItem Header="名钻假日">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
+                    <UniformGrid Columns="2">
                         <Grid Margin="3,6,5,3">
                             <GroupBox Style="{StaticResource GroupBoxWebStyle}">
                                 <GroupBox.Header>
@@ -251,7 +246,7 @@
                             </GroupBox>
                         </Grid>
 
-                        <Grid Grid.Column="1" Margin="3,6,5,3">
+                        <Grid Margin="3,6,5,3">
                             <GroupBox Style="{StaticResource GroupBoxWebStyle}">
                                 <GroupBox.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -386,8 +381,7 @@
                                 </ScrollViewer>
                             </GroupBox>
                         </Grid>
-
-                    </Grid>
+                    </UniformGrid>
                 </TabItem>
 
                 <TabItem Header="佩里科岛">

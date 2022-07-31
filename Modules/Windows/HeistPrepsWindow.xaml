@@ -71,27 +71,19 @@
                 </TabItem>-->
 
                 <TabItem Header="赌场抢劫">
-                    <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Grid.Column="0" Margin="5">
+                    <ScrollViewer Style="{StaticResource ScrollViewerStyle_VAHD}">
+                        <UniformGrid Columns="3">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
                                     FontWeight="Bold"
                                     Text="面板一" />
-
                                 <Button
                                     x:Name="Button_H3OPT_BITSET1"
                                     Click="Button_H3OPT_BITSET1_Click"
                                     Content="重置面板一"
                                     Foreground="#F56C6C" />
-
                                 <GroupBox
                                     Margin="5"
                                     Header="前置任务"
@@ -117,7 +109,6 @@
                                             Foreground="#F56C6C" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="抢劫方式"
@@ -137,7 +128,6 @@
                                             Content="气势汹汹" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="抢劫物品"
@@ -163,19 +153,17 @@
                                 </GroupBox>
                             </StackPanel>
 
-                            <StackPanel Grid.Column="1" Margin="5">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
                                     FontWeight="Bold"
                                     Text="面板二" />
-
                                 <Button
                                     x:Name="Button_H3OPT_BITSET0"
                                     Click="Button_H3OPT_BITSET0_Click"
                                     Content="重置面板二"
                                     Foreground="#F56C6C" />
-
                                 <GroupBox
                                     Margin="5"
                                     Header="前置任务"
@@ -191,7 +179,6 @@
                                             Content="获得二级门禁卡" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="枪手等级"
@@ -223,7 +210,6 @@
                                             Content="枪手零分红" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="车手等级"
@@ -255,7 +241,6 @@
                                             Content="车手零分红" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="黑客等级"
@@ -287,7 +272,6 @@
                                             Content="黑客零分红" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="武器类型"
@@ -315,7 +299,6 @@
                                             Content="类型五" />
                                     </WrapPanel>
                                 </GroupBox>
-
                                 <GroupBox
                                     Margin="5"
                                     Header="逃亡载具"
@@ -339,18 +322,15 @@
                                             Content="类型四" />
                                     </WrapPanel>
                                 </GroupBox>
-
                             </StackPanel>
 
-                            <StackPanel Grid.Column="2" Margin="5">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
                                     FontWeight="Bold"
                                     Text="其他" />
-
                                 <Button Click="Button_Click" Content="游戏厅图标处" />
-
                                 <GroupBox
                                     Margin="5"
                                     Header="侦察拍照地点"
@@ -364,20 +344,14 @@
                                 </GroupBox>
 
                             </StackPanel>
-                        </Grid>
+                        </UniformGrid>
                     </ScrollViewer>
                 </TabItem>
 
                 <TabItem Header="末日抢劫">
                     <ScrollViewer Style="{StaticResource ScrollViewerStyle_VAHD}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Grid.Column="0" Margin="5">
+                        <UniformGrid Columns="3">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
@@ -417,7 +391,7 @@
 
                             </StackPanel>
 
-                            <StackPanel Grid.Column="1" Margin="5">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
@@ -449,20 +423,14 @@
                                     Content="重置末日三冷却" />
 
                             </StackPanel>
-                        </Grid>
+                        </UniformGrid>
                     </ScrollViewer>
                 </TabItem>
 
                 <TabItem Header="公寓抢劫">
                     <ScrollViewer Style="{StaticResource ScrollViewerStyle_VAHD}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Grid.Column="0" Margin="5">
+                        <UniformGrid Columns="3">
+                            <StackPanel Margin="5">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     FontSize="24"
@@ -480,7 +448,7 @@
                                     Text=" # 提示：组好人看动画过程中执行"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
-                        </Grid>
+                        </UniformGrid>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>

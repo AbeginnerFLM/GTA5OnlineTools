@@ -56,42 +56,36 @@ public partial class EM01PlayerStateView : UserControl
                     if (CheckBox_FillCurrentAmmo.IsChecked == true)
                     {
                         Weapon.FillCurrentAmmo();
-                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F4:
                     if (CheckBox_MovingFoward.IsChecked == true)
                     {
                         Teleport.MovingFoward();
-                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F5:
                     if (CheckBox_ToWaypoint.IsChecked == true)
                     {
                         Teleport.ToWaypoint();
-                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F6:
                     if (CheckBox_ToObjective.IsChecked == true)
                     {
                         Teleport.ToObjective();
-                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F7:
                     if (CheckBox_FillHealthArmor.IsChecked == true)
                     {
                         Player.FillHealthArmor();
-                        Console.Beep(700, 75);
                     }
                     break;
                 case (int)WinVK.F8:
                     if (CheckBox_ClearWanted.IsChecked == true)
                     {
                         Player.WantedLevel(0x00);
-                        Console.Beep(700, 75);
                     }
                     break;
             }

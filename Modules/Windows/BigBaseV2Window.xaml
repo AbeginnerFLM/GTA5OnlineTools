@@ -60,16 +60,6 @@
                                     </Hyperlink>
                                 </Paragraph>
 
-                                <!--<Paragraph Style="{StaticResource TitleParagraphStyle}">
-                                        提示
-                                    </Paragraph>
-                                    <Paragraph Style="{StaticResource ContentParagraphStyle}">
-                                        ● 详细使用教程请查看小助手帮助
-                                        <LineBreak/>
-                                        <Hyperlink NavigateUri="https://crazyzhang.cn" RequestNavigate="Hyperlink_RequestNavigate">
-                                            https://crazyzhang.cn
-                                        </Hyperlink>
-                                    </Paragraph>-->
                             </FlowDocument>
                         </RichTextBox>
                     </GroupBox>

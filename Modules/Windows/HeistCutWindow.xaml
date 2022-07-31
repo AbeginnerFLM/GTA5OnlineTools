@@ -72,14 +72,7 @@
 
             <TabItem Header="佩里克岛">
                 <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
+                    <UniformGrid Columns="4">
                         <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红比例" />
                             <UniformGrid Columns="2">
@@ -94,7 +87,7 @@
                             </UniformGrid>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="主要目标价值" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="西西米托龙舌兰" />
@@ -121,7 +114,7 @@
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
-                        <StackPanel Grid.Column="2" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="背包大小" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="背包大小" />
@@ -137,22 +130,14 @@
 
                             </UniformGrid>
                         </StackPanel>
-
-                    </Grid>
+                    </UniformGrid>
                 </ScrollViewer>
             </TabItem>
 
             <TabItem Header="赌场抢劫">
                 <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel Grid.Column="0" Margin="5">
+                    <UniformGrid Columns="4">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红比例" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="（房主）玩家1" />
@@ -172,7 +157,7 @@
                             </UniformGrid>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红金额" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="现金" />
@@ -186,7 +171,7 @@
                             </UniformGrid>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="2" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="AI分红比例 枪手" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="卡尔·阿不拉季" />
@@ -217,7 +202,7 @@
 
                         </StackPanel>
 
-                        <StackPanel Grid.Column="3" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="AI分红比例 黑客" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="里奇·卢肯斯" />
@@ -232,21 +217,14 @@
                                 <TextBox x:Name="TextBox_CasinoAI_15" />
                             </UniformGrid>
                         </StackPanel>
-                    </Grid>
+                    </UniformGrid>
                 </ScrollViewer>
             </TabItem>
 
             <TabItem Header="末日抢劫">
                 <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel Grid.Column="0" Margin="5">
+                    <UniformGrid Columns="4">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红比例" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="（房主）玩家1" />
@@ -261,7 +239,7 @@
 
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红金额" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="末日一" />
@@ -272,22 +250,14 @@
                                 <TextBox x:Name="TextBox_Doomsday_ActIII" />
                             </UniformGrid>
                         </StackPanel>
-
-                    </Grid>
+                    </UniformGrid>
                 </ScrollViewer>
             </TabItem>
 
             <TabItem Header="公寓抢劫">
                 <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel Grid.Column="0" Margin="5">
+                    <UniformGrid Columns="4">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红比例" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="（房主）玩家1" />
@@ -301,7 +271,7 @@
                             </UniformGrid>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Margin="5">
+                        <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="分红金额" />
                             <UniformGrid Columns="2">
                                 <TextBlock Text="全福" />
@@ -316,7 +286,7 @@
                                 <TextBox x:Name="TextBox_Apart_PacificStandard" />
                             </UniformGrid>
                         </StackPanel>
-                    </Grid>
+                    </UniformGrid>
                 </ScrollViewer>
             </TabItem>
 

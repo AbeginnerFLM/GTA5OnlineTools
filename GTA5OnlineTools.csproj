@@ -7,8 +7,8 @@
     <UseWPF>true</UseWPF>
     <Platforms>x64</Platforms>
     <StartupObject>GTA5OnlineTools.App</StartupObject>
-    <AssemblyVersion>3.0.3.7</AssemblyVersion>
-    <FileVersion>3.0.3.7</FileVersion>
+    <AssemblyVersion>3.0.3.8</AssemblyVersion>
+    <FileVersion>3.0.3.8</FileVersion>
     <ApplicationIcon>Assets\Images\Favicon.ico</ApplicationIcon>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
     <DebugType>full</DebugType>

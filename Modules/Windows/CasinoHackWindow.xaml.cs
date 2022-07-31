@@ -53,6 +53,7 @@ public partial class CasinoHackWindow : Window
     {
         while (true)
         {
+            // 黑杰克（21点）
             if (CasinoHackModel.BlackjackIsCheck)
             {
                 long p = Locals.LocalAddress("blackjack");
@@ -94,6 +95,7 @@ public partial class CasinoHackWindow : Window
                 }
             }
 
+            // 三张扑克
             if (CasinoHackModel.PokerIsCheck)
             {
                 long p = Locals.LocalAddress("three_card_poker");
@@ -112,7 +114,7 @@ public partial class CasinoHackWindow : Window
                     if ((i - 1) / 13 == 3)
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
-                    sb.Append(' ');
+                    sb.Append('\n');
                     i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 0 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
@@ -123,7 +125,7 @@ public partial class CasinoHackWindow : Window
                     if ((i - 1) / 13 == 3)
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
-                    sb.Append(' ');
+                    sb.Append('\n');
                     i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 1 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
@@ -138,6 +140,7 @@ public partial class CasinoHackWindow : Window
                 }
             }
 
+            // 轮盘赌
             if (CasinoHackModel.RouletteIsCheck && CasinoHackModel.RouletteSelectedIndex != -1)
             {
                 long p = Locals.LocalAddress("casinoroulette");
@@ -151,6 +154,7 @@ public partial class CasinoHackWindow : Window
                 }
             }
 
+            // 老虎机
             if (CasinoHackModel.SlotMachineIsCheck && CasinoHackModel.SlotMachineSelectedIndex != -1)
             {
                 long p = Locals.LocalAddress("casino_slots");
@@ -168,6 +172,7 @@ public partial class CasinoHackWindow : Window
                 }
             }
 
+            // 幸运轮盘
             if (CasinoHackModel.LuckyWheelIsCheck && CasinoHackModel.LuckyWheelSelectedIndex != -1)
             {
                 // https://www.unknowncheats.me/forum/grand-theft-auto-v/483416-gtavcsmm.html
@@ -180,7 +185,7 @@ public partial class CasinoHackWindow : Window
                 }
             }
 
-            Thread.Sleep(500);
+            Thread.Sleep(250);
         }
     }
 }

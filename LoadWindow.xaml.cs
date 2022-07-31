@@ -1,5 +1,7 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 
+using Chinese;
+
 namespace GTA5OnlineTools;
 
 /// <summary>
@@ -57,8 +59,8 @@ public partial class LoadWindow : Window
             }
             catch (Exception) { }
 
-            // 防止加载窗口一闪而过
-            Task.Delay(500).Wait();
+            // 提前预加载转换字库
+            ChineseConverter.ToTraditional("免费，跨平台，开源！");
 
             this.Dispatcher.Invoke(() =>
             {
