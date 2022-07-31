@@ -15,13 +15,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
+    <UniformGrid Columns="3">
         <GroupBox
             Margin="5"
             Header="ESP选项"
@@ -103,7 +97,7 @@
             </StackPanel>
         </GroupBox>
 
-        <StackPanel Grid.Column="1">
+        <StackPanel>
             <GroupBox
                 Margin="5"
                 Header="AimBot位置"
@@ -173,10 +167,10 @@
                 Style="{StaticResource GroupBoxWebStyle}">
                 <WrapPanel Orientation="Horizontal">
                     <RadioButton
-                        x:Name="RadioButton_AimbotFov_All"
+                        x:Name="RadioButton_Crosshair_NearBy"
                         Margin="5,5,10,5"
                         Click="RadioButton_AimbotFov_Height_Click"
-                        Content="全部范围"
+                        Content="准星附近"
                         IsChecked="True" />
                     <RadioButton
                         x:Name="RadioButton_AimbotFov_14Height"
@@ -198,6 +192,11 @@
                         Margin="5,5,10,5"
                         Click="RadioButton_AimbotFov_Height_Click"
                         Content="屏幕宽度" />
+                    <RadioButton
+                        x:Name="RadioButton_AimbotFov_All"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_AimbotFov_Height_Click"
+                        Content="全部范围" />
                 </WrapPanel>
             </GroupBox>
 
@@ -263,7 +262,7 @@
                 TextWrapping="Wrap" />
         </StackPanel>
 
-        <Grid Grid.Column="2">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
@@ -319,6 +318,6 @@
             </StackPanel>
 
         </Grid>
-    </Grid>
+    </UniformGrid>
 
 </UserControl>

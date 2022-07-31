@@ -58,7 +58,7 @@ public static class Settings
 
         public static bool AimBot_Enabled = false;
         public static int AimBot_BoneIndex = 0;
-        public static float AimBot_Fov = 8848.0f;
+        public static float AimBot_Fov = 250.0f;
         public static WinVK AimBot_Key = WinVK.CONTROL;
 
         public static bool IsNoTOPMostHide = false;

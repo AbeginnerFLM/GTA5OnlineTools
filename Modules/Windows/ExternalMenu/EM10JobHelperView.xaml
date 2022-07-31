@@ -29,13 +29,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
+        <UniformGrid Columns="3">
             <StackPanel Margin="5,0,5,5">
                 <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="CEO" />
                 <StackPanel>
@@ -120,7 +114,7 @@
                     Content="移除机库出货延迟" />
 
             </StackPanel>
-        </Grid>
+        </UniformGrid>
 
         <Grid Grid.Row="1" Margin="5">
             <Border Style="{StaticResource BorderStyle_DropShadowEffect}" />

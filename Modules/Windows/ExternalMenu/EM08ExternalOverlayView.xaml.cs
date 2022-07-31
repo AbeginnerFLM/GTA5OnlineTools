@@ -20,7 +20,7 @@ public partial class EM08ExternalOverlayView : UserControl
 
         Settings.Overlay.AimBot_BoneIndex = 0;
         Settings.Overlay.AimBot_Key = WinVK.CONTROL;
-        Settings.Overlay.AimBot_Fov = 8848.0f;
+        Settings.Overlay.AimBot_Fov = 250.0f;
 
         Settings.Overlay.VSync = true;
         Settings.Overlay.FPS = 300;
@@ -311,9 +311,9 @@ public partial class EM08ExternalOverlayView : UserControl
     {
         var windowData = Memory.GetGameWindowData();
 
-        if (RadioButton_AimbotFov_All.IsChecked == true)
+        if (RadioButton_Crosshair_NearBy.IsChecked == true)
         {
-            Settings.Overlay.AimBot_Fov = 8848.0f;
+            Settings.Overlay.AimBot_Fov = 250.0f;
         }
         else if (RadioButton_AimbotFov_14Height.IsChecked == true)
         {
@@ -330,6 +330,10 @@ public partial class EM08ExternalOverlayView : UserControl
         else if (RadioButton_AimbotFov_Width.IsChecked == true)
         {
             Settings.Overlay.AimBot_Fov = windowData.Width;
+        }
+        else if (RadioButton_AimbotFov_All.IsChecked == true)
+        {
+            Settings.Overlay.AimBot_Fov = 8848.0f;
         }
     }
 

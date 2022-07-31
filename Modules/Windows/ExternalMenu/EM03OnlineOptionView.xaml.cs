@@ -29,7 +29,7 @@ public partial class EM03OnlineOptionView : UserControl
 
     private void ExternalMenuView_ClosingDisposeEvent()
     {
-        
+
     }
 
     private void CheckBox_RemovePassiveModeCooldown_Click(object sender, RoutedEventArgs e)
@@ -165,7 +165,6 @@ public partial class EM03OnlineOptionView : UserControl
         AudioUtil.ClickSound();
 
         int index = ListBox_PersonalVehicle.SelectedIndex;
-
         if (index != -1)
         {
             Task.Run(() =>
@@ -175,5 +174,4 @@ public partial class EM03OnlineOptionView : UserControl
         }
     }
 
-    
 }
