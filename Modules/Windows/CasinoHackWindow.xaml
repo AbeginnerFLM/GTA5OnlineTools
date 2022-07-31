@@ -71,7 +71,7 @@
                 <UniformGrid Columns="2">
                     <TextBlock Text="您的牌" />
                     <TextBox
-                        Height="60"
+                        Height="100"
                         IsReadOnly="True"
                         Text="{Binding CasinoHackModel.PokerContent}" />
                 </UniformGrid>

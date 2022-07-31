@@ -272,8 +272,8 @@
                     IsChecked="True" />
                 <TextBlock />
                 <CheckBox
-                    x:Name="CheckBox_FillCurrentAmmo"
-                    Content="[F3] 补满当前武器弹药"
+                    x:Name="CheckBox_FillAllAmmo"
+                    Content="[F3] 补满全部武器弹药"
                     IsChecked="True" />
                 <CheckBox
                     x:Name="CheckBox_MovingFoward"

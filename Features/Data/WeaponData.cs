@@ -15,6 +15,9 @@ public static class WeaponData
         public long Hash;
     }
 
+    /// <summary>
+    /// 近战
+    /// </summary>
     public static List<WeaponInfo> Melee = new()
     {
         new WeaponInfo(){ Name="weapon_dagger", DisplayName="古董骑兵匕首", Hash=0x92A27487 },
@@ -37,22 +40,25 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_stone_hatchet", DisplayName="石斧", Hash=0x3813FC08 },
     };
 
+    /// <summary>
+    /// 手枪
+    /// </summary>
     public static List<WeaponInfo> Handguns = new()
     {
         new WeaponInfo(){ Name="weapon_pistol", DisplayName="手枪", Hash=0x1B06D571 },
-        new WeaponInfo(){ Name="weapon_pistol_mk2", DisplayName="MK 2 手枪", Hash=0xBFE256D4 },
+        new WeaponInfo(){ Name="weapon_pistol_mk2", DisplayName="MK2 手枪", Hash=0xBFE256D4 },
         new WeaponInfo(){ Name="weapon_combatpistol", DisplayName="战斗手枪", Hash=0x5EF9FEC4 },
         new WeaponInfo(){ Name="weapon_appistol", DisplayName="穿甲手枪", Hash=0x22D8FE39 },
         new WeaponInfo(){ Name="weapon_stungun", DisplayName="电击枪", Hash=0x3656C8C1 },
         new WeaponInfo(){ Name="weapon_pistol50", DisplayName="0.5口径手枪", Hash=0x99AEEB3B },
         new WeaponInfo(){ Name="weapon_snspistol", DisplayName="劣质手枪", Hash=0xBFD21232 },
-        new WeaponInfo(){ Name="weapon_snspistol_mk2", DisplayName="MK 2 劣质手枪", Hash=0x88374054 },
+        new WeaponInfo(){ Name="weapon_snspistol_mk2", DisplayName="MK2 劣质手枪", Hash=0x88374054 },
         new WeaponInfo(){ Name="weapon_heavypistol", DisplayName="重型手枪", Hash=0xD205520E },
         new WeaponInfo(){ Name="weapon_vintagepistol", DisplayName="老式手枪", Hash=0x83839C4 },
         new WeaponInfo(){ Name="weapon_flaregun", DisplayName="信号枪", Hash=0x47757124 },
         new WeaponInfo(){ Name="weapon_marksmanpistol", DisplayName="射手手枪", Hash=0xDC4DB296 },
         new WeaponInfo(){ Name="weapon_revolver", DisplayName="重型左轮手枪", Hash=0xC1B3C3D1 },
-        new WeaponInfo(){ Name="weapon_revolver_mk2", DisplayName="MK 2 重型左轮手枪", Hash=0xCB96392F },
+        new WeaponInfo(){ Name="weapon_revolver_mk2", DisplayName="MK2 重型左轮手枪", Hash=0xCB96392F },
         new WeaponInfo(){ Name="weapon_doubleaction", DisplayName="双动式左轮手枪 ", Hash=0x97EA20B8 },
         new WeaponInfo(){ Name="weapon_raypistol", DisplayName="原子能手枪", Hash=0xAF3696A1 },
         new WeaponInfo(){ Name="weapon_ceramicpistol", DisplayName="陶瓷手枪", Hash=0x2B5EF5EC },
@@ -61,11 +67,14 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_stungun_mp", DisplayName="电击枪（多人）", Hash=0x45CD9CF3 },
     };
 
+    /// <summary>
+    /// 冲锋枪
+    /// </summary>
     public static List<WeaponInfo> SubmachineGuns = new()
     {
         new WeaponInfo(){ Name="weapon_microsmg", DisplayName="微型冲锋枪", Hash=0x13532244 },
         new WeaponInfo(){ Name="weapon_smg", DisplayName="冲锋枪", Hash=0x2BE6766B },
-        new WeaponInfo(){ Name="weapon_smg_mk2", DisplayName="MK 2 冲锋枪", Hash=0x78A97CD0 },
+        new WeaponInfo(){ Name="weapon_smg_mk2", DisplayName="MK2 冲锋枪", Hash=0x78A97CD0 },
         new WeaponInfo(){ Name="weapon_assaultsmg", DisplayName="突击冲锋枪", Hash=0xEFE7E2DF },
         new WeaponInfo(){ Name="weapon_combatpdw", DisplayName="作战自卫冲锋枪", Hash=0x0A3D4D34 },
         new WeaponInfo(){ Name="weapon_machinepistol", DisplayName="冲锋手枪", Hash=0xDB1AA450 },
@@ -73,10 +82,13 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_gusenberg", DisplayName="古森柏冲锋枪", Hash=0x61012683 },
     };
 
+    /// <summary>
+    /// 霰弹枪
+    /// </summary>
     public static List<WeaponInfo> Shotguns = new()
     {
         new WeaponInfo(){ Name="weapon_pumpshotgun", DisplayName="泵动式霰弹枪", Hash=0x1D073A89 },
-        new WeaponInfo(){ Name="weapon_pumpshotgun_mk2", DisplayName="MK 2 泵动式霰弹枪", Hash=0x555AF99A },
+        new WeaponInfo(){ Name="weapon_pumpshotgun_mk2", DisplayName="MK2 泵动式霰弹枪", Hash=0x555AF99A },
         new WeaponInfo(){ Name="weapon_sawnoffshotgun", DisplayName="短管霰弹枪", Hash=0x7846A318 },
         new WeaponInfo(){ Name="weapon_assaultshotgun", DisplayName="突击霰弹枪", Hash=0xE284C527 },
         new WeaponInfo(){ Name="weapon_bullpupshotgun", DisplayName="无托式霰弹枪", Hash=0x9D61E50F },
@@ -87,39 +99,53 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_combatshotgun", DisplayName="战斗霰弹枪", Hash=0x5A96BA4 },
     };
 
+    /// <summary>
+    /// 突击步枪
+    /// </summary>
     public static List<WeaponInfo> AssaultRifles = new()
     {
         new WeaponInfo(){ Name="weapon_assaultrifle", DisplayName="突击步枪", Hash=0xBFEFFF6D },
-        new WeaponInfo(){ Name="weapon_assaultrifle_mk2", DisplayName="MK 2 突击步枪", Hash=0x394F415C },
+        new WeaponInfo(){ Name="weapon_assaultrifle_mk2", DisplayName="MK2 突击步枪", Hash=0x394F415C },
         new WeaponInfo(){ Name="weapon_carbinerifle", DisplayName="卡宾步枪", Hash=0x83BF0278 },
-        new WeaponInfo(){ Name="weapon_carbinerifle_mk2", DisplayName="MK 2 卡宾步枪", Hash=0xFAD1F1C9 },
+        new WeaponInfo(){ Name="weapon_carbinerifle_mk2", DisplayName="MK2 卡宾步枪", Hash=0xFAD1F1C9 },
         new WeaponInfo(){ Name="weapon_advancedrifle", DisplayName="高级步枪", Hash=0xAF113F99 },
         new WeaponInfo(){ Name="weapon_specialcarbine", DisplayName="特制卡宾步枪", Hash=0xC0A3098D },
-        new WeaponInfo(){ Name="weapon_specialcarbine_mk2", DisplayName="MK 2 特制卡宾步枪", Hash=0x969C3D67 },
+        new WeaponInfo(){ Name="weapon_specialcarbine_mk2", DisplayName="MK2 特制卡宾步枪", Hash=0x969C3D67 },
         new WeaponInfo(){ Name="weapon_bullpuprifle", DisplayName="无托式步枪", Hash=0x7F229F94 },
-        new WeaponInfo(){ Name="weapon_bullpuprifle_mk2", DisplayName="MK 2 无托式步枪", Hash=0x84D6FAFD },
+        new WeaponInfo(){ Name="weapon_bullpuprifle_mk2", DisplayName="MK2 无托式步枪", Hash=0x84D6FAFD },
         new WeaponInfo(){ Name="weapon_compactrifle", DisplayName="紧凑型步枪", Hash=0x624FE830 },
         new WeaponInfo(){ Name="weapon_militaryrifle", DisplayName="军用步枪", Hash=0x9D1F17E6 },
         new WeaponInfo(){ Name="weapon_heavyrifle", DisplayName="重型步枪", Hash=0xC78D71B4 },
+        new WeaponInfo(){ Name="weapon_tacticalrifle", DisplayName="制式卡宾步枪", Hash=0xC78D71B4 },
     };
 
+    /// <summary>
+    /// 轻机枪
+    /// </summary>
     public static List<WeaponInfo> LightMachineGuns = new()
     {
         new WeaponInfo(){ Name="weapon_mg", DisplayName="机枪", Hash=0x9D07F764 },
         new WeaponInfo(){ Name="weapon_combatmg", DisplayName="战斗机枪", Hash=0x7FD62962 },
-        new WeaponInfo(){ Name="weapon_combatmg_mk2", DisplayName="MK 2 战斗机枪", Hash=0xDBBD7280 },
+        new WeaponInfo(){ Name="weapon_combatmg_mk2", DisplayName="MK2 战斗机枪", Hash=0xDBBD7280 },
         new WeaponInfo(){ Name="weapon_raycarbine", DisplayName="邪恶冥王", Hash=0x476BF155 },
     };
 
+    /// <summary>
+    /// 狙击枪
+    /// </summary>
     public static List<WeaponInfo> SniperRifles = new()
     {
         new WeaponInfo(){ Name="weapon_sniperrifle", DisplayName="狙击步枪", Hash=0x05FC3C11 },
         new WeaponInfo(){ Name="weapon_heavysniper", DisplayName="重型狙击步枪", Hash=0x0C472FE2 },
-        new WeaponInfo(){ Name="weapon_heavysniper_mk2", DisplayName="MK 2 重型狙击步枪", Hash=0xA914799 },
+        new WeaponInfo(){ Name="weapon_heavysniper_mk2", DisplayName="MK2 重型狙击步枪", Hash=0xA914799 },
         new WeaponInfo(){ Name="weapon_marksmanrifle", DisplayName="射手步枪", Hash=0xC734385A },
-        new WeaponInfo(){ Name="weapon_marksmanrifle_mk2", DisplayName="MK 2 射手步枪", Hash=0x6A6C02E0 },
+        new WeaponInfo(){ Name="weapon_marksmanrifle_mk2", DisplayName="MK2 射手步枪", Hash=0x6A6C02E0 },
+        new WeaponInfo(){ Name="weapon_precisionrifle", DisplayName="精确步枪", Hash=0x6A6C02E0 },
     };
 
+    /// <summary>
+    /// 重武器
+    /// </summary>
     public static List<WeaponInfo> HeavyWeapons = new()
     {
         new WeaponInfo(){ Name="weapon_rpg", DisplayName="火箭炮", Hash=0xB1CA77B1 },
@@ -134,6 +160,9 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_emplauncher", DisplayName="紧凑电磁脉冲发射器", Hash=0xDB26713A },
     };
 
+    /// <summary>
+    /// 投掷物
+    /// </summary>
     public static List<WeaponInfo> Throwables = new()
     {
         new WeaponInfo(){ Name="weapon_grenade", DisplayName="手榴弹", Hash=0x93E220BD },
@@ -148,6 +177,9 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_flare", DisplayName="信号弹", Hash=0x497FACC3 },
     };
 
+    /// <summary>
+    /// 杂项
+    /// </summary>
     public static List<WeaponInfo> Miscellaneous = new()
     {
         new WeaponInfo(){ Name="weapon_petrolcan", DisplayName="油桶", Hash=0x34A67B97 },
@@ -157,6 +189,9 @@ public static class WeaponData
         new WeaponInfo(){ Name="weapon_weapon_fertilizercan", DisplayName="肥料罐", Hash=0x184140A1 },
     };
 
+    /// <summary>
+    /// 武器分类
+    /// </summary>
     public static List<WeaponClass> WeaponDataClass = new()
     {
         new WeaponClass(){ ClassName="近战", WeaponInfo=Melee },

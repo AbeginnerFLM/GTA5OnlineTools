@@ -18,17 +18,10 @@ public partial class EM08ExternalOverlayView : UserControl
     {
         InitializeComponent();
 
-        Settings.Overlay.AimBot_BoneIndex = 0;
-        Settings.Overlay.AimBot_Key = WinVK.CONTROL;
-        Settings.Overlay.AimBot_Fov = 250.0f;
-
-        Settings.Overlay.VSync = true;
-        Settings.Overlay.FPS = 300;
-
         InjectInfo = new InjectInfo();
         InjectInfo.DLLPath = FileUtil.Cache_Path + "MyMenu.dll";
 
-        Process process = Process.GetProcessesByName("GTA5")[0];
+        var process = Process.GetProcessesByName("GTA5")[0];
         InjectInfo.PID = process.Id;
         InjectInfo.PName = process.ProcessName;
         InjectInfo.MWindowHandle = process.MainWindowHandle;

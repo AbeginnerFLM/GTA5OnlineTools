@@ -42,7 +42,7 @@ public static class Settings
 
     public static class Overlay
     {
-        public static bool VSync = false;
+        public static bool VSync = true;
         public static int FPS = 300;
 
         public static bool ESP_2DBox = true;

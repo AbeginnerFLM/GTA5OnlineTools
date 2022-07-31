@@ -9,7 +9,6 @@ public static class Weapon
     /// </summary>
     public static void FillCurrentAmmo()
     {
-        // Ped实体
         long pWeapon_AmmoInfo = Memory.Read<long>(Globals.WorldPTR, Offsets.Weapon.AmmoInfo);
 
         int getMaxAmmo = Memory.Read<int>(pWeapon_AmmoInfo + 0x28);
@@ -31,6 +30,24 @@ public static class Weapon
         } while (ammo_type == 0x00);
 
         Memory.Write<int>(my_offset_1 + 0x18, getMaxAmmo);
+    }
+
+    /// <summary>
+    /// 补满全部武器弹药
+    /// </summary>
+    public static void FillAllAmmo()
+    {
+        long pWeapon = Memory.Read<long>(Globals.WorldPTR, new int[] { 0x08, 0x10D0, 0x48 });
+
+        int count = 0;
+        while (Memory.Read<int>(pWeapon + count * 0x08) != 0 && Memory.Read<int>(pWeapon + count * 0x08, new int[] { 0x08 }) != 0)
+        {
+            int ammo_1 = Memory.Read<int>(pWeapon + count * 0x08, new int[] { 0x08, 0x28 });
+            int ammo_2 = Memory.Read<int>(pWeapon + count * 0x08, new int[] { 0x08, 0x34 });
+            int max_ammo = Math.Max(ammo_1, ammo_2);
+            Memory.Write<int>(pWeapon + count * 0x08, new int[] { 0x20 }, max_ammo);
+            count++;
+        }
     }
 
     /// <summary>

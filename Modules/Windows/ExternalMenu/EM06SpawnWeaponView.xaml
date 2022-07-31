@@ -111,12 +111,18 @@
                     SelectedIndex="0"
                     SelectionChanged="ComboBox_ImpactExplosion_SelectionChanged">
                     <ComboBox.Resources>
-                        <Style TargetType="ComboBoxItem">
+                        <Style TargetType="{x:Type ComboBoxItem}">
                             <Setter Property="VerticalAlignment" Value="Center" />
                             <Setter Property="Padding" Value="5" />
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
+                <TextBlock
+                    Margin="5"
+                    Foreground="Green"
+                    TextWrapping="Wrap">
+                    注意：如果你修改的武器和NPC使用的武器一样，那么他们的子弹类型也会一并修改
+                </TextBlock>
             </StackPanel>
 
             <Label
@@ -128,6 +134,10 @@
                     x:Name="Button_FillCurrentAmmo"
                     Click="Button_FillCurrentAmmo_Click"
                     Content="补满当前武器弹药" />
+                <Button
+                    x:Name="Button_FillAllAmmo"
+                    Click="Button_FillAllAmmo_Click"
+                    Content="补满全部武器弹药" />
             </WrapPanel>
 
             <StackPanel Margin="5" DockPanel.Dock="Bottom">
@@ -141,7 +151,7 @@
                 <TextBlock
                     Margin="5"
                     Foreground="Green"
-                    Text="提示：部分武器刷不出来是正常现象" />
+                    Text="提示：部分武器刷不出来是正常现象，请多次尝试" />
             </StackPanel>
         </StackPanel>
     </Grid>

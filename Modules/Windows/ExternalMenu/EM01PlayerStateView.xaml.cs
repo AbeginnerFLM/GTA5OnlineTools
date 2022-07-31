@@ -53,9 +53,9 @@ public partial class EM01PlayerStateView : UserControl
                     ExternalMenuView.IsShowWindowDelegate();
                     break;
                 case (int)WinVK.F3:
-                    if (CheckBox_FillCurrentAmmo.IsChecked == true)
+                    if (CheckBox_FillAllAmmo.IsChecked == true)
                     {
-                        Weapon.FillCurrentAmmo();
+                        Weapon.FillAllAmmo();
                     }
                     break;
                 case (int)WinVK.F4:
