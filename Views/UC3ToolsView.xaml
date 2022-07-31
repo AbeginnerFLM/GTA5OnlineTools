@@ -176,13 +176,13 @@
                 <TextBlock
                     Margin="5"
                     FontWeight="Black"
-                    Text="GitHub加速" />
+                    Text="Discord聊天" />
                 <TextBlock Margin="5">
                     <Hyperlink
                         Command="{Binding HyperlinkClickCommand}"
-                        CommandParameter="https://github.com/dotnetcore/FastGithub/releases"
-                        ToolTip="https://github.com/dotnetcore/FastGithub/releases">
-                        FastGithub
+                        CommandParameter="https://discord.com/"
+                        ToolTip="https://discord.com/">
+                        Discord
                     </Hyperlink>
                 </TextBlock>
             </UniformGrid>
@@ -190,7 +190,7 @@
                 <TextBlock
                     Margin="5"
                     FontWeight="Black"
-                    Text="Snipaste截图工具" />
+                    Text="Snipaste截图" />
                 <TextBlock Margin="5">
                     <Hyperlink
                         Command="{Binding HyperlinkClickCommand}"

@@ -26,11 +26,11 @@ public partial class CasinoHackWindow : Window
         {
             Memory.Initialize(CoreUtil.TargetAppName);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.LocalScriptsMask);
-            Globals.LocalScriptsPTR = Memory.Rip_37(Globals.TempPTR);
-
             Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
             Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
+
+            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.LocalScriptsMask);
+            Globals.LocalScriptsPTR = Memory.Rip_37(Globals.TempPTR);
         });
 
         var thread0 = new Thread(MainThread);
@@ -73,12 +73,14 @@ public partial class CasinoHackWindow : Window
 
                     CasinoHackModel.BlackjackContent = sb.ToString();
 
+                    ///////////////////////////////////////////////////////
+
                     int current_table = Memory.Read<int>(p + (1769 + (1 + Hacks.ReadGA<int>(2681762 + 1) * 8) + 4) * 8);
                     int nums = Memory.Read<int>(p + (109 + 1 + (1 + current_table * 211) + 209) * 8);
 
-                    i = Memory.Read<int>(p + (2026 + 2 + (1 + nums * 1)) * 8);
+                    i = Memory.Read<int>(p + (2026 + 2 + 1 + nums * 1) * 8);
 
-                    sb = new StringBuilder();
+                    sb.Clear();
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
                     if ((i - 1) / 13 == 1)
@@ -88,7 +90,7 @@ public partial class CasinoHackWindow : Window
                     if ((i - 1) / 13 == 3)
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
-                    CasinoHackModel.BlackjackContent_Next = sb.ToString();
+                    CasinoHackModel.BlackjackNextContent = sb.ToString();
                 }
             }
 
@@ -110,7 +112,7 @@ public partial class CasinoHackWindow : Window
                     if ((i - 1) / 13 == 3)
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
-                    sb.Append(" ");
+                    sb.Append(' ');
                     i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 0 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
@@ -121,7 +123,7 @@ public partial class CasinoHackWindow : Window
                     if ((i - 1) / 13 == 3)
                         sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
 
-                    sb.Append(" ");
+                    sb.Append(' ');
                     i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 1 * 1)) * 8);
                     if ((i - 1) / 13 == 0)
                         sb.Append($"♣梅花{(i - 1) % 13 + 1}");
@@ -279,14 +281,14 @@ public class CasinoHackModel : ObservableObject
         set => SetProperty(ref _blackjackContent, value);
     }
 
-    private string _blackjackContent_Next;
+    private string _blackjackNextContent;
     /// <summary>
-    /// 黑杰克 下一张牌
+    /// 黑杰克 下一张牌内容
     /// </summary>
-    public string BlackjackContent_Next
+    public string BlackjackNextContent
     {
-        get => _blackjackContent_Next;
-        set => SetProperty(ref _blackjackContent_Next, value);
+        get => _blackjackNextContent;
+        set => SetProperty(ref _blackjackNextContent, value);
     }
 
     private string _pokerContent;

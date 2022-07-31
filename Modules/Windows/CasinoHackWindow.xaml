@@ -59,7 +59,7 @@
                     <TextBlock Text="庄家底牌" />
                     <TextBox Text="{Binding CasinoHackModel.BlackjackContent}" />
                     <TextBlock Text="下一张牌" />
-                    <TextBox Text="{Binding CasinoHackModel.BlackjackContent_Next}" />
+                    <TextBox Text="{Binding CasinoHackModel.BlackjackNextContent}" />
                 </UniformGrid>
 
                 <TextBlock />
