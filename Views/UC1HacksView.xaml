@@ -55,7 +55,7 @@
                                         FontSize="14"
                                         FontWeight="Bold"
                                         Foreground="Red"
-                                        Text="已过期" />
+                                        Text="已过期，等待更新" />
                                     <ToggleButton IsChecked="{Binding UC1HacksModel.KiddionIsRun}" Style="{StaticResource ToggleButtonStyle_Normal}">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="Click">

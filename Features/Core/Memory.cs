@@ -154,19 +154,30 @@ public static class Memory
         WinAPI.GetWindowRect(windowHandle, out W32RECT windowRect);
         WinAPI.GetClientRect(windowHandle, out W32RECT clientRect);
 
+        // 适应不同Dpi
+        windowRect.Left = (int)(windowRect.Left * Screen.ScaleX);
+        windowRect.Right = (int)(windowRect.Right * Screen.ScaleX);
+        windowRect.Top = (int)(windowRect.Top * Screen.ScaleY);
+        windowRect.Bottom = (int)(windowRect.Bottom * Screen.ScaleY);
+
+        clientRect.Left = (int)(clientRect.Left * Screen.ScaleX);
+        clientRect.Right = (int)(clientRect.Right * Screen.ScaleX);
+        clientRect.Top = (int)(clientRect.Top * Screen.ScaleY);
+        clientRect.Bottom = (int)(clientRect.Bottom * Screen.ScaleY);
+
         // 计算窗口区的宽和高
         int windowWidth = windowRect.Right - windowRect.Left;
         int windowHeight = windowRect.Bottom - windowRect.Top;
 
         // 处理窗口最小化
-        if (windowRect.Left < 0)
+        if (windowRect.Left == -32000)
         {
             return new WindowData()
             {
-                Left = 0,
-                Top = 0,
-                Width = 1,
-                Height = 1
+                Left = -1,
+                Top = -1,
+                Width = -1,
+                Height = -1
             };
         }
 

@@ -103,13 +103,13 @@ public partial class DrawWindow : Window
             {
                 if (DrawData.IsDrawCenter)
                 {
-                    this.Top = windowData.Top + windowData.Height - 200;
-                    this.Left = windowData.Left + windowData.Width / 2 - 100;
+                    this.Left = windowData.Left + windowData.Width / 2 - 100 * Screen.ScaleX;
+                    this.Top = windowData.Top + windowData.Height - 200 * Screen.ScaleY;
                 }
                 else
                 {
-                    this.Top = windowData.Top + windowData.Height - 200;
-                    this.Left = windowData.Left + windowData.Width - 200 - 10;
+                    this.Left = windowData.Left + windowData.Width - 210 * Screen.ScaleX;
+                    this.Top = windowData.Top + windowData.Height - 200 * Screen.ScaleY;
                 }
 
                 if (IsPlayerInCar() && Memory.IsForegroundWindow())
@@ -195,7 +195,7 @@ public partial class DrawWindow : Window
     /// 获取载具挡位
     /// </summary>
     /// <returns></returns>
-    private double GetVehicleGear()
+    private int GetVehicleGear()
     {
         return Memory.Read<int>(Globals.UnkPTR, Offsets.VehicleGear);
     }
@@ -204,9 +204,9 @@ public partial class DrawWindow : Window
     /// 获取载具加速度
     /// </summary>
     /// <returns></returns>
-    private double GetVehicleRPM()
+    private float GetVehicleRPM()
     {
-        return Memory.Read<double>(Globals.UnkPTR, Offsets.VehicleRPM);
+        return Memory.Read<float>(Globals.UnkPTR, Offsets.VehicleRPM);
     }
 }
 
