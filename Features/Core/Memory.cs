@@ -68,7 +68,7 @@ public static class Memory
         return 0;
     }
 
-    public static bool IsTopMostWindow()
+    public static bool IsForegroundWindow()
     {
         return windowHandle == WinAPI.GetForegroundWindow();
     }

@@ -72,7 +72,7 @@ public static class Teleport
     {
         if (pos != Vector3.Zero)
         {
-            if (Memory.Read<byte>(Globals.WorldPTR, Offsets.InVehicle) == 0x00)
+            if (Memory.Read<int>(Globals.WorldPTR, Offsets.InVehicle) == 1)
             {
                 VehicleX = pos.X;
                 VehicleY = pos.Y;
@@ -209,7 +209,7 @@ public static class Teleport
         float sin = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerSin);
         float cos = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerCos);
 
-        if (Memory.Read<byte>(Globals.WorldPTR, Offsets.InVehicle) == 0)
+        if (Memory.Read<int>(Globals.WorldPTR, Offsets.InVehicle) == 1)
         {
             float x = Memory.Read<float>(Globals.WorldPTR, Offsets.VehiclePositionX);
             float y = Memory.Read<float>(Globals.WorldPTR, Offsets.VehiclePositionY);

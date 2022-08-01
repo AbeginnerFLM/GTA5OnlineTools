@@ -67,7 +67,7 @@ public class Overlay : IDisposable
         while (isRun)
         {
             if (Settings.Overlay.IsNoTOPMostHide)
-                isDraw = Memory.IsTopMostWindow();
+                isDraw = Memory.IsForegroundWindow();
             else
                 isDraw = true;
 
@@ -493,7 +493,7 @@ public class Overlay : IDisposable
                 }
 
                 // 玩家处于载具或者掩护状态中不启用自瞄，无目标取消自瞄
-                if (isPlayerInCar != 0x00 && aimBot_Min_Distance != Settings.Overlay.AimBot_Fov)
+                if (isPlayerInCar == 0 && aimBot_Min_Distance != Settings.Overlay.AimBot_Fov)
                 {
                     // 默认按住Ctrl键自瞄
                     if (Convert.ToBoolean(WinAPI.GetKeyState((int)Settings.Overlay.AimBot_Key) & WinAPI.KEY_PRESSED))

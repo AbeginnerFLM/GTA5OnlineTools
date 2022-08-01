@@ -98,17 +98,19 @@ public partial class MeterPlate : UserControl
     {
         this.canvasPlate.Children.Clear();
 
+        var step = 270 / (this.Maximum - this.Minimum);
+
         for (double i = 0; i <= this.Maximum - this.Minimum; i++)
         {
             // 添加刻度线
-            Line lineScale = new Line();
+            var lineScale = new Line();
 
             if (i % 20 == 0)
             {
                 // 注意Math.Cos和Math.Sin的参数是弧度，记得将角度转为弧度制
-                lineScale.X1 = 200 - 170 * Math.Cos(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
-                lineScale.Y1 = 200 - 170 * Math.Sin(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
-                lineScale.Stroke = new SolidColorBrush(Colors.White);
+                lineScale.X1 = 200 - 170 * Math.Cos(i * step * Math.PI / 180);
+                lineScale.Y1 = 200 - 170 * Math.Sin(i * step * Math.PI / 180);
+                lineScale.Stroke = Brushes.White;
                 lineScale.StrokeThickness = 3;
 
                 // 添加刻度值
@@ -117,26 +119,26 @@ public partial class MeterPlate : UserControl
                     Text = (i + this.Minimum).ToString(),
                     Width = 34,
                     TextAlignment = TextAlignment.Center,
-                    Foreground = new SolidColorBrush(Colors.White),
+                    Foreground = Brushes.White,
                     RenderTransform = new RotateTransform() { Angle = 45, CenterX = 17, CenterY = 8 },
                     FontSize = 18
                 };
 
-                Canvas.SetLeft(txtScale, 200 - 155 * Math.Cos(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180) - 17);
-                Canvas.SetTop(txtScale, 200 - 155 * Math.Sin(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180) - 10);
+                Canvas.SetLeft(txtScale, 200 - 155 * Math.Cos(i * step * Math.PI / 180) - 17);
+                Canvas.SetTop(txtScale, 200 - 155 * Math.Sin(i * step * Math.PI / 180) - 10);
 
                 this.canvasPlate.Children.Add(txtScale);
             }
             else
             {
-                lineScale.X1 = 200 - 180 * Math.Cos(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
-                lineScale.Y1 = 200 - 180 * Math.Sin(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
-                lineScale.Stroke = new SolidColorBrush(Colors.White);
+                lineScale.X1 = 200 - 180 * Math.Cos(i * step * Math.PI / 180);
+                lineScale.Y1 = 200 - 180 * Math.Sin(i * step * Math.PI / 180);
+                lineScale.Stroke = Brushes.White;
                 lineScale.StrokeThickness = 1;
             }
 
-            lineScale.X2 = 200 - 190 * Math.Cos(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
-            lineScale.Y2 = 200 - 190 * Math.Sin(i * (270 / (this.Maximum - this.Minimum)) * Math.PI / 180);
+            lineScale.X2 = 200 - 190 * Math.Cos(i * step * Math.PI / 180);
+            lineScale.Y2 = 200 - 190 * Math.Sin(i * step * Math.PI / 180);
 
             this.canvasPlate.Children.Add(lineScale);
         }

@@ -140,7 +140,7 @@ public static class Offsets
 
     public static int[] PlayerProof = new int[] { 0x08, 0x188 };
 
-    public static int[] InVehicle = new int[] { 0x08, 0x14C7 };       // byte 0x10:false 0x00:true
+    public static int[] InVehicle = new int[] { 0x08, 0xE52 };       // 1代表在载具，0代表不在
 
     public static int[] VehicleMaxSpeed = new int[] { 0x08, 0xD30, 0x8CC };
     public static int[] VehicleGear = new int[] { 0xFD4 };

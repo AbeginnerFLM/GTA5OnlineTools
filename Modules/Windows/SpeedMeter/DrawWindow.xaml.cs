@@ -93,7 +93,7 @@ public partial class DrawWindow : Window
 
     private void DrawThread()
     {
-        bool isShow = false;
+        bool isShow = true;
 
         while (isRunning)
         {
@@ -112,7 +112,7 @@ public partial class DrawWindow : Window
                     this.Left = windowData.Left + windowData.Width - 200 - 10;
                 }
 
-                if (IsPlayerInCar() && Memory.IsTopMostWindow())
+                if (IsPlayerInCar() && Memory.IsForegroundWindow())
                 {
                     if (!isShow)
                     {
@@ -151,7 +151,7 @@ public partial class DrawWindow : Window
     /// <returns></returns>
     private bool IsPlayerInCar()
     {
-        return Memory.Read<byte>(Globals.WorldPTR, Offsets.InVehicle) == 0x00 && Memory.Read<long>(Globals.UnkPTR) != 0;
+        return Memory.Read<int>(Globals.WorldPTR, Offsets.InVehicle) == 1;
     }
 
     /// <summary>

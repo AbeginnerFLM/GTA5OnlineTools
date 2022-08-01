@@ -46,18 +46,17 @@
                     <Border
                         Width="20"
                         Height="20"
-                        Background="Gray"
+                        Background="White"
                         CornerRadius="10" />
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <TextBlock
-                            Margin="0,0,0,5"
                             FontSize="20"
                             Foreground="White"
                             Text="{Binding GearValue, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, StringFormat={}{0:0}, FallbackValue=0}"
                             TextAlignment="Center" />
                         <TextBlock
-                            Margin="0,0,0,5"
+                            Margin="0,5,0,5"
                             FontSize="36"
                             FontWeight="Bold"
                             Foreground="White"

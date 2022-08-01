@@ -6,7 +6,7 @@
     xmlns:lc="clr-namespace:GTA5OnlineTools.Modules.Windows.SpeedMeter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Name="Window_Draw"
-    Title="车速表"
+    Title="GTA5线上小助手 车速表"
     Width="200"
     Height="200"
     Closing="Window_Draw_Closing"

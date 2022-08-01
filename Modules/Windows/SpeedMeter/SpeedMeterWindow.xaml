@@ -36,7 +36,7 @@
             </GroupBox>
         </StackPanel>
         <DockPanel LastChildFill="True">
-            <StackPanel DockPanel.Dock="Bottom">
+            <StackPanel Margin="5" DockPanel.Dock="Bottom">
                 <Button
                     x:Name="Button_RunDraw"
                     Click="Button_RunDraw_Click"
@@ -58,6 +58,11 @@
                     Margin="5"
                     Foreground="Green"
                     Text="提示：如果是win7系统，则需要开启Aero特效，否则可能显示不正常，win10及以上版本均可正常显示"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Margin="5"
+                    Foreground="Green"
+                    Text="提示：只有坐上载具和GTA5窗口在最前面才会显示车速表，防止遮挡视线"
                     TextWrapping="Wrap" />
             </StackPanel>
         </DockPanel>
