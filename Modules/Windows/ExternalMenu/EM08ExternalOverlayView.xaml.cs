@@ -28,7 +28,7 @@ public partial class EM08ExternalOverlayView : UserControl
 
         AppendTextBox("等待用户操作...");
 
-        ExternalMenuView.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
+        ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()

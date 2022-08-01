@@ -25,6 +25,8 @@ public static class Globals
 
     public static long LocalScriptsPTR;
 
+    public static long UnkPTR;
+
     // 41 2B D1 E8 ?? ?? ?? ?? 
     // 90 90 90 E8 ?? ?? ?? ?? 
     public static long InfiniteAmmoADDR;

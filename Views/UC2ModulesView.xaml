@@ -13,11 +13,19 @@
     <ScrollViewer Style="{StaticResource ScrollViewerStyle_VAHD}">
         <WrapPanel>
             <Button
-                attached:Icon.Value="&#xe666;"
+                attached:Icon.Value="&#xe617;"
                 attached:Text.Value="External Menu"
                 Command="{Binding ModelsClickCommand}"
                 CommandParameter="ExternalMenu"
                 Content="小助手外置菜单"
+                Style="{StaticResource ButtonStyle_FunctionSelf}" />
+
+            <Button
+                attached:Icon.Value="&#xe882;"
+                attached:Text.Value="Speed Meter"
+                Command="{Binding ModelsClickCommand}"
+                CommandParameter="SpeedMeter"
+                Content="车速表"
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button

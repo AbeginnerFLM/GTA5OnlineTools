@@ -27,7 +27,7 @@ public partial class EM06SpawnWeaponView : UserControl
         }
         ComboBox_ImpactExplosion.SelectedIndex = 0;
 
-        ExternalMenuView.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
+        ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()

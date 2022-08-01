@@ -35,7 +35,7 @@ public partial class EM01PlayerStateView : UserControl
         MainHotKeys.AddKey(WinVK.DELETE);
         MainHotKeys.KeyDownEvent += new HotKeys.KeyHandler(MyKeyDownEvent);
 
-        ExternalMenuView.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
+        ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()
@@ -50,7 +50,7 @@ public partial class EM01PlayerStateView : UserControl
             switch (keyId)
             {
                 case (int)WinVK.DELETE:
-                    ExternalMenuView.IsShowWindowDelegate();
+                    ExternalMenuWindow.IsShowWindowDelegate();
                     break;
                 case (int)WinVK.F3:
                     if (CheckBox_FillAllAmmo.IsChecked == true)

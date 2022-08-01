@@ -25,6 +25,8 @@ public static class Offsets
         public const string PlayerExternalDisplayNameMask = "48 8D 0D ?? ?? ?? ?? 48 69 C0 B0 00 00 00 F6 84 08 ?? ?? ?? ?? 02 74 0C";
 
         public const string LocalScriptsMask = "48 8B 05 ?? ?? ?? ?? 8B CF 48 8B 0C C8 39 59 68";
+
+        public const string UnkMask = "48 39 3D ?? ?? ?? ?? 75 2D";
     }
 
     ////////////////////////////////////////////////////////////////////
@@ -79,10 +81,6 @@ public static class Offsets
     public static int[] ApMultiplier = new int[] { 0x3188 };
 
     public static int[] OnlineListPlayerName = new int[] { 0x08, 0x10C8, 0xA4 };
-
-    //public static int[] BunkerCargo = new int[] { 0x1180, 0x37D0 };
-    //public static int[] BunkerDelivery = new int[] { 0x1180, 0x3F78 };
-    //public static int[] BunkerDelivery_1 = new int[] { 0x1180, 0x46E0 };
 
     public static int[] RID = new int[] { 0x08, 0x10C8, 0x90 };
 
@@ -140,8 +138,13 @@ public static class Offsets
     public static int[] PlayerSin = new int[] { 0x08, 0x30, 0x20 };
     public static int[] PlayerCos = new int[] { 0x08, 0x30, 0x30 };
 
-    public static int[] InVehicle = new int[] { 0x08, 0x14C7 };       // byte 0x10:false 0x00:true
     public static int[] PlayerProof = new int[] { 0x08, 0x188 };
+
+    public static int[] InVehicle = new int[] { 0x08, 0x14C7 };       // byte 0x10:false 0x00:true
+
+    public static int[] VehicleMaxSpeed = new int[] { 0x08, 0xD30, 0x8CC };
+    public static int[] VehicleGear = new int[] { 0xFD4 };
+    public static int[] VehicleRPM = new int[] { 0xE50 };
 
     // 角色在载具中，坐标偏移多了个pCVehicle = 0xD30
     public static int[] VehicleVisualX = new int[] { 0x08, 0xD30, 0x90 };

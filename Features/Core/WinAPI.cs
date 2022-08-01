@@ -13,6 +13,11 @@ public static class WinAPI
     public const int WM_LBUTTONDOWN = 0x0201;
     public const int WM_LBUTTONUP = 0x0202;
 
+    public const int WM_STYLECHANGING = 0x007C;
+    public const int GWL_EXSTYLE = -20;
+    public const int WS_EX_TRANSPARENT = 0x20;
+    public const int WS_EX_LAYERED = 0x00080000;
+
     [DllImport("kernel32.dll")]
     public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
@@ -75,6 +80,12 @@ public static class WinAPI
 
     [DllImport("kernel32.dll")]
     public static extern bool FreeConsole();
+
+    [DllImport("user32.dll")]
+    public static extern int GetWindowLong(IntPtr hwnd, int index);
+
+    [DllImport("user32.dll")]
+    public static extern int SetWindowLong(IntPtr hwnd, int nIndex, long dwNewLong);
 }
 
 public struct POINT

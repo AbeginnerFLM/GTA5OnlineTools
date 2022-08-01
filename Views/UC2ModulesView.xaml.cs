@@ -1,5 +1,6 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Modules.Windows;
+using GTA5OnlineTools.Modules.Windows.SpeedMeter;
 using GTA5OnlineTools.Modules.Windows.ExternalMenu;
 
 using Microsoft.Toolkit.Mvvm.Input;
@@ -11,7 +12,8 @@ namespace GTA5OnlineTools.Views;
 /// </summary>
 public partial class UC2ModulesView : UserControl
 {
-    private ExternalMenuView ExternalMenuView = null;
+    private ExternalMenuWindow ExternalMenuWindow = null;
+    private SpeedMeterWindow SpeedMeterWindow = null;
 
     private GTAHaxWindow GTAHaxWindow = null;
     private OutfitsWindow OutfitsWindow = null;
@@ -44,6 +46,9 @@ public partial class UC2ModulesView : UserControl
                 case "ExternalMenu":
                     ExternalMenuClick();
                     break;
+                case "SpeedMeter":
+                    SpeedMeterClick();
+                    break;
                 case "GTAHax":
                     GTAHaxClick();
                     break;
@@ -75,28 +80,56 @@ public partial class UC2ModulesView : UserControl
 
     private void ExternalMenuClick()
     {
-        if (ExternalMenuView == null)
+        if (ExternalMenuWindow == null)
         {
-            ExternalMenuView = new ExternalMenuView();
-            ExternalMenuView.Show();
+            ExternalMenuWindow = new ExternalMenuWindow();
+            ExternalMenuWindow.Show();
         }
         else
         {
-            if (ExternalMenuView.IsVisible)
+            if (ExternalMenuWindow.IsVisible)
             {
-                if (!ExternalMenuView.Topmost)
+                if (!ExternalMenuWindow.Topmost)
                 {
-                    ExternalMenuView.Topmost = true;
-                    ExternalMenuView.Topmost = false;
+                    ExternalMenuWindow.Topmost = true;
+                    ExternalMenuWindow.Topmost = false;
                 }
 
-                ExternalMenuView.WindowState = WindowState.Normal;
+                ExternalMenuWindow.WindowState = WindowState.Normal;
             }
             else
             {
-                ExternalMenuView = null;
-                ExternalMenuView = new ExternalMenuView();
-                ExternalMenuView.Show();
+                ExternalMenuWindow = null;
+                ExternalMenuWindow = new ExternalMenuWindow();
+                ExternalMenuWindow.Show();
+            }
+        }
+    }
+
+    private void SpeedMeterClick()
+    {
+        if (SpeedMeterWindow == null)
+        {
+            SpeedMeterWindow = new SpeedMeterWindow();
+            SpeedMeterWindow.Show();
+        }
+        else
+        {
+            if (SpeedMeterWindow.IsVisible)
+            {
+                if (!SpeedMeterWindow.Topmost)
+                {
+                    SpeedMeterWindow.Topmost = true;
+                    SpeedMeterWindow.Topmost = false;
+                }
+
+                SpeedMeterWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                SpeedMeterWindow = null;
+                SpeedMeterWindow = new SpeedMeterWindow();
+                SpeedMeterWindow.Show();
             }
         }
     }

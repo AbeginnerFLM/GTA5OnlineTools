@@ -25,7 +25,7 @@ public partial class EM05SpawnVehicleView : UserControl
         }
         ListBox_VehicleClass.SelectedIndex = 0;
 
-        ExternalMenuView.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
+        ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()

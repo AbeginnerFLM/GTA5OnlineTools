@@ -9,9 +9,9 @@ using Microsoft.Toolkit.Mvvm.Input;
 namespace GTA5OnlineTools.Modules.Windows.ExternalMenu;
 
 /// <summary>
-/// ExternalMenuView.xaml 的交互逻辑
+/// ExternalMenuWindow.xaml 的交互逻辑
 /// </summary>
-public partial class ExternalMenuView : Window
+public partial class ExternalMenuWindow : Window
 {
     public List<MenuBar> MenuBars { get; set; } = new();
     public RelayCommand<MenuBar> NavigateCommand { get; private set; }
@@ -45,7 +45,7 @@ public partial class ExternalMenuView : Window
     private EM09SessionChatView EM09SessionChatView { get; set; } = new();
     private EM10JobHelperView EM10JobHelperView { get; set; } = new();
 
-    public ExternalMenuView()
+    public ExternalMenuWindow()
     {
         InitializeComponent();
 
@@ -53,7 +53,7 @@ public partial class ExternalMenuView : Window
         Button_TitleClose.Click += (s, e) => { this.Close(); };
     }
 
-    private void Window_ExternalMenuView_Loaded(object sender, RoutedEventArgs e)
+    private void Window_ExternalMenu_Loaded(object sender, RoutedEventArgs e)
     {
         this.DataContext = this;
 
@@ -126,7 +126,7 @@ public partial class ExternalMenuView : Window
         thread.Start();
     }
 
-    private void Window_ExternalMenuView_Closing(object sender, CancelEventArgs e)
+    private void Window_ExternalMenu_Closing(object sender, CancelEventArgs e)
     {
         ClosingDisposeEvent();
     }

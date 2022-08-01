@@ -23,7 +23,7 @@ public partial class EM09SessionChatView : UserControl
 
         ReadPlayerName();
 
-        ExternalMenuView.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
+        ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()

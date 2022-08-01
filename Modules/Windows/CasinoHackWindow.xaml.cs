@@ -56,40 +56,40 @@ public partial class CasinoHackWindow : Window
             // 黑杰克（21点）
             if (CasinoHackModel.BlackjackIsCheck)
             {
-                long p = Locals.LocalAddress("blackjack");
-                if (p != 0)
+                long pointer = Locals.LocalAddress("blackjack");
+                if (pointer != 0)
                 {
-                    p = Memory.Read<long>(p);
-                    int i = Memory.Read<int>(p + (2026 + 2 + (1 + 1 * 1)) * 8);
+                    pointer = Memory.Read<long>(pointer);
+                    int index = Memory.Read<int>(pointer + (2026 + 2 + (1 + 1 * 1)) * 8);
 
                     var sb = new StringBuilder();
-                    if ((i - 1) / 13 == 0)
-                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 1)
-                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 2)
-                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 3)
-                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 1)
+                        sb.Append($"♦方块{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 2)
+                        sb.Append($"♥红心{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(index - 1) % 13 + 1}");
 
                     CasinoHackModel.BlackjackContent = sb.ToString();
 
                     ///////////////////////////////////////////////////////
 
-                    int current_table = Memory.Read<int>(p + (1769 + (1 + Hacks.ReadGA<int>(2681762 + 1) * 8) + 4) * 8);
-                    int nums = Memory.Read<int>(p + (109 + 1 + (1 + current_table * 211) + 209) * 8);
+                    int current_table = Memory.Read<int>(pointer + (1769 + (1 + Hacks.ReadGA<int>(2681762 + 1) * 8) + 4) * 8);
+                    int nums = Memory.Read<int>(pointer + (109 + 1 + (1 + current_table * 211) + 209) * 8);
 
-                    i = Memory.Read<int>(p + (2026 + 2 + 1 + nums * 1) * 8);
+                    index = Memory.Read<int>(pointer + (2026 + 2 + 1 + nums * 1) * 8);
 
                     sb.Clear();
-                    if ((i - 1) / 13 == 0)
-                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 1)
-                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 2)
-                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 3)
-                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 1)
+                        sb.Append($"♦方块{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 2)
+                        sb.Append($"♥红心{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(index - 1) % 13 + 1}");
 
                     CasinoHackModel.BlackjackNextContent = sb.ToString();
                 }
@@ -98,43 +98,43 @@ public partial class CasinoHackWindow : Window
             // 三张扑克
             if (CasinoHackModel.PokerIsCheck)
             {
-                long p = Locals.LocalAddress("three_card_poker");
-                if (p != 0)
+                long pointer = Locals.LocalAddress("three_card_poker");
+                if (pointer != 0)
                 {
-                    p = Memory.Read<long>(p);
-                    int i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 2 * 1)) * 8);
+                    pointer = Memory.Read<long>(pointer);
+                    int index = Memory.Read<int>(pointer + (1031 + 799 + 2 + (1 + 2 * 1)) * 8);
 
                     var sb = new StringBuilder();
-                    if ((i - 1) / 13 == 0)
-                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 1)
-                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 2)
-                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 3)
-                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 1)
+                        sb.Append($"♦方块{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 2)
+                        sb.Append($"♥红心{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(index - 1) % 13 + 1}");
 
                     sb.Append('\n');
-                    i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 0 * 1)) * 8);
-                    if ((i - 1) / 13 == 0)
-                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 1)
-                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 2)
-                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 3)
-                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+                    index = Memory.Read<int>(pointer + (1031 + 799 + 2 + (1 + 0 * 1)) * 8);
+                    if ((index - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 1)
+                        sb.Append($"♦方块{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 2)
+                        sb.Append($"♥红心{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(index - 1) % 13 + 1}");
 
                     sb.Append('\n');
-                    i = Memory.Read<int>(p + (1031 + 799 + 2 + (1 + 1 * 1)) * 8);
-                    if ((i - 1) / 13 == 0)
-                        sb.Append($"♣梅花{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 1)
-                        sb.Append($"♦方块{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 2)
-                        sb.Append($"♥红心{(i - 1) % 13 + 1}");
-                    if ((i - 1) / 13 == 3)
-                        sb.Append($"♠黑桃{(i - 1) % 13 + 1}");
+                    index = Memory.Read<int>(pointer + (1031 + 799 + 2 + (1 + 1 * 1)) * 8);
+                    if ((index - 1) / 13 == 0)
+                        sb.Append($"♣梅花{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 1)
+                        sb.Append($"♦方块{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 2)
+                        sb.Append($"♥红心{(index - 1) % 13 + 1}");
+                    if ((index - 1) / 13 == 3)
+                        sb.Append($"♠黑桃{(index - 1) % 13 + 1}");
 
                     CasinoHackModel.PokerContent = sb.ToString();
                 }
@@ -143,13 +143,13 @@ public partial class CasinoHackWindow : Window
             // 轮盘赌
             if (CasinoHackModel.RouletteIsCheck && CasinoHackModel.RouletteSelectedIndex != -1)
             {
-                long p = Locals.LocalAddress("casinoroulette");
-                if (p != 0)
+                long pointer = Locals.LocalAddress("casinoroulette");
+                if (pointer != 0)
                 {
-                    p = Memory.Read<long>(p);
+                    pointer = Memory.Read<long>(pointer);
                     for (int i = 0; i < 6; i++)
                     {
-                        Memory.Write<int>(p + (117 + 1357 + 153 + (1 + i * 1)) * 8, CasinoHackModel.RouletteSelectedIndex);
+                        Memory.Write<int>(pointer + (117 + 1357 + 153 + (1 + i * 1)) * 8, CasinoHackModel.RouletteSelectedIndex);
                     }
                 }
             }
@@ -157,16 +157,16 @@ public partial class CasinoHackWindow : Window
             // 老虎机
             if (CasinoHackModel.SlotMachineIsCheck && CasinoHackModel.SlotMachineSelectedIndex != -1)
             {
-                long p = Locals.LocalAddress("casino_slots");
-                if (p != 0)
+                long pointer = Locals.LocalAddress("casino_slots");
+                if (pointer != 0)
                 {
-                    p = Memory.Read<long>(p);
+                    pointer = Memory.Read<long>(pointer);
                     for (int i = 0; i < 3; i++)
                     {
                         for (int j = 0; j < 64; j++)
                         {
                             int index = 1341 + 1 + (1 + i * 65) + (1 + j * 1);
-                            Memory.Write<int>(p + index * 8, CasinoHackModel.SlotMachineSelectedIndex);
+                            Memory.Write<int>(pointer + index * 8, CasinoHackModel.SlotMachineSelectedIndex);
                         }
                     }
                 }
@@ -176,12 +176,12 @@ public partial class CasinoHackWindow : Window
             if (CasinoHackModel.LuckyWheelIsCheck && CasinoHackModel.LuckyWheelSelectedIndex != -1)
             {
                 // https://www.unknowncheats.me/forum/grand-theft-auto-v/483416-gtavcsmm.html
-                long p = Locals.LocalAddress("casino_lucky_wheel");
-                if (p != 0)
+                long pointer = Locals.LocalAddress("casino_lucky_wheel");
+                if (pointer != 0)
                 {
-                    p = Memory.Read<long>(p);
+                    pointer = Memory.Read<long>(pointer);
                     int index = 273 + 14;
-                    Memory.Write<int>(p + index * 8, CasinoHackModel.LuckyWheelSelectedIndex);
+                    Memory.Write<int>(pointer + index * 8, CasinoHackModel.LuckyWheelSelectedIndex);
                 }
             }
 
@@ -190,6 +190,9 @@ public partial class CasinoHackWindow : Window
     }
 }
 
+/// <summary>
+/// CasinoHack 数据模型
+/// </summary>
 public class CasinoHackModel : ObservableObject
 {
     private bool _blackjackIsCheck;
