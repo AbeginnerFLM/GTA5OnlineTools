@@ -137,7 +137,7 @@
                 <TextBlock
                     Margin="5"
                     Foreground="Red"
-                    Text="警告：刷出的载具万不可保存为个人载具或者进行载具出售，仅可当作临时交通工具使用"
+                    Text="警告：刷出的载具不建议存为个人载具或者进行载具出售，仅可当作临时交通工具使用"
                     TextWrapping="Wrap" />
             </StackPanel>
         </DockPanel>

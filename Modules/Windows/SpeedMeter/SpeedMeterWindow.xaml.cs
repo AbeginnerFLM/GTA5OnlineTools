@@ -74,4 +74,16 @@ public partial class SpeedMeterWindow : Window
             DrawData.IsDrawCenter = false;
         }
     }
+
+    private void RadioButton_SpeedMeterUnit_MPH_Click(object sender, RoutedEventArgs e)
+    {
+        if (RadioButton_SpeedMeterUnit_MPH.IsChecked == true)
+        {
+            DrawData.IsShowMPH = true;
+        }
+        else
+        {
+            DrawData.IsShowMPH = false;
+        }
+    }
 }

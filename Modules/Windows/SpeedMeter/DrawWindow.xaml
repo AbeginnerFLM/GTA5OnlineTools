@@ -34,12 +34,13 @@
         <lc:MeterPlate
             x:Name="MeterPlate_Main"
             HorizontalAlignment="Center"
-            GearValue="{Binding DrawWindowModel.VehicleGear}"
+            Gear="{Binding DrawWindowModel.VehicleGear}"
             Maximum="200"
             Minimum="0"
             PlateBackground="Transparent"
             PlateBorderBrush="Gray"
             PlateBorderThickness="0"
+            Unit="MPH"
             Value="{Binding DrawWindowModel.VehicleSpeed}" />
     </Grid>
 

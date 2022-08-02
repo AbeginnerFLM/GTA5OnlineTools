@@ -76,11 +76,15 @@
                         Text="{Binding CasinoHackModel.PokerContent}" />
                 </UniformGrid>
 
-                <TextBlock />
                 <emoji:TextBlock
                     Margin="5"
                     Foreground="Green"
                     Text="提示：比如我要使用幸运转盘，先去按E使用转盘，但是先不要转，然后勾选操控中奖并选择中奖奖品，这时回到游戏开始转动转盘即可。其他功能类似操作"
+                    TextWrapping="Wrap" />
+                <emoji:TextBlock
+                    Margin="5"
+                    Foreground="Red"
+                    Text="建议：平时用来抽个展台车就可以了，不要把他当作刷钱功能，否则有封号风险"
                     TextWrapping="Wrap" />
 
             </StackPanel>

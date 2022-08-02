@@ -21,18 +21,6 @@ public partial class MeterPlate : UserControl
         DependencyProperty.Register("Value", typeof(int), typeof(MeterPlate),
             new PropertyMetadata(default(int), new PropertyChangedCallback(OnValuePropertyChanged)));
 
-    public int GearValue
-    {
-        get { return (int)GetValue(GearValueProperty); }
-        set { SetValue(GearValueProperty, value); }
-    }
-    /// <summary>
-    /// 载具档位
-    /// </summary>
-    public static readonly DependencyProperty GearValueProperty =
-        DependencyProperty.Register("GearValue", typeof(int), typeof(MeterPlate),
-            new PropertyMetadata(default(int), new PropertyChangedCallback(OnValuePropertyChanged)));
-
     public double Minimum
     {
         get { return (double)GetValue(MinimumProperty); }
@@ -90,6 +78,28 @@ public partial class MeterPlate : UserControl
     public static readonly DependencyProperty PlateBorderThicknessProperty =
         DependencyProperty.Register("PlateBorderThickness", typeof(Thickness), typeof(MeterPlate), null);
 
+    public string Gear
+    {
+        get { return (string)GetValue(GearProperty); }
+        set { SetValue(GearProperty, value); }
+    }
+    /// <summary>
+    /// 载具档位
+    /// </summary>
+    public static readonly DependencyProperty GearProperty =
+        DependencyProperty.Register("Gear", typeof(string), typeof(MeterPlate), null);
+
+    public string Unit
+    {
+        get { return (string)GetValue(UnitProperty); }
+        set { SetValue(UnitProperty, value); }
+    }
+    /// <summary>
+    /// 车速表单位
+    /// </summary>
+    public static readonly DependencyProperty UnitProperty =
+        DependencyProperty.Register("Unit", typeof(string), typeof(MeterPlate), null);
+
     public static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         (d as MeterPlate).DrawScale();
@@ -121,12 +131,15 @@ public partial class MeterPlate : UserControl
 
         var step = 270 / (this.Maximum - this.Minimum);
 
-        for (double i = 0; i <= this.Maximum - this.Minimum; i += 2)
+        int flag = (int)this.Maximum / 100;
+
+        for (double i = 0; i <= this.Maximum - this.Minimum; i += flag)
         {
             // 添加刻度线
             var lineScale = new Line();
+            lineScale.SnapsToDevicePixels = true;
 
-            if (i % 20 == 0)
+            if (i % (flag * 10) == 0)
             {
                 // 注意Math.Cos和Math.Sin的参数是弧度，记得将角度转为弧度制
                 lineScale.X1 = 200 - 170 * Math.Cos(i * step * Math.PI / 180);
@@ -142,7 +155,8 @@ public partial class MeterPlate : UserControl
                     TextAlignment = TextAlignment.Center,
                     Foreground = Brushes.White,
                     RenderTransform = new RotateTransform() { Angle = 45, CenterX = 17, CenterY = 8 },
-                    FontSize = 18
+                    FontSize = 18,
+                    SnapsToDevicePixels = true
                 };
 
                 Canvas.SetLeft(txtScale, 200 - 155 * Math.Cos(i * step * Math.PI / 180) - 17);

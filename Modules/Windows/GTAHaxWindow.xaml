@@ -740,7 +740,14 @@
             </TabControl>
         </Grid>
 
-        <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerStyle_VAHD}">
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <TextBlock
+                Margin="5"
+                VerticalAlignment="Center"
+                Foreground="Red"
+                TextWrapping="Wrap">
+                提示：由于游戏版本问题，上述stat代码部分可能已经失效，请酌情使用
+            </TextBlock>
             <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -803,6 +810,6 @@
                     Content="③ 导入GTAHax"
                     Style="{StaticResource ButtonStyle_Web}" />
             </StackPanel>
-        </ScrollViewer>
+        </DockPanel>
     </Grid>
 </Window>

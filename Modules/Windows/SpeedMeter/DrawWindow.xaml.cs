@@ -85,6 +85,7 @@ public partial class DrawWindow : Window
     private void DrawThread()
     {
         bool isShow = true;
+        bool isChange = false;
 
         while (isRunning)
         {
@@ -119,6 +120,27 @@ public partial class DrawWindow : Window
                         isShow = false;
                     }
                 }
+
+                if (DrawData.IsShowMPH)
+                {
+                    if (!isChange)
+                    {
+                        MeterPlate_Main.Unit = "MPH";
+                        MeterPlate_Main.Maximum = 200;
+                        SpeedUnit = MPH;
+                        isChange = true;
+                    }
+                }
+                else
+                {
+                    if (isChange)
+                    {
+                        MeterPlate_Main.Unit = "KPH";
+                        MeterPlate_Main.Maximum = 400;
+                        SpeedUnit = KPH;
+                        isChange = false;
+                    }
+                }
             });
 
             Thread.Sleep(200);
@@ -149,7 +171,7 @@ public partial class DrawWindow : Window
     /// 获取载具速度
     /// </summary>
     /// <returns></returns>
-    private double GetVehicleSpeed()
+    private int GetVehicleSpeed()
     {
         if (IsPlayerInCar())
         {
@@ -162,7 +184,7 @@ public partial class DrawWindow : Window
             var VehicleSpeed = VehicleSpeed1 + (VehicleSpeed2 - VehicleSpeed1) * 0.5;
             VehicleSpeed *= SpeedUnit;
 
-            return VehicleSpeed > 0 ? VehicleSpeed : 0;
+            return VehicleSpeed > 0 ? (int)VehicleSpeed : 0;
         }
         else
         {
@@ -186,9 +208,10 @@ public partial class DrawWindow : Window
     /// 获取载具挡位
     /// </summary>
     /// <returns></returns>
-    private int GetVehicleGear()
+    private string GetVehicleGear()
     {
-        return Memory.Read<int>(Globals.UnkPTR, Offsets.VehicleGear);
+        var gear = Memory.Read<int>(Globals.UnkPTR, Offsets.VehicleGear);
+        return gear == 0 ? "R" : gear.ToString();
     }
 
     /// <summary>
@@ -206,21 +229,21 @@ public partial class DrawWindow : Window
 /// </summary>
 public class DrawWindowModel : ObservableObject
 {
-    private double _vehicleSpeed;
+    private int _vehicleSpeed;
     /// <summary>
     /// 载具速度
     /// </summary>
-    public double VehicleSpeed
+    public int VehicleSpeed
     {
         get => _vehicleSpeed;
         set => SetProperty(ref _vehicleSpeed, value);
     }
 
-    private double _vehicleGear;
+    private string _vehicleGear;
     /// <summary>
     /// 载具档位
     /// </summary>
-    public double VehicleGear
+    public string VehicleGear
     {
         get => _vehicleGear;
         set => SetProperty(ref _vehicleGear, value);

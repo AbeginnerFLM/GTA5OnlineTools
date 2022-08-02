@@ -34,6 +34,24 @@
                         Content="居右" />
                 </WrapPanel>
             </GroupBox>
+            <GroupBox
+                Margin="5"
+                Header="车速表单位"
+                Style="{StaticResource GroupBoxWebStyle}">
+                <WrapPanel Orientation="Horizontal">
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterUnit_MPH"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterUnit_MPH_Click"
+                        Content="MPH（英里每小时）"
+                        IsChecked="True" />
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterUnit_KPH"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterUnit_MPH_Click"
+                        Content="KPH（公里每小时）" />
+                </WrapPanel>
+            </GroupBox>
         </StackPanel>
         <DockPanel LastChildFill="True">
             <StackPanel Margin="5" DockPanel.Dock="Bottom">

@@ -20,7 +20,8 @@
                 <Canvas
                     Name="canvasPlate"
                     Width="400"
-                    Height="400">
+                    Height="400"
+                    SnapsToDevicePixels="True">
                     <Canvas.RenderTransform>
                         <RotateTransform Angle="-45" CenterX="200" CenterY="200" />
                     </Canvas.RenderTransform>
@@ -52,20 +53,20 @@
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding GearValue, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, StringFormat={}{0:0}, FallbackValue=0}"
+                        Text="{Binding Gear, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, FallbackValue=0}"
                         TextAlignment="Center" />
                     <TextBlock
                         Margin="0,5,0,5"
                         FontSize="36"
                         FontWeight="Bold"
                         Foreground="White"
-                        Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, StringFormat={}{0:0}, FallbackValue=0}"
+                        Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, FallbackValue=0}"
                         TextAlignment="Center" />
                     <TextBlock
                         Margin="0,0,0,20"
                         FontSize="24"
                         Foreground="White"
-                        Text="MPH"
+                        Text="{Binding Unit, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, FallbackValue='MPH'}"
                         TextAlignment="Center" />
                     <TextBlock
                         Margin="0,0,0,5"
