@@ -66,17 +66,6 @@ public partial class DrawWindow : Window
 
         this.DataContext = this;
 
-        Task.Run(() =>
-        {
-            Memory.Initialize(CoreUtil.TargetAppName);
-
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
-            Globals.WorldPTR = Memory.Rip_37(Globals.TempPTR);
-
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.UnkMask);
-            Globals.UnkPTR = Memory.Rip_37(Globals.TempPTR);
-        });
-
         var thread0 = new Thread(DrawThread);
         thread0.IsBackground = true;
         thread0.Start();
@@ -84,6 +73,8 @@ public partial class DrawWindow : Window
         var thread1 = new Thread(MainThread);
         thread1.IsBackground = true;
         thread1.Start();
+
+        Console.Beep(600, 75);
     }
 
     private void Window_Draw_Closing(object sender, CancelEventArgs e)

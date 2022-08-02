@@ -1,4 +1,5 @@
 ﻿using GTA5OnlineTools.Common.Utils;
+using GTA5OnlineTools.Features.SDK;
 using GTA5OnlineTools.Features.Core;
 
 namespace GTA5OnlineTools.Modules.Windows.SpeedMeter;
@@ -17,7 +18,16 @@ public partial class SpeedMeterWindow : Window
 
     private void Window_SpeedMeter_Loaded(object sender, RoutedEventArgs e)
     {
+        Task.Run(() =>
+        {
+            Memory.Initialize(CoreUtil.TargetAppName);
 
+            Globals.WorldPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
+            Globals.WorldPTR = Memory.Rip_37(Globals.WorldPTR);
+
+            Globals.UnkPTR = Memory.FindPattern(Offsets.Mask.UnkMask);
+            Globals.UnkPTR = Memory.Rip_37(Globals.UnkPTR);
+        });
     }
 
     private void Window_SpeedMeter_Closing(object sender, CancelEventArgs e)

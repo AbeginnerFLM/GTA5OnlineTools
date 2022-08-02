@@ -14,6 +14,9 @@ public partial class MeterPlate : UserControl
         get { return (int)GetValue(ValueProperty); }
         set { SetValue(ValueProperty, value); }
     }
+    /// <summary>
+    /// 指针角度
+    /// </summary>
     public static readonly DependencyProperty ValueProperty =
         DependencyProperty.Register("Value", typeof(int), typeof(MeterPlate),
             new PropertyMetadata(default(int), new PropertyChangedCallback(OnValuePropertyChanged)));
@@ -23,6 +26,9 @@ public partial class MeterPlate : UserControl
         get { return (int)GetValue(GearValueProperty); }
         set { SetValue(GearValueProperty, value); }
     }
+    /// <summary>
+    /// 载具档位
+    /// </summary>
     public static readonly DependencyProperty GearValueProperty =
         DependencyProperty.Register("GearValue", typeof(int), typeof(MeterPlate),
             new PropertyMetadata(default(int), new PropertyChangedCallback(OnValuePropertyChanged)));
@@ -32,6 +38,9 @@ public partial class MeterPlate : UserControl
         get { return (double)GetValue(MinimumProperty); }
         set { SetValue(MinimumProperty, value); }
     }
+    /// <summary>
+    /// 刻度最小值
+    /// </summary>
     public static readonly DependencyProperty MinimumProperty =
         DependencyProperty.Register("Minimum", typeof(double), typeof(MeterPlate),
             new PropertyMetadata(double.NaN, new PropertyChangedCallback(OnPropertyChanged)));
@@ -41,6 +50,9 @@ public partial class MeterPlate : UserControl
         get { return (double)GetValue(MaximumProperty); }
         set { SetValue(MaximumProperty, value); }
     }
+    /// <summary>
+    /// 刻度最大值
+    /// </summary>
     public static readonly DependencyProperty MaximumProperty =
         DependencyProperty.Register("Maximum", typeof(double), typeof(MeterPlate),
             new PropertyMetadata(double.NaN, new PropertyChangedCallback(OnPropertyChanged)));
@@ -50,6 +62,9 @@ public partial class MeterPlate : UserControl
         get { return (Brush)GetValue(PlateBackgroundProperty); }
         set { SetValue(PlateBackgroundProperty, value); }
     }
+    /// <summary>
+    /// 表盘背景色
+    /// </summary>
     public static readonly DependencyProperty PlateBackgroundProperty =
         DependencyProperty.Register("PlateBackground", typeof(Brush), typeof(MeterPlate), null);
 
@@ -58,6 +73,9 @@ public partial class MeterPlate : UserControl
         get { return (Brush)GetValue(PlateBorderBrushProperty); }
         set { SetValue(PlateBorderBrushProperty, value); }
     }
+    /// <summary>
+    /// 表盘边框色
+    /// </summary>
     public static readonly DependencyProperty PlateBorderBrushProperty =
         DependencyProperty.Register("PlateBorderBrush", typeof(Brush), typeof(MeterPlate), null);
 
@@ -66,6 +84,9 @@ public partial class MeterPlate : UserControl
         get { return (Thickness)GetValue(PlateBorderThicknessProperty); }
         set { SetValue(PlateBorderThicknessProperty, value); }
     }
+    /// <summary>
+    /// 表盘边框粗细
+    /// </summary>
     public static readonly DependencyProperty PlateBorderThicknessProperty =
         DependencyProperty.Register("PlateBorderThickness", typeof(Thickness), typeof(MeterPlate), null);
 
@@ -100,7 +121,7 @@ public partial class MeterPlate : UserControl
 
         var step = 270 / (this.Maximum - this.Minimum);
 
-        for (double i = 0; i <= this.Maximum - this.Minimum; i++)
+        for (double i = 0; i <= this.Maximum - this.Minimum; i += 2)
         {
             // 添加刻度线
             var lineScale = new Line();

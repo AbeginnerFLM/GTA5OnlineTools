@@ -2,8 +2,6 @@
 
 public static class Globals
 {
-    public static long TempPTR;
-
     public static long WorldPTR;
     public static long BlipPTR;
     public static long GlobalPTR;

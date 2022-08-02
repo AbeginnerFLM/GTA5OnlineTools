@@ -244,7 +244,8 @@ public partial class UC1HacksView : UserControl
         {
             BaseInjector.SetForegroundWindow(InjectInfo.MWindowHandle);
             BaseInjector.DLLInjector(InjectInfo.PID, InjectInfo.DLLPath);
-            //MsgBoxUtil.InformationMsgBox($"DLL注入到进程 {InjectInfo.PName} 成功，请前往游戏查看");
+
+            Console.Beep(600, 75);
         }
         catch (Exception ex)
         {

@@ -26,11 +26,11 @@ public partial class CasinoHackWindow : Window
         {
             Memory.Initialize(CoreUtil.TargetAppName);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
-            Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.GlobalPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
+            Globals.GlobalPTR = Memory.Rip_37(Globals.GlobalPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.LocalScriptsMask);
-            Globals.LocalScriptsPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.LocalScriptsPTR = Memory.FindPattern(Offsets.Mask.LocalScriptsMask);
+            Globals.LocalScriptsPTR = Memory.Rip_37(Globals.LocalScriptsPTR);
         });
 
         var thread0 = new Thread(MainThread);

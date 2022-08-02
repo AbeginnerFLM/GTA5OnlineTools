@@ -21,13 +21,13 @@ public partial class HeistPrepsWindow : Window
         {
             Memory.Initialize(CoreUtil.TargetAppName);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
-            Globals.WorldPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.WorldPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
+            Globals.WorldPTR = Memory.Rip_37(Globals.WorldPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
-            Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.GlobalPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
+            Globals.GlobalPTR = Memory.Rip_37(Globals.GlobalPTR);
 
-            Application.Current.Dispatcher.Invoke(() =>
+            this.Dispatcher.Invoke(() =>
             {
 
             });

@@ -27,10 +27,10 @@ public partial class OutfitsWindow : Window
         {
             Memory.Initialize(CoreUtil.TargetAppName);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
-            Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.GlobalPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
+            Globals.GlobalPTR = Memory.Rip_37(Globals.GlobalPTR);
 
-            Application.Current.Dispatcher.Invoke(() =>
+            this.Dispatcher.Invoke(() =>
             {
                 ReadOutfitsData();
             });

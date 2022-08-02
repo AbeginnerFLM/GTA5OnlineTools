@@ -174,10 +174,10 @@ public static class Memory
         {
             return new WindowData()
             {
-                Left = -1,
-                Top = -1,
-                Width = -1,
-                Height = -1
+                Left = 0,
+                Top = 0,
+                Width = 1,
+                Height = 1
             };
         }
 

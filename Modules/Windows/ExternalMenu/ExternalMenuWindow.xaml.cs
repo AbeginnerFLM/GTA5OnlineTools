@@ -79,44 +79,44 @@ public partial class ExternalMenuWindow : Window
         {
             Memory.Initialize(CoreUtil.TargetAppName);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
-            Globals.WorldPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.WorldPTR = Memory.FindPattern(Offsets.Mask.WorldMask);
+            Globals.WorldPTR = Memory.Rip_37(Globals.WorldPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.BlipMask);
-            Globals.BlipPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.BlipPTR = Memory.FindPattern(Offsets.Mask.BlipMask);
+            Globals.BlipPTR = Memory.Rip_37(Globals.BlipPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
-            Globals.GlobalPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.GlobalPTR = Memory.FindPattern(Offsets.Mask.GlobalMask);
+            Globals.GlobalPTR = Memory.Rip_37(Globals.GlobalPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.PlayerchatterNameMask);
-            Globals.PlayerChatterNamePTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.PlayerChatterNamePTR = Memory.FindPattern(Offsets.Mask.PlayerchatterNameMask);
+            Globals.PlayerChatterNamePTR = Memory.Rip_37(Globals.PlayerChatterNamePTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.PlayerExternalDisplayNameMask);
-            Globals.PlayerExternalDisplayNamePTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.PlayerExternalDisplayNamePTR = Memory.FindPattern(Offsets.Mask.PlayerExternalDisplayNameMask);
+            Globals.PlayerExternalDisplayNamePTR = Memory.Rip_37(Globals.PlayerExternalDisplayNamePTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.NetworkPlayerMgrMask);
-            Globals.NetworkPlayerMgrPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.NetworkPlayerMgrPTR = Memory.FindPattern(Offsets.Mask.NetworkPlayerMgrMask);
+            Globals.NetworkPlayerMgrPTR = Memory.Rip_37(Globals.NetworkPlayerMgrPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.ReplayInterfaceMask);
-            Globals.ReplayInterfacePTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.ReplayInterfacePTR = Memory.FindPattern(Offsets.Mask.ReplayInterfaceMask);
+            Globals.ReplayInterfacePTR = Memory.Rip_37(Globals.ReplayInterfacePTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.WeatherMask);
-            Globals.WeatherPTR = Memory.Rip_6A(Globals.TempPTR);
+            Globals.WeatherPTR = Memory.FindPattern(Offsets.Mask.WeatherMask);
+            Globals.WeatherPTR = Memory.Rip_6A(Globals.WeatherPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.UnkModelMask);
-            Globals.UnkModelPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.UnkModelPTR = Memory.FindPattern(Offsets.Mask.UnkModelMask);
+            Globals.UnkModelPTR = Memory.Rip_37(Globals.UnkModelPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.PickupDataMask);
-            Globals.PickupDataPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.PickupDataPTR = Memory.FindPattern(Offsets.Mask.PickupDataMask);
+            Globals.PickupDataPTR = Memory.Rip_37(Globals.PickupDataPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.ViewPortMask);
-            Globals.ViewPortPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.ViewPortPTR = Memory.FindPattern(Offsets.Mask.ViewPortMask);
+            Globals.ViewPortPTR = Memory.Rip_37(Globals.ViewPortPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.AimingPedMask);
-            Globals.AimingPedPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.AimingPedPTR = Memory.FindPattern(Offsets.Mask.AimingPedMask);
+            Globals.AimingPedPTR = Memory.Rip_37(Globals.AimingPedPTR);
 
-            Globals.TempPTR = Memory.FindPattern(Offsets.Mask.CCameraMask);
-            Globals.CCameraPTR = Memory.Rip_37(Globals.TempPTR);
+            Globals.CCameraPTR = Memory.FindPattern(Offsets.Mask.CCameraMask);
+            Globals.CCameraPTR = Memory.Rip_37(Globals.CCameraPTR);
         });
 
         var thread = new Thread(InitThread)
