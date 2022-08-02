@@ -124,8 +124,6 @@ public static class Vehicle
         {
             if (hash != 0)
             {
-                const int oVMCreate = Offsets.oVMCreate;
-
                 float x = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerPositionX);
                 float y = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerPositionY);
                 float z = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerPositionZ);
@@ -140,50 +138,50 @@ public static class Vehicle
                 else
                     z += z255;
 
-                Hacks.WriteGA<long>(oVMCreate + 27 + 66, hash);   // 载具哈希值
+                Hacks.WriteGA<long>(Offsets.oVMCreate + 27 + 66, hash);   // 载具哈希值
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 94, 2);       // personal car ownerflag  个人载具拥有者标志
-                Hacks.WriteGA<int>(oVMCreate + 27 + 95, 14);      // ownerflag  拥有者标志
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 94, 2);       // personal car ownerflag  个人载具拥有者标志
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 95, 14);      // ownerflag  拥有者标志
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 5, -1);       // primary -1 auto 159  主色调
-                Hacks.WriteGA<int>(oVMCreate + 27 + 6, -1);       // secondary -1 auto 159  副色调
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 5, -1);       // primary -1 auto 159  主色调
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 6, -1);       // secondary -1 auto 159  副色调
 
-                Hacks.WriteGA<float>(oVMCreate + 7 + 0, x);       // 载具坐标x
-                Hacks.WriteGA<float>(oVMCreate + 7 + 1, y);       // 载具坐标y
-                Hacks.WriteGA<float>(oVMCreate + 7 + 2, z);       // 载具坐标z
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 0, x);       // 载具坐标x
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 1, y);       // 载具坐标y
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 2, z);       // 载具坐标z
 
-                Hacks.WriteGAString(oVMCreate + 27 + 1, Guid.NewGuid().ToString()[..8]);    // License plate  车牌
+                Hacks.WriteGAString(Offsets.oVMCreate + 27 + 1, Guid.NewGuid().ToString()[..8]);    // License plate  车牌
 
                 for (int i = 0; i < 43; i++)
                 {
                     if (i < 17)
                     {
-                        Hacks.WriteGA<int>(oVMCreate + 27 + 10 + i, mod[i]);
+                        Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 10 + i, mod[i]);
                     }
                     else if (i >= 17 && i != 42)
                     {
-                        Hacks.WriteGA<int>(oVMCreate + 27 + 10 + 6 + i, mod[i]);
+                        Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 10 + 6 + i, mod[i]);
                     }
                     else if (mod[42] > 0 && i == 42)
                     {
-                        Hacks.WriteGA<int>(oVMCreate + 27 + 10 + 6 + 42, new Random().Next(1, mod[42] + 1));
+                        Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 10 + 6 + 42, new Random().Next(1, mod[42] + 1));
                     }
                 }
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 7, -1);       // pearlescent
-                Hacks.WriteGA<int>(oVMCreate + 27 + 8, -1);       // wheel color
-                Hacks.WriteGA<int>(oVMCreate + 27 + 33, -1);      // wheel selection
-                Hacks.WriteGA<int>(oVMCreate + 27 + 69, -1);      // Wheel type
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 7, -1);       // pearlescent
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 8, -1);       // wheel color
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 33, -1);      // wheel selection
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 69, -1);      // Wheel type
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 28, 1);
-                Hacks.WriteGA<int>(oVMCreate + 27 + 30, 1);
-                Hacks.WriteGA<int>(oVMCreate + 27 + 32, 1);
-                Hacks.WriteGA<int>(oVMCreate + 27 + 65, 1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 28, 1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 30, 1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 32, 1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 65, 1);
 
-                Hacks.WriteGA<long>(oVMCreate + 27 + 77, 0xF0400200);         // vehstate  载具状态 没有这个载具起落架是收起状态
+                Hacks.WriteGA<long>(Offsets.oVMCreate + 27 + 77, 0xF0400200);         // vehstate  载具状态 没有这个载具起落架是收起状态
 
-                Hacks.WriteGA<int>(oVMCreate + 5, 1);                         // can spawn flag must be odd
-                Hacks.WriteGA<int>(oVMCreate + 2, 1);                         // spawn toggle gets reset to 0 on car spawn
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 5, 1);                         // can spawn flag must be odd
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 2, 1);                         // spawn toggle gets reset to 0 on car spawn
             }
         });
     }
@@ -196,7 +194,6 @@ public static class Vehicle
             {
                 int dist = 5;
 
-                const int oVMCreate = Offsets.oVMCreate;
                 const int pegasus = 0;
 
                 float x = Memory.Read<float>(Globals.WorldPTR, Offsets.PlayerPositionX);
@@ -213,57 +210,57 @@ public static class Vehicle
                 else
                     z += z255;
 
-                Hacks.WriteGA<float>(oVMCreate + 7 + 0, x);                   // 载具坐标x
-                Hacks.WriteGA<float>(oVMCreate + 7 + 1, y);                   // 载具坐标y
-                Hacks.WriteGA<float>(oVMCreate + 7 + 2, z);                   // 载具坐标z
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 0, x);                   // 载具坐标x
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 1, y);                   // 载具坐标y
+                Hacks.WriteGA<float>(Offsets.oVMCreate + 7 + 2, z);                   // 载具坐标z
 
-                Hacks.WriteGA<long>(oVMCreate + 27 + 66, hash);   // 载具哈希值
-                Hacks.WriteGA<int>(oVMCreate + 3, pegasus);                   // 帕格萨斯
+                Hacks.WriteGA<long>(Offsets.oVMCreate + 27 + 66, hash);               // 载具哈希值
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 3, pegasus);                   // 帕格萨斯
 
-                Hacks.WriteGA<int>(oVMCreate + 5, 1);                         // can spawn flag must be odd
-                Hacks.WriteGA<int>(oVMCreate + 2, 1);                         // spawn toggle gets reset to 0 on car spawn
-                Hacks.WriteGAString(oVMCreate + 27 + 1, Guid.NewGuid().ToString()[..8]);    // License plate  车牌
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 5, 1);                         // can spawn flag must be odd
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 2, 1);                         // spawn toggle gets reset to 0 on car spawn
+                Hacks.WriteGAString(Offsets.oVMCreate + 27 + 1, Guid.NewGuid().ToString()[..8]);    // License plate  车牌
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 5, -1);       // primary -1 auto 159  主色调
-                Hacks.WriteGA<int>(oVMCreate + 27 + 6, -1);       // secondary -1 auto 159  副色调
-                Hacks.WriteGA<int>(oVMCreate + 27 + 7, -1);       // pearlescent
-                Hacks.WriteGA<int>(oVMCreate + 27 + 8, -1);       // wheel color
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 5, -1);       // primary -1 auto 159  主色调
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 6, -1);       // secondary -1 auto 159  副色调
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 7, -1);       // pearlescent
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 8, -1);       // wheel color
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 15, 1);       // primary weapon  主武器
-                Hacks.WriteGA<int>(oVMCreate + 27 + 19, -1);
-                Hacks.WriteGA<int>(oVMCreate + 27 + 20, 2);       // secondary weapon  副武器
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 15, 1);       // primary weapon  主武器
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 19, -1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 20, 2);       // secondary weapon  副武器
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 21, 3);       // engine (0-3)  引擎
-                Hacks.WriteGA<int>(oVMCreate + 27 + 22, 6);       // brakes (0-6)  刹车
-                Hacks.WriteGA<int>(oVMCreate + 27 + 23, 9);       // transmission (0-9)  变速器
-                Hacks.WriteGA<int>(oVMCreate + 27 + 24, new Random().Next(0, 78));        // horn (0-77)  喇叭
-                Hacks.WriteGA<int>(oVMCreate + 27 + 25, 14);      // suspension (0-13)  悬吊系统
-                Hacks.WriteGA<int>(oVMCreate + 27 + 26, 19);      // armor (0-18)  装甲
-                Hacks.WriteGA<int>(oVMCreate + 27 + 27, 1);       // turbo (0-1)  涡轮增压
-                Hacks.WriteGA<int>(oVMCreate + 27 + 28, 1);       // weaponised ownerflag
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 21, 3);       // engine (0-3)  引擎
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 22, 6);       // brakes (0-6)  刹车
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 23, 9);       // transmission (0-9)  变速器
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 24, new Random().Next(0, 78));        // horn (0-77)  喇叭
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 25, 14);      // suspension (0-13)  悬吊系统
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 26, 19);      // armor (0-18)  装甲
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 27, 1);       // turbo (0-1)  涡轮增压
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 28, 1);       // weaponised ownerflag
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 30, 1);
-                Hacks.WriteGA<int>(oVMCreate + 27 + 32, new Random().Next(0, 15));        // colored light (0-14)
-                Hacks.WriteGA<int>(oVMCreate + 27 + 33, -1);                              // Wheel Selection
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 30, 1);
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 32, new Random().Next(0, 15));        // colored light (0-14)
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 33, -1);                              // Wheel Selection
 
-                Hacks.WriteGA<long>(oVMCreate + 27 + 60, 1);  // landinggear/vehstate 起落架/载具状态
+                Hacks.WriteGA<long>(Offsets.oVMCreate + 27 + 60, 1);  // landinggear/vehstate 起落架/载具状态
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 62, new Random().Next(0, 256));       // Tire smoke color R
-                Hacks.WriteGA<int>(oVMCreate + 27 + 63, new Random().Next(0, 256));       // Green Neon Amount 1-255 100%-0%
-                Hacks.WriteGA<int>(oVMCreate + 27 + 64, new Random().Next(0, 256));       // Blue Neon Amount 1-255 100%-0%
-                Hacks.WriteGA<int>(oVMCreate + 27 + 65, new Random().Next(0, 7));         // Window tint 0-6
-                Hacks.WriteGA<int>(oVMCreate + 27 + 67, 1);       // Livery
-                Hacks.WriteGA<int>(oVMCreate + 27 + 69, -1);      // Wheel type
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 62, new Random().Next(0, 256));       // Tire smoke color R
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 63, new Random().Next(0, 256));       // Green Neon Amount 1-255 100%-0%
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 64, new Random().Next(0, 256));       // Blue Neon Amount 1-255 100%-0%
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 65, new Random().Next(0, 7));         // Window tint 0-6
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 67, 1);       // Livery
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 69, -1);      // Wheel type
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 74, new Random().Next(0, 256));       // Red Neon Amount 1-255 100%-0%
-                Hacks.WriteGA<int>(oVMCreate + 27 + 75, new Random().Next(0, 256));       // G
-                Hacks.WriteGA<int>(oVMCreate + 27 + 76, new Random().Next(0, 256));       // B
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 74, new Random().Next(0, 256));       // Red Neon Amount 1-255 100%-0%
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 75, new Random().Next(0, 256));       // G
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 76, new Random().Next(0, 256));       // B
 
-                Hacks.WriteGA<long>(oVMCreate + 27 + 77, 4030726305);                     // vehstate  载具状态 没有这个载具起落架是收起状态
-                Memory.Write<byte>(Hacks.ReadGA<long>(oVMCreate + 27 + 77) + 1, 0x02);    // 2:bulletproof 0:false  防弹的
+                Hacks.WriteGA<long>(Offsets.oVMCreate + 27 + 77, 4030726305);                     // vehstate  载具状态 没有这个载具起落架是收起状态
+                Memory.Write<byte>(Hacks.ReadGA<long>(Offsets.oVMCreate + 27 + 77) + 1, 0x02);    // 2:bulletproof 0:false  防弹的
 
-                Hacks.WriteGA<int>(oVMCreate + 27 + 95, 14);      // ownerflag  拥有者标志
-                Hacks.WriteGA<int>(oVMCreate + 27 + 94, 2);       // personal car ownerflag  个人载具拥有者标志
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 95, 14);      // ownerflag  拥有者标志
+                Hacks.WriteGA<int>(Offsets.oVMCreate + 27 + 94, 2);       // personal car ownerflag  个人载具拥有者标志
             }
         });
     }

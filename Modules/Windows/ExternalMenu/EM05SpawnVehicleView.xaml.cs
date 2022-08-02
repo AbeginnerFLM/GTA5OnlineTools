@@ -73,10 +73,12 @@ public partial class EM05SpawnVehicleView : UserControl
         if (str == "刷出线上载具（空地）")
         {
             Vehicle.SpawnVehicle(SpawnVehicleHash, -255.0f, 5, SpawnVehicleMod);
+            //Vehicle.SpawnVehicle(SpawnVehicleHash, -255.0f);
         }
         else
         {
             Vehicle.SpawnVehicle(SpawnVehicleHash, 0.0f, 5, SpawnVehicleMod);
+            //Vehicle.SpawnVehicle(SpawnVehicleHash, -255.0f);
         }
     }
 
