@@ -120,6 +120,12 @@
             </StackPanel>
 
             <StackPanel Margin="5" DockPanel.Dock="Top">
+                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="特殊" />
+                <Button
+                    x:Name="Button_UnlockVehicle161"
+                    Click="Button_UnlockVehicle161_Click"
+                    Content="提前解锁1.61未发布载具" />
+
                 <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="载具自定义" />
                 <Button
                     x:Name="Button_SpawnOnlineVehicleA"
@@ -139,6 +145,7 @@
                     Foreground="Red"
                     Text="警告：刷出的载具不建议存为个人载具或者进行载具出售，仅可当作临时交通工具使用"
                     TextWrapping="Wrap" />
+
             </StackPanel>
         </DockPanel>
     </Grid>
