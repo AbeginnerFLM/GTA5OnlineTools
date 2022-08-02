@@ -57,6 +57,9 @@ public partial class UC3ToolsView : UserControl
             case "BigBaseV2Directory":
                 BigBaseV2DirectoryClick();
                 break;
+            case "StoryModeArchive":
+                StoryModeArchiveClick();
+                break;
             case "EditKiddionConfig":
                 EditKiddionConfigClick();
                 break;
@@ -324,6 +327,39 @@ public partial class UC3ToolsView : UserControl
         catch (Exception ex)
         {
             MsgBoxUtil.ExceptionMsgBox(ex);
+        }
+    }
+
+    /// <summary>
+    /// 故事模式完美存档
+    /// </summary>
+    private void StoryModeArchiveClick()
+    {
+        var path = Path.Combine(FileUtil.MyDocuments_Path, @"Rockstar Games\GTA V\Profiles");
+        if (!Directory.Exists(path))
+        {
+            MsgBoxUtil.ErrorMsgBox("GTA5故事模式存档路径不存在");
+            return;
+        }
+
+        if (MessageBox.Show("你确定替换GTA5故事模式存档吗？", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+        {
+            try
+            {
+                var dirs = Directory.GetDirectories(path);
+                foreach (var dir in dirs)
+                {
+                    var dirIf = new DirectoryInfo(dir);
+                    string fullName = Path.Combine(dirIf.FullName, "SGTA50000");
+                    FileUtil.ExtractResFile(FileUtil.Resource_Path + "Other.SGTA50000", fullName);
+                }
+
+                MsgBoxUtil.InformationMsgBox($"GTA5故事模式存档替换成功，请前往我的文档查看\n\n{path}");
+            }
+            catch (Exception ex)
+            {
+                MsgBoxUtil.ExceptionMsgBox(ex);
+            }
         }
     }
 

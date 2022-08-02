@@ -1,5 +1,4 @@
-﻿using GTA5OnlineTools.Common.Utils;
-using GTA5OnlineTools.Features.SDK;
+﻿using GTA5OnlineTools.Features.SDK;
 using GTA5OnlineTools.Features.Core;
 
 using Microsoft.Toolkit.Mvvm.ComponentModel;

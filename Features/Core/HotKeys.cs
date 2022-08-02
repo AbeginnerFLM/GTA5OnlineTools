@@ -6,7 +6,7 @@ public class HotKeys
     private Dictionary<int, MyKeys> keys;
 
     // Update thread 更新线程
-    private int interval = 20; // 20 ms
+    private readonly int interval = 20; // 20 ms
 
     // Keys events 按键事件
     public delegate void KeyHandler(int Id, string Name);
@@ -18,10 +18,8 @@ public class HotKeys
     // Init 初始化
     public HotKeys()
     {
-        isRun = true;
-
         keys = new Dictionary<int, MyKeys>();
-        var thread = new Thread(new ParameterizedThreadStart(Update));
+        var thread = new Thread(Update);
         thread.IsBackground = true;
         thread.Start();
     }
@@ -71,8 +69,7 @@ public class HotKeys
     // Is Key Down 键是否按下
     public bool IsKeyDown(int keyId)
     {
-        MyKeys value;
-        if (keys.TryGetValue(keyId, out value))
+        if (keys.TryGetValue(keyId, out MyKeys value))
         {
             return value.IsKeyDown;
         }

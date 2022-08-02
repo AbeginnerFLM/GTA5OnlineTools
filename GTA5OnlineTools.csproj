@@ -42,6 +42,7 @@
     <None Remove="Features\Files\LSCHax.exe" />
     <None Remove="Features\Files\MyMenu.dll" />
     <None Remove="Features\Files\Kiddion\scripts\Readme.api" />
+    <None Remove="Features\Files\Other\SGTA50000" />
     <None Remove="Features\Files\stat.txt" />
     <None Remove="Features\Files\teleports.json" />
     <None Remove="Features\Files\vehicles.json" />
@@ -60,6 +61,7 @@
     <EmbeddedResource Include="Features\Files\Kiddion\Kiddion_Chs.exe" />
     <EmbeddedResource Include="Features\Files\LSCHax.exe" />
     <EmbeddedResource Include="Features\Files\Kiddion\scripts\Readme.api" />
+    <EmbeddedResource Include="Features\Files\Other\SGTA50000" />
     <EmbeddedResource Include="Features\Files\stat.txt" />
     <EmbeddedResource Include="Features\Files\Kiddion\teleports.json" />
     <EmbeddedResource Include="Features\Files\Kiddion\vehicles.json" />

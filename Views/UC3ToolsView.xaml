@@ -101,6 +101,11 @@
                     CommandParameter="BigBaseV2Directory"
                     Content="BigBaseV2配置目录" />
                 <Button
+                    attached:Icon.Value="&#xe64d;"
+                    Command="{Binding ToolsButtonClickCommand}"
+                    CommandParameter="StoryModeArchive"
+                    Content="替换故事模式完美存档" />
+                <Button
                     attached:Icon.Value="&#xe667;"
                     Command="{Binding ToolsButtonClickCommand}"
                     CommandParameter="ReNameAppCN"

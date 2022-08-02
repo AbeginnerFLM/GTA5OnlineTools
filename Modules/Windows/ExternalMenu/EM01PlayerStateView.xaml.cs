@@ -13,6 +13,8 @@ public partial class EM01PlayerStateView : UserControl
     // 快捷键
     private HotKeys MainHotKeys;
 
+    private bool NoCollisionToggle = false;
+
     public EM01PlayerStateView()
     {
         InitializeComponent();
@@ -32,6 +34,7 @@ public partial class EM01PlayerStateView : UserControl
         MainHotKeys.AddKey(WinVK.F6);
         MainHotKeys.AddKey(WinVK.F7);
         MainHotKeys.AddKey(WinVK.F8);
+        MainHotKeys.AddKey(WinVK.RSHIFT);
         MainHotKeys.AddKey(WinVK.DELETE);
         MainHotKeys.KeyDownEvent += new HotKeys.KeyHandler(MyKeyDownEvent);
 
@@ -86,6 +89,20 @@ public partial class EM01PlayerStateView : UserControl
                     if (CheckBox_ClearWanted.IsChecked == true)
                     {
                         Player.WantedLevel(0x00);
+                    }
+                    break;
+                case (int)WinVK.RSHIFT:
+                    if (CheckBox_NoCollision.IsChecked == true)
+                    {
+                        NoCollisionToggle = !NoCollisionToggle;
+
+                        Player.NoCollision(NoCollisionToggle);
+                        Settings.Player.NoCollision = NoCollisionToggle;
+
+                        if (NoCollisionToggle)
+                            Console.Beep(600, 75);
+                        else
+                            Console.Beep(500, 75);
                     }
                     break;
             }
@@ -283,12 +300,6 @@ public partial class EM01PlayerStateView : UserControl
     {
         World.KillPolice();
         Settings.Common.AutoKillPolice = CheckBox_AutoKillPolice.IsChecked == true;
-    }
-
-    private void CheckBox_NoCollision_Click(object sender, RoutedEventArgs e)
-    {
-        Player.NoCollision(CheckBox_NoCollision.IsChecked == true);
-        Settings.Player.NoCollision = CheckBox_NoCollision.IsChecked == true;
     }
 
     private void Button_ToWaypoint_Click(object sender, RoutedEventArgs e)

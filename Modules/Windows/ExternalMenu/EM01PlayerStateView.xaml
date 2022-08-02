@@ -239,11 +239,7 @@
                     x:Name="CheckBox_PoliceIgnore"
                     Click="CheckBox_NPCIgnore_Click"
                     Content="警察无视" />
-                <TextBlock />
-                <CheckBox
-                    x:Name="CheckBox_NoCollision"
-                    Click="CheckBox_NoCollision_Click"
-                    Content="玩家无碰撞体积（穿墙）" />
+
             </StackPanel>
 
         </StackPanel>
@@ -295,6 +291,9 @@
                         ValueChanged="Slider_MovingFoward_ValueChanged"
                         Value="1.5" />
                 </DockPanel>
+                <TextBlock />
+
+                <CheckBox x:Name="CheckBox_NoCollision" Content="[RShift] 玩家无碰撞体积（穿墙）" />
             </StackPanel>
 
             <Label
