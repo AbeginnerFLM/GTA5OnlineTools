@@ -283,7 +283,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void CEOPricePerCrateAtCrates(bool isEnable)
     {
-        // tuneable_processing.c    -1445480509   Global_262145.f_15843         // tuneables_processing.c
+        // Global_262145.f_15843    -1445480509                                 // tuneables_processing.c
         Hacks.WriteGA<int>(262145 + 15843, isEnable ? 20000 : 10000);           // 1        specialCargo1CratesPrice
         Hacks.WriteGA<int>(262145 + 15843 + 1, isEnable ? 20000 : 11000);       // 2        specialCargo2CratesPrice
         Hacks.WriteGA<int>(262145 + 15843 + 2, isEnable ? 20000 : 12000);       // 3        specialCargo3CratesPrice                                                

@@ -92,16 +92,21 @@ public partial class DrawWindow : Window
 
             this.Dispatcher.Invoke(() =>
             {
+                var width = Window_Draw.ActualWidth * ScreenHelper.GetScalingRatio();
+
                 if (DrawData.IsDrawCenter)
                 {
-                    this.Left = windowData.Left + windowData.Width / 2 - 100 * Screen.ScaleX;
-                    this.Top = windowData.Top + windowData.Height - 200 * Screen.ScaleY;
+                    this.Left = windowData.Left + windowData.Width / 2 - width / 2;
+                    this.Top = windowData.Top + windowData.Height - width;
                 }
                 else
                 {
-                    this.Left = windowData.Left + windowData.Width - 210 * Screen.ScaleX;
-                    this.Top = windowData.Top + windowData.Height - 200 * Screen.ScaleY;
+                    this.Left = windowData.Left + windowData.Width - width * 1.05;
+                    this.Top = windowData.Top + windowData.Height - width;
                 }
+
+                this.Left /= ScreenHelper.GetScalingRatio();
+                this.Top /= ScreenHelper.GetScalingRatio();
 
                 if (IsPlayerInCar() && Memory.IsForegroundWindow())
                 {

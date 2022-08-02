@@ -18,7 +18,6 @@ global using System.Windows.Threading;
 global using System.Windows.Navigation;
 global using System.Windows.Media.Imaging;
 global using System.Collections.Generic;
-global using System.Runtime.InteropServices;
 global using System.Net;
 global using System.Net.Http;
 global using System.Text.Json;
@@ -27,5 +26,7 @@ global using System.Text.Unicode;
 global using System.Text.Encodings.Web;
 global using System.Windows.Shell;
 global using System.Globalization;
+global using System.Runtime.Versioning;
+global using System.Runtime.InteropServices;
 
 global using Microsoft.Win32;

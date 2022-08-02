@@ -27,6 +27,15 @@ public partial class SpeedMeterWindow : Window
 
             Globals.UnkPTR = Memory.FindPattern(Offsets.Mask.UnkMask);
             Globals.UnkPTR = Memory.Rip_37(Globals.UnkPTR);
+
+            var windowData = Memory.GetGameWindowData();
+
+            this.Dispatcher.Invoke(() =>
+            {
+                TextBlock_ScreenResolution.Text = $"屏幕分辨率 {SystemParameters.PrimaryScreenWidth} x {SystemParameters.PrimaryScreenHeight}";
+                TextBlock_GameResolution.Text = $"游戏分辨率 {windowData.Width} x {windowData.Height}";
+                TextBlock_ScreenScale.Text = $"缩放比例 {ScreenHelper.GetScalingRatio()}";
+            });
         });
     }
 

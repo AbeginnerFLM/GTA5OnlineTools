@@ -52,20 +52,7 @@
                         Content="KPH（公里每小时）" />
                 </WrapPanel>
             </GroupBox>
-        </StackPanel>
-        <DockPanel LastChildFill="True">
-            <StackPanel Margin="5" DockPanel.Dock="Bottom">
-                <Button
-                    x:Name="Button_RunDraw"
-                    Click="Button_RunDraw_Click"
-                    Content="启动"
-                    Style="{StaticResource ButtonStyle_Normal}" />
-                <Button
-                    x:Name="Button_StopDraw"
-                    Click="Button_StopDraw_Click"
-                    Content="停止"
-                    Style="{StaticResource ButtonStyle_Normal}" />
-            </StackPanel>
+
             <StackPanel DockPanel.Dock="Top">
                 <TextBlock
                     Margin="5"
@@ -83,6 +70,41 @@
                     Text="提示：只有坐上载具和GTA5窗口在最前面才会显示车速表，防止遮挡视线"
                     TextWrapping="Wrap" />
             </StackPanel>
+
+        </StackPanel>
+        <DockPanel LastChildFill="True">
+            <StackPanel Margin="5" DockPanel.Dock="Bottom">
+                <Button
+                    x:Name="Button_RunDraw"
+                    Click="Button_RunDraw_Click"
+                    Content="启动"
+                    Style="{StaticResource ButtonStyle_Normal}" />
+                <Button
+                    x:Name="Button_StopDraw"
+                    Click="Button_StopDraw_Click"
+                    Content="停止"
+                    Style="{StaticResource ButtonStyle_Normal}" />
+            </StackPanel>
+            <GroupBox
+                Margin="5"
+                DockPanel.Dock="Top"
+                Header="调试信息"
+                Style="{StaticResource GroupBoxWebStyle}">
+                <StackPanel>
+                    <TextBlock
+                        x:Name="TextBlock_ScreenResolution"
+                        Margin="5"
+                        Text="屏幕分辨率" />
+                    <TextBlock
+                        x:Name="TextBlock_GameResolution"
+                        Margin="5"
+                        Text="游戏分辨率" />
+                    <TextBlock
+                        x:Name="TextBlock_ScreenScale"
+                        Margin="5"
+                        Text="缩放比例" />
+                </StackPanel>
+            </GroupBox>
         </DockPanel>
     </UniformGrid>
 
