@@ -30,7 +30,6 @@ public partial class EM04PlayerListView : UserControl
         TextBox_PlayerInfo.Clear();
 
         int index = ListBox_PlayerList.SelectedIndex;
-
         if (index != -1)
         {
             TextBox_PlayerInfo.AppendText($"战局房主 : {playerData[index].PlayerInfo.Host}\r\n\r\n");

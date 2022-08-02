@@ -244,8 +244,6 @@ public partial class UC1HacksView : UserControl
         {
             BaseInjector.SetForegroundWindow(InjectInfo.MWindowHandle);
             BaseInjector.DLLInjector(InjectInfo.PID, InjectInfo.DLLPath);
-
-            Console.Beep(600, 75);
         }
         catch (Exception ex)
         {

@@ -381,4 +381,12 @@ public partial class EM01PlayerStateView : UserControl
     {
         Player.ProofWater(CheckBox_ProofWater.IsChecked == true);
     }
+
+    private void CheckBox_NoCollision_Click(object sender, RoutedEventArgs e)
+    {
+        NoCollisionToggle = false;
+
+        Player.NoCollision(NoCollisionToggle);
+        Settings.Player.NoCollision = NoCollisionToggle;
+    }
 }
