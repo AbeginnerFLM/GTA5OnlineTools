@@ -4,6 +4,8 @@ using GTA5OnlineTools.Features.Core;
 using GTA5OnlineTools.Features.Data;
 using static GTA5OnlineTools.Features.SDK.Hacks;
 
+using GTA5OnlineTools.Modules.Windows.SpeedMeter;
+
 namespace GTA5OnlineTools.Modules.Windows.ExternalMenu;
 
 /// <summary>
@@ -14,9 +16,23 @@ public partial class EM05SpawnVehicleView : UserControl
     private long SpawnVehicleHash = 0;
     private int[] SpawnVehicleMod;
 
+    private DrawWindow DrawWindow = null;
+
     public EM05SpawnVehicleView()
     {
         InitializeComponent();
+
+        Task.Run(() =>
+        {
+            var windowData = Memory.GetGameWindowData();
+
+            this.Dispatcher.Invoke(() =>
+            {
+                TextBlock_ScreenResolution.Text = $"屏幕分辨率 {SystemParameters.PrimaryScreenWidth} x {SystemParameters.PrimaryScreenHeight}";
+                TextBlock_GameResolution.Text = $"游戏分辨率 {windowData.Width} x {windowData.Height}";
+                TextBlock_ScreenScale.Text = $"缩放比例 {ScreenHelper.GetScalingRatio()}";
+            });
+        });
 
         // 载具列表
         for (int i = 0; i < VehicleData.VehicleClassData.Count; i++)
@@ -30,7 +46,11 @@ public partial class EM05SpawnVehicleView : UserControl
 
     private void ExternalMenuView_ClosingDisposeEvent()
     {
-
+        if (DrawWindow != null)
+        {
+            DrawWindow.Close();
+            DrawWindow = null;
+        }
     }
 
     private void ListBox_VehicleClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -170,5 +190,54 @@ public partial class EM05SpawnVehicleView : UserControl
         WriteGA<int>(262145 + 33044, 1);        // BF Weevil Ratrod                 - 33044
         WriteGA<int>(262145 + 33045, 1);        // Obey 10F Widebody                - 33045
         WriteGA<int>(262145 + 33046, 1);        // Ubermacht Sentinel Widebody      - 33046
+    }
+
+
+    private void Button_RunDraw_Click(object sender, RoutedEventArgs e)
+    {
+        AudioUtil.ClickSound();
+
+        Memory.SetForegroundWindow();
+
+        if (DrawWindow == null)
+        {
+            DrawWindow = new DrawWindow();
+            DrawWindow.Show();
+        }
+    }
+
+    private void Button_StopDraw_Click(object sender, RoutedEventArgs e)
+    {
+        AudioUtil.ClickSound();
+
+        if (DrawWindow != null)
+        {
+            DrawWindow.Close();
+            DrawWindow = null;
+        }
+    }
+
+    private void RadioButton_SpeedMeterPos_Center_Click(object sender, RoutedEventArgs e)
+    {
+        if (RadioButton_SpeedMeterPos_Center.IsChecked == true)
+        {
+            DrawData.IsDrawCenter = true;
+        }
+        else
+        {
+            DrawData.IsDrawCenter = false;
+        }
+    }
+
+    private void RadioButton_SpeedMeterUnit_MPH_Click(object sender, RoutedEventArgs e)
+    {
+        if (RadioButton_SpeedMeterUnit_MPH.IsChecked == true)
+        {
+            DrawData.IsShowMPH = true;
+        }
+        else
+        {
+            DrawData.IsShowMPH = false;
+        }
     }
 }

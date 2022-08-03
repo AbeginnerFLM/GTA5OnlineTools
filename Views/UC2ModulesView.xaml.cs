@@ -13,12 +13,11 @@ namespace GTA5OnlineTools.Views;
 public partial class UC2ModulesView : UserControl
 {
     private ExternalMenuWindow ExternalMenuWindow = null;
-    private SpeedMeterWindow SpeedMeterWindow = null;
 
     private GTAHaxWindow GTAHaxWindow = null;
     private OutfitsWindow OutfitsWindow = null;
     private HeistCutWindow HeistCutWindow = null;
-    private StatAutoScriptsWindow StatAutoScriptsWindow = null;
+    private StatScriptsWindow StatAutoScriptsWindow = null;
     private HeistPrepsWindow HeistPrepsWindow = null;
     private CasinoHackWindow CasinoHackWindow = null;
     private BigBaseV2Window BigBaseV2Window = null;
@@ -45,9 +44,6 @@ public partial class UC2ModulesView : UserControl
             {
                 case "ExternalMenu":
                     ExternalMenuClick();
-                    break;
-                case "SpeedMeter":
-                    SpeedMeterClick();
                     break;
                 case "GTAHax":
                     GTAHaxClick();
@@ -106,34 +102,6 @@ public partial class UC2ModulesView : UserControl
         }
     }
 
-    private void SpeedMeterClick()
-    {
-        if (SpeedMeterWindow == null)
-        {
-            SpeedMeterWindow = new SpeedMeterWindow();
-            SpeedMeterWindow.Show();
-        }
-        else
-        {
-            if (SpeedMeterWindow.IsVisible)
-            {
-                if (!SpeedMeterWindow.Topmost)
-                {
-                    SpeedMeterWindow.Topmost = true;
-                    SpeedMeterWindow.Topmost = false;
-                }
-
-                SpeedMeterWindow.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                SpeedMeterWindow = null;
-                SpeedMeterWindow = new SpeedMeterWindow();
-                SpeedMeterWindow.Show();
-            }
-        }
-    }
-
     private void HeistPrepsClick()
     {
         if (HeistPrepsWindow == null)
@@ -162,7 +130,7 @@ public partial class UC2ModulesView : UserControl
     {
         if (StatAutoScriptsWindow == null)
         {
-            StatAutoScriptsWindow = new StatAutoScriptsWindow();
+            StatAutoScriptsWindow = new StatScriptsWindow();
             StatAutoScriptsWindow.Show();
         }
         else
@@ -176,7 +144,7 @@ public partial class UC2ModulesView : UserControl
             else
             {
                 StatAutoScriptsWindow = null;
-                StatAutoScriptsWindow = new StatAutoScriptsWindow();
+                StatAutoScriptsWindow = new StatScriptsWindow();
                 StatAutoScriptsWindow.Show();
             }
         }

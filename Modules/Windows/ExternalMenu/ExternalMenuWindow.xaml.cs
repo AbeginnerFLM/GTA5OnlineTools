@@ -117,6 +117,9 @@ public partial class ExternalMenuWindow : Window
 
             Globals.CCameraPTR = Memory.FindPattern(Offsets.Mask.CCameraMask);
             Globals.CCameraPTR = Memory.Rip_37(Globals.CCameraPTR);
+
+            Globals.UnkPTR = Memory.FindPattern(Offsets.Mask.UnkMask);
+            Globals.UnkPTR = Memory.Rip_37(Globals.UnkPTR);
         });
 
         var thread = new Thread(InitThread)

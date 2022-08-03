@@ -39,7 +39,7 @@
                 Grid.Column="0"
                 Margin="0"
                 SelectionChanged="ListBox_TeleportClass_SelectionChanged"
-                Style="{StaticResource ListBoxStyle}" />
+                Style="{StaticResource ListBoxStyle_Normal}" />
 
             <ListBox
                 x:Name="ListBox_TeleportInfo"
@@ -47,7 +47,7 @@
                 Margin="5,0,5,0"
                 MouseDoubleClick="ListBox_TeleportInfo_MouseDoubleClick"
                 SelectionChanged="ListBox_TeleportInfo_SelectionChanged"
-                Style="{StaticResource ListBoxStyle}"
+                Style="{StaticResource ListBoxStyle_Normal}"
                 ToolTip="双击选中项即可快捷传送" />
 
             <StackPanel Grid.Column="2">

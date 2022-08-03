@@ -153,7 +153,7 @@
                 x:Name="ListBox_PersonalVehicle"
                 Margin="5"
                 DockPanel.Dock="Bottom"
-                Style="{StaticResource ListBoxStyle}" />
+                Style="{StaticResource ListBoxStyle_Normal}" />
         </DockPanel>
     </UniformGrid>
 

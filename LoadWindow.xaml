@@ -72,10 +72,33 @@
                     VerticalAlignment="Center"
                     FontSize="50"
                     Text="🚀" />
-                <TextBlock
-                    Margin="5"
-                    FontSize="14"
-                    Text="正在初始化程序，请稍后..." />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="5"
+                        FontSize="14"
+                        Text="正在初始化程序，请稍后" />
+                    <TextBlock Margin="0,5,5,5" FontSize="14">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Text" Value="...." />
+                                <Style.Triggers>
+                                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetProperty="Text">
+                                                <ObjectAnimationUsingKeyFrames RepeatBehavior="Forever" Duration="00:00:1">
+                                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="" />
+                                                    <DiscreteObjectKeyFrame KeyTime="00:00:0.25" Value="." />
+                                                    <DiscreteObjectKeyFrame KeyTime="00:00:0.5" Value=".." />
+                                                    <DiscreteObjectKeyFrame KeyTime="00:00:0.75" Value="..." />
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
 
             </StackPanel>
 

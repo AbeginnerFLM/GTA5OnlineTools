@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:GTA5OnlineTools.Modules.Windows.ExternalMenu"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="600"
     d:DesignWidth="900"
@@ -16,6 +15,7 @@
     </UserControl.Resources>
 
     <UniformGrid Columns="3">
+        <!--  面板1  -->
         <GroupBox
             Margin="5"
             Header="ESP选项"
@@ -96,7 +96,7 @@
                     TextWrapping="Wrap" />
             </StackPanel>
         </GroupBox>
-
+        <!--  面板2  -->
         <StackPanel>
             <GroupBox
                 Margin="5"
@@ -261,7 +261,7 @@
                 Text="提示：外部绘图会有性能损失，有时候绘制帧数低也是正常现象"
                 TextWrapping="Wrap" />
         </StackPanel>
-
+        <!--  面板3  -->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />

@@ -86,7 +86,7 @@
             Margin="5,0,5,5"
             DockPanel.Dock="Bottom"
             SelectionChanged="ListBox_Process_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}">
+            Style="{StaticResource ListBoxStyle_Normal}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

@@ -21,14 +21,6 @@
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button
-                attached:Icon.Value="&#xe882;"
-                attached:Text.Value="Speed Meter"
-                Command="{Binding ModelsClickCommand}"
-                CommandParameter="SpeedMeter"
-                Content="车速表"
-                Style="{StaticResource ButtonStyle_FunctionSelf}" />
-
-            <Button
                 attached:Icon.Value="&#xe666;"
                 attached:Text.Value="GTAHax Code Edit"
                 Command="{Binding ModelsClickCommand}"

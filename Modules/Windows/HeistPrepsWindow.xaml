@@ -82,7 +82,7 @@
                                     x:Name="Button_H3OPT_BITSET1"
                                     Click="Button_H3OPT_BITSET1_Click"
                                     Content="重置面板一"
-                                    Foreground="#F56C6C" />
+                                    Foreground="#FCAF17" />
                                 <GroupBox
                                     Margin="5"
                                     Header="前置任务"
@@ -96,7 +96,7 @@
                                             x:Name="Button_H3OPT_ACCESSPOINTS_0"
                                             Click="Button_H3OPT_ACCESSPOINTS_0_Click"
                                             Content="取消解锁所有侦察点"
-                                            Foreground="#F56C6C" />
+                                            Foreground="#FCAF17" />
                                         <Button
                                             x:Name="Button_H3OPT_H3OPT_POI"
                                             Click="Button_H3OPT_H3OPT_POI_Click"
@@ -105,7 +105,7 @@
                                             x:Name="Button_H3OPT_H3OPT_POI_0"
                                             Click="Button_H3OPT_H3OPT_POI_0_Click"
                                             Content="取消解锁所有兴趣点"
-                                            Foreground="#F56C6C" />
+                                            Foreground="#FCAF17" />
                                     </WrapPanel>
                                 </GroupBox>
                                 <GroupBox
@@ -162,7 +162,7 @@
                                     x:Name="Button_H3OPT_BITSET0"
                                     Click="Button_H3OPT_BITSET0_Click"
                                     Content="重置面板二"
-                                    Foreground="#F56C6C" />
+                                    Foreground="#FCAF17" />
                                 <GroupBox
                                     Margin="5"
                                     Header="前置任务"

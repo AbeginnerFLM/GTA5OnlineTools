@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Name="Window_GTAHax"
     Title="GTAHax代码导入编辑器"
@@ -64,68 +65,11 @@
                     <Style BasedOn="{StaticResource TabItemStyle_Main}" TargetType="{x:Type TabItem}" />
                 </TabControl.Resources>
                 <TabItem Header="预设代码">
-                    <Grid Margin="3,6,3,3">
-                        <Border Style="{StaticResource BorderStyle_DropShadowEffect}" />
-                        <ListBox
-                            x:Name="ListBox_GTAHaxCode_FuncList"
-                            BorderBrush="Gray"
-                            BorderThickness="0"
-                            SelectionChanged="ListBox_GTAHaxCode_FuncList_SelectionChanged"
-                            Style="{StaticResource ListBoxStyle}">
-
-                            <ListBoxItem Content="角色-属性全满" />
-                            <ListBoxItem Content="角色-隐藏属性全满" />
-                            <ListBoxItem Content="角色-性别更改（去重新捏脸）" />
-                            <ListBoxItem Content="角色-等级修改为1级" />
-                            <ListBoxItem Content="角色-等级修改为30级" />
-                            <ListBoxItem Content="角色-等级修改为90级" />
-                            <ListBoxItem Content="角色-等级修改为120级" />
-                            <ListBoxItem Content="角色-零食全满" />
-                            <ListBoxItem Content="角色-护甲全满" />
-                            <ListBoxItem Content="解锁-限定载具节日涂装" />
-                            <ListBoxItem Content="解锁-全部游艇任务" />
-                            <ListBoxItem Content="解锁-外星人纹身" />
-                            <ListBoxItem Content="解锁-载具金属质感喷漆与铬合金轮毂" />
-                            <ListBoxItem Content="解锁-全部联系人" />
-                            <ListBoxItem Content="竞技场-25级解锁出租车" />
-                            <ListBoxItem Content="竞技场-50级解锁推土机" />
-                            <ListBoxItem Content="竞技场-75级解锁小丑花车" />
-                            <ListBoxItem Content="竞技场-100级解锁垃圾大王" />
-                            <ListBoxItem Content="竞技场-200级解锁地霸王拖车" />
-                            <ListBoxItem Content="竞技场-300级解锁混凝土搅拌车" />
-                            <ListBoxItem Content="竞技场-500级解锁星际码头" />
-                            <ListBoxItem Content="竞技场-1000级解锁老式拖拉机" />
-                            <ListBoxItem Content="竞技场-解锁冲冲猴旅行家购买权限" />
-                            <ListBoxItem Content="游戏厅-解锁隐藏骇客（50个干扰器）" />
-                            <ListBoxItem Content="游戏厅-解锁所有的探查点" />
-                            <ListBoxItem Content="游戏厅-解锁所有的兴趣点" />
-                            <ListBoxItem Content="公寓抢劫-跳过准备任务（看动画过程中输入）" />
-                            <ListBoxItem Content="末日抢劫-解锁/重玩全部流程（切换战局，打给莱斯特取消末日浩劫任务3次）" />
-                            <ListBoxItem Content="末日抢劫-跳过前置及准备任务（M键-设施管理-关闭/开启策划大屏）" />
-                            <ListBoxItem Content="末日抢劫-跳过前置-1数据泄露（M键-设施管理-关闭/开启策划大屏）" />
-                            <ListBoxItem Content="末日抢劫-跳过前置-2波格丹危机（M键-设施管理-关闭/开启策划大屏）" />
-                            <ListBoxItem Content="末日抢劫-跳过前置-3末日将至（M键-设施管理-关闭/开启策划大屏）" />
-                            <ListBoxItem Content="末日抢劫-1重置末日一冷却时间" />
-                            <ListBoxItem Content="末日抢劫-2重置末日二冷却时间" />
-                            <ListBoxItem Content="末日抢劫-3重置末日三冷却时间" />
-                            <ListBoxItem Content="末日抢劫-载具批发价格解锁" />
-                            <ListBoxItem Content="赌场抢劫-重置抢劫冷却时间" />
-                            <ListBoxItem Content="赌场抢劫-枪手车手枪手工具人0分红（拿完东西出金库门后写入）" />
-                            <ListBoxItem Content="赌场抢劫-解决侦察拍照发不了莱斯特" />
-                            <ListBoxItem Content="赌场抢劫-重置第一第二块面板" />
-                            <ListBoxItem Content="佩里科岛抢劫-重置海岛面板" />
-                            <ListBoxItem Content="佩里科岛抢劫-重置次要目标" />
-                            <ListBoxItem Content="佩里科岛抢劫-玩家x1/100%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x2）" />
-                            <ListBoxItem Content="佩里科岛抢劫-玩家x2/50%50%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x4）" />
-                            <ListBoxItem Content="佩里科岛抢劫-玩家x3/35%35%30%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x6）" />
-                            <ListBoxItem Content="佩里科岛抢劫-玩家x4/人均25%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x7）" />
-                            <ListBoxItem Content="杂项-天基炮无冷却" />
-                            <ListBoxItem Content="杂项-跳过过场动画（地堡、摩托帮、办公室等）" />
-                            <ListBoxItem Content="杂项-取消抢劫并重新开始" />
-
-                            <!--<ListBoxItem Content=""/>-->
-                        </ListBox>
-                    </Grid>
+                    <ListBox
+                        x:Name="ListBox_GTAHaxCode_ClassList"
+                        Margin="3,6,3,3"
+                        SelectionChanged="ListBox_GTAHaxCode_ClassList_SelectionChanged"
+                        Style="{StaticResource ListBoxStyle_Normal}" />
                 </TabItem>
 
                 <TabItem Header="名钻假日">
@@ -134,17 +78,15 @@
                             <GroupBox Style="{StaticResource GroupBoxWebStyle}">
                                 <GroupBox.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock
+                                        <emoji:TextBlock
                                             Margin="0,0,5,0"
                                             VerticalAlignment="Center"
                                             FontSize="18"
                                             FontWeight="Bold"
                                             Foreground="White"
-                                            Style="{StaticResource TextBlockStyle_IconFontBase}"
-                                            Text="&#xe753;" />
+                                            Text="🍎" />
                                         <RadioButton
                                             x:Name="RadioButton_H3_P1"
-                                            Margin="5"
                                             VerticalAlignment="Center"
                                             VerticalContentAlignment="Center"
                                             Click="RadioButton_H3_P1_Click"
@@ -172,7 +114,7 @@
                                                 x:Name="ListBox_H3OPT_APPROACH"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择抢劫方式" Foreground="#FF6666" />
                                                 <ListBoxItem Content="隐迹潜踪" />
                                                 <ListBoxItem Content="兵不厌诈" />
@@ -187,7 +129,7 @@
                                                 x:Name="ListBoxItem_H3OPT_TARGET"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择抢劫物品" Foreground="#FF6666" />
                                                 <ListBoxItem Content="现金" />
                                                 <ListBoxItem Content="黄金" />
@@ -250,17 +192,15 @@
                             <GroupBox Style="{StaticResource GroupBoxWebStyle}">
                                 <GroupBox.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock
+                                        <emoji:TextBlock
                                             Margin="0,0,5,0"
                                             VerticalAlignment="Center"
                                             FontSize="18"
                                             FontWeight="Bold"
                                             Foreground="White"
-                                            Style="{StaticResource TextBlockStyle_IconFontBase}"
-                                            Text="&#xe753;" />
+                                            Text="🍊" />
                                         <RadioButton
                                             x:Name="RadioButton_H3_P2"
-                                            Margin="5"
                                             VerticalAlignment="Center"
                                             VerticalContentAlignment="Center"
                                             Click="RadioButton_H3_P2_Click"
@@ -286,7 +226,7 @@
                                                 x:Name="ListBoxItem_H3OPT_VEH"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择逃亡载具" Foreground="#FF6666" />
                                                 <ListBoxItem Content="载具类型一" />
                                                 <ListBoxItem Content="载具类型二" />
@@ -302,7 +242,7 @@
                                                 x:Name="ListBoxItem_H3OPT_WEAPS"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择武器类型" Foreground="#FF6666" />
                                                 <ListBoxItem Content="武器类型一" />
                                                 <ListBoxItem Content="武器类型二" />
@@ -327,7 +267,7 @@
                                                 x:Name="ListBoxItem_H3OPT_CREWWEAP"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择枪手" Foreground="#FF6666" />
                                                 <ListBoxItem Content="卡尔·阿不拉季（5％分红）" />
                                                 <ListBoxItem Content="古斯塔沃·莫塔（9％分红）" />
@@ -345,7 +285,7 @@
                                                 x:Name="ListBoxItem_H3OPT_CREWDRIVER"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择车手" Foreground="#FF6666" />
                                                 <ListBoxItem Content="卡里姆·登茨（5％分红）" />
                                                 <ListBoxItem Content="塔丽娜·马丁内斯（7％分红）" />
@@ -363,7 +303,7 @@
                                                 x:Name="ListBoxItem_H3OPT_CREWHACKER"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="不选择黑客" Foreground="#FF6666" />
                                                 <ListBoxItem Content="里奇·卢肯斯（3％分红）" />
                                                 <ListBoxItem Content="克里斯汀·费尔兹（7％分红）" />
@@ -395,17 +335,15 @@
                             <GroupBox Style="{StaticResource GroupBoxWebStyle}">
                                 <GroupBox.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock
+                                        <emoji:TextBlock
                                             Margin="0,0,5,0"
                                             VerticalAlignment="Center"
                                             FontSize="18"
                                             FontWeight="Bold"
                                             Foreground="White"
-                                            Style="{StaticResource TextBlockStyle_IconFontBase}"
-                                            Text="&#xe753;" />
+                                            Text="🍎" />
                                         <RadioButton
                                             x:Name="RadioButton_H4CNF_P1"
-                                            Margin="5"
                                             VerticalAlignment="Center"
                                             VerticalContentAlignment="Center"
                                             Click="CheckBox_H4CNF_P1_Click"
@@ -444,7 +382,7 @@
                                                 x:Name="ListBoxItem_H4_PROGRESS"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                 <ListBoxItem Content="普通模式" />
                                                 <ListBoxItem Content="困难模式" />
@@ -474,7 +412,7 @@
                                                 x:Name="ListBoxItem_H4CNF_TARGET"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                 <ListBoxItem Content="西西米托龙舌兰" />
                                                 <ListBoxItem Content="红宝石项链" />
@@ -513,7 +451,7 @@
                                                     x:Name="ListBoxItem_H4LOOT"
                                                     Margin="5"
                                                     SelectedIndex="0"
-                                                    Style="{StaticResource ListBoxStyle}">
+                                                    Style="{StaticResource ListBoxStyle_Normal}">
                                                     <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                     <ListBoxItem Content="已发现/侦察 现金（室内/室外）" />
                                                     <ListBoxItem Content="已发现/侦察 大麻（室内/室外）" />
@@ -524,7 +462,7 @@
                                                     x:Name="ListBoxItem_H4LOOT_PAINT"
                                                     Margin="5"
                                                     SelectedIndex="0"
-                                                    Style="{StaticResource ListBoxStyle}">
+                                                    Style="{StaticResource ListBoxStyle_Normal}">
                                                     <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                     <ListBoxItem Content="已发现/侦察 画作（室内/室外）" />
                                                 </ListBox>
@@ -539,7 +477,7 @@
                                                 x:Name="ListBoxItem_H4_MISSIONS"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                 <ListBoxItem Content="潜水艇：虎鲸" />
                                                 <ListBoxItem Content="飞机：阿尔科诺斯特" />
@@ -559,7 +497,7 @@
                                                 x:Name="ListBoxItem_H4CNF_WEAPONS"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                 <ListBoxItem Content="侵略者（连发散弹，连发手枪，手雷，砍刀）" />
                                                 <ListBoxItem Content="阴谋者（军用步枪，单发手枪，粘弹，指虎）" />
@@ -623,7 +561,7 @@
                                                 x:Name="ListBoxItem_H4CNF_TROJAN"
                                                 Margin="5"
                                                 SelectedIndex="0"
-                                                Style="{StaticResource ListBoxStyle}">
+                                                Style="{StaticResource ListBoxStyle_Normal}">
                                                 <ListBoxItem Content="未选择" Foreground="#FF6666" />
                                                 <ListBoxItem Content="机场" />
                                                 <ListBoxItem Content="北船坞" />
@@ -647,17 +585,15 @@
                                 <GroupBox.Header>
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock
+                                            <emoji:TextBlock
                                                 Margin="0,0,5,0"
                                                 VerticalAlignment="Center"
                                                 FontSize="18"
                                                 FontWeight="Bold"
                                                 Foreground="White"
-                                                Style="{StaticResource TextBlockStyle_IconFontBase}"
-                                                Text="&#xe753;" />
+                                                Text="🍊" />
                                             <RadioButton
                                                 x:Name="RadioButton_H4CNF_P2"
-                                                Margin="5"
                                                 VerticalAlignment="Center"
                                                 VerticalContentAlignment="Center"
                                                 Click="CheckBox_H4CNF_P2_Click"
@@ -685,21 +621,17 @@
                                             Content="解除困难模式冷却时间" />
 
                                         <TextBlock Margin="5,0,5,0" />
-                                        <TextBlock Margin="5" VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            ToolTip="如果你是第一次玩这个任务，建议手动做几个前置后再跳过，否则可能出现未知的问题 ">
                                             <Hyperlink>必看提示1</Hyperlink>
-                                            <TextBlock.ToolTip>
-                                                <TextBlock>
-                                                    如果你是第一次玩这个任务，建议手动做几个前置后再跳过，否则可能出现未知的问题
-                                                </TextBlock>
-                                            </TextBlock.ToolTip>
                                         </TextBlock>
-                                        <TextBlock Margin="5" VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            ToolTip="每人所获取金额不得超过255W（包括精英10w），否则任务结束不会到账 ">
                                             <Hyperlink>必看提示2</Hyperlink>
-                                            <TextBlock.ToolTip>
-                                                <TextBlock>
-                                                    每人所获取金额不得超过255W（包括精英10w），否则任务结束不会到账
-                                                </TextBlock>
-                                            </TextBlock.ToolTip>
                                         </TextBlock>
                                         <TextBlock Margin="5,0,5,0" />
                                         <TextBlock Margin="5" VerticalAlignment="Center">
@@ -721,15 +653,13 @@
                                             </TextBlock.ToolTip>
                                         </TextBlock>
                                         <TextBlock Margin="5,0,5,0" />
-                                        <TextBlock Margin="5" VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            ToolTip="网站基于GitHub，如果你无法访问GitHub请尝试使用Steam++加速">
                                             <Hyperlink NavigateUri="https://beholdmystuff.github.io/perico-stattext-maker/" RequestNavigate="Hyperlink_RequestNavigate">
                                                 代码自定义（原版）
                                             </Hyperlink>
-                                            <TextBlock.ToolTip>
-                                                <TextBlock>
-                                                    网站基于GitHub，如果你无法访问GitHub请自行百度解决办法
-                                                </TextBlock>
-                                            </TextBlock.ToolTip>
                                         </TextBlock>
                                     </StackPanel>
                                 </ScrollViewer>
@@ -741,54 +671,16 @@
         </Grid>
 
         <DockPanel Grid.Row="1" LastChildFill="True">
-            <TextBlock
-                Margin="5"
-                VerticalAlignment="Center"
-                Foreground="Red"
-                TextWrapping="Wrap">
-                提示：由于游戏版本问题，上述stat代码部分可能已经失效，请酌情使用
-            </TextBlock>
             <StackPanel
+                Margin="0,0,5,5"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="5,0,5,5" />
-                        <Setter Property="Padding" Value="20,10,20,10" />
-                    </Style>
-                </StackPanel.Resources>
-
                 <TextBlock Margin="5" VerticalAlignment="Center">
                     <Hyperlink NavigateUri="https://crazyzhang.cn" RequestNavigate="Hyperlink_RequestNavigate">
                         查看帮助
                     </Hyperlink>
                 </TextBlock>
-                <GroupBox
-                    Margin="5,0,5,5"
-                    Header="角色选择"
-                    Style="{StaticResource GroupBoxRightAngleStyle}">
-                    <WrapPanel Orientation="Horizontal">
-                        <RadioButton
-                            x:Name="RadioButton_MPx"
-                            Margin="5"
-                            Content="自动"
-                            IsChecked="True" />
-                        <RadioButton
-                            x:Name="RadioButton_MP0"
-                            Margin="5"
-                            Content="角色1" />
-                        <RadioButton
-                            x:Name="RadioButton_MP1"
-                            Margin="5"
-                            Content="角色2" />
-                    </WrapPanel>
-                </GroupBox>
-                <Button
-                    x:Name="Button_ToMPx_TextBox"
-                    Click="Button_ToMPx_TextBox_Click"
-                    Content="替换角色为自动"
-                    Style="{StaticResource ButtonStyle_Web}" />
                 <Button
                     x:Name="Button_Read_Stat"
                     Click="Button_Read_Stat_Click"

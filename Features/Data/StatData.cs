@@ -451,8 +451,9 @@ public static class StatData
     };
     #endregion
 
-    //////////////////////////////////////////////////////////////
-
+    /// <summary>
+    /// Stat数据分类列表
+    /// </summary>
     public static List<StatClass> StatDataClass = new()
     {
         new StatClass(){ ClassName="玩家-护甲全满", StatInfo=_MP_CHAR_ARMOUR },

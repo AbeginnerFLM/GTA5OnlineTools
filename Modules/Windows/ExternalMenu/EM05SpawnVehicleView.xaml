@@ -22,6 +22,7 @@
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  面板1  -->
         <ListBox
@@ -29,14 +30,14 @@
             Grid.Column="0"
             Margin="5,5,2.5,5"
             SelectionChanged="ListBox_VehicleClass_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}" />
+            Style="{StaticResource ListBoxStyle_Normal}" />
         <!--  面板2  -->
         <ListBox
             x:Name="ListBox_VehicleInfo"
             Grid.Column="1"
             Margin="2.5,5,0,5"
             SelectionChanged="ListBox_VehicleInfo_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}" />
+            Style="{StaticResource ListBoxStyle_Normal}" />
         <!--  面板3  -->
         <DockPanel Grid.Column="2">
             <StackPanel DockPanel.Dock="Top">
@@ -44,7 +45,7 @@
                     attached:Icon.Value="☕"
                     Content="一般选项"
                     Style="{StaticResource LabelStyle_Title}" />
-                <StackPanel Margin="3,0,3,0">
+                <WrapPanel Margin="3,0,3,0">
                     <CheckBox
                         x:Name="CheckBox_VehicleGodMode"
                         Click="CheckBox_VehicleGodMode_Click"
@@ -61,7 +62,7 @@
                         x:Name="CheckBox_VehicleInvisibility"
                         Click="CheckBox_VehicleInvisibility_Click"
                         Content="载具隐身（虚假）" />
-                </StackPanel>
+                </WrapPanel>
                 <WrapPanel Margin="3,0,3,0">
                     <Button
                         x:Name="Button_FillVehicleHealth"
@@ -116,16 +117,15 @@
                         x:Name="Button_GetInOnlinePV"
                         Click="Button_GetInOnlinePV_Click"
                         Content="坐进个人载具" />
+                    <Button
+                        x:Name="Button_UnlockVehicle161"
+                        Click="Button_UnlockVehicle161_Click"
+                        Content="解锁1.61未发布载具" />
                 </WrapPanel>
+
             </StackPanel>
 
             <StackPanel Margin="5" DockPanel.Dock="Top">
-                <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="特殊" />
-                <Button
-                    x:Name="Button_UnlockVehicle161"
-                    Click="Button_UnlockVehicle161_Click"
-                    Content="提前解锁1.61未发布载具" />
-
                 <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="载具自定义" />
                 <Button
                     x:Name="Button_SpawnOnlineVehicleA"
@@ -148,6 +148,91 @@
 
             </StackPanel>
         </DockPanel>
+        <!--  面板4  -->
+        <StackPanel Grid.Column="3">
+            <GroupBox
+                Margin="5"
+                Header="车速表位置"
+                Style="{StaticResource GroupBoxWebStyle}">
+                <WrapPanel Orientation="Horizontal">
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterPos_Center"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterPos_Center_Click"
+                        Content="居中"
+                        IsChecked="True" />
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterPos_Right"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterPos_Center_Click"
+                        Content="居右" />
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox
+                Margin="5"
+                Header="车速表单位"
+                Style="{StaticResource GroupBoxWebStyle}">
+                <WrapPanel Orientation="Horizontal">
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterUnit_MPH"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterUnit_MPH_Click"
+                        Content="MPH（英里每小时）"
+                        IsChecked="True" />
+                    <RadioButton
+                        x:Name="RadioButton_SpeedMeterUnit_KPH"
+                        Margin="5,5,10,5"
+                        Click="RadioButton_SpeedMeterUnit_MPH_Click"
+                        Content="KPH（公里每小时）" />
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox
+                Margin="5"
+                DockPanel.Dock="Top"
+                Header="调试信息"
+                Style="{StaticResource GroupBoxWebStyle}">
+                <StackPanel>
+                    <TextBlock
+                        x:Name="TextBlock_ScreenResolution"
+                        Margin="5"
+                        Text="屏幕分辨率" />
+                    <TextBlock
+                        x:Name="TextBlock_GameResolution"
+                        Margin="5"
+                        Text="游戏分辨率" />
+                    <TextBlock
+                        x:Name="TextBlock_ScreenScale"
+                        Margin="5"
+                        Text="缩放比例" />
+                </StackPanel>
+            </GroupBox>
+            <Button
+                x:Name="Button_RunDraw"
+                Click="Button_RunDraw_Click"
+                Content="启动"
+                Style="{StaticResource ButtonStyle_Normal}" />
+            <Button
+                x:Name="Button_StopDraw"
+                Click="Button_StopDraw_Click"
+                Content="停止"
+                Style="{StaticResource ButtonStyle_Normal}" />
+            <TextBlock
+                Margin="5"
+                Foreground="Green"
+                Text="提示：游戏需要无边框或者窗口化才能正常显示，不支持全屏"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Margin="5"
+                Foreground="Green"
+                Text="提示：如果是win7系统，则需要开启Aero特效，否则可能显示不正常，win10及以上版本均可正常显示"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Margin="5"
+                Foreground="Green"
+                Text="提示：只有坐上载具和GTA5窗口在最前面才会显示车速表，防止遮挡视线"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
     </Grid>
 
 </UserControl>

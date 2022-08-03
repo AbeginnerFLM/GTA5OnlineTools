@@ -23,7 +23,7 @@
             Margin="5,5,2.5,5"
             SelectedIndex="0"
             SelectionChanged="ListBox_PlayerList_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}" />
+            Style="{StaticResource ListBoxStyle_Normal}" />
         <!--  面板2  -->
         <TextBox
             x:Name="TextBox_PlayerInfo"

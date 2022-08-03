@@ -30,7 +30,7 @@
             Margin="5,5,2.5,5"
             SelectedIndex="0"
             SelectionChanged="ListBox_WeaponList_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}" />
+            Style="{StaticResource ListBoxStyle_Normal}" />
         <!--  面板2  -->
         <ListBox
             x:Name="ListBox_WeaponInfo"
@@ -38,7 +38,7 @@
             Margin="2.5,5,0,5"
             SelectedIndex="0"
             SelectionChanged="ListBox_WeaponInfo_SelectionChanged"
-            Style="{StaticResource ListBoxStyle}" />
+            Style="{StaticResource ListBoxStyle_Normal}" />
         <!--  面板3  -->
         <StackPanel Grid.Column="2">
             <Label

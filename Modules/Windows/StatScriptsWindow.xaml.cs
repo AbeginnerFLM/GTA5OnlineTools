@@ -1,16 +1,16 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Features.Core;
 using GTA5OnlineTools.Features.SDK;
-using static GTA5OnlineTools.Features.Data.StatData;
+using GTA5OnlineTools.Features.Data;
 
 namespace GTA5OnlineTools.Modules.Windows;
 
 /// <summary>
-/// StatAutoScriptsWindow.xaml 的交互逻辑
+/// StatScriptsWindow.xaml 的交互逻辑
 /// </summary>
-public partial class StatAutoScriptsWindow : Window
+public partial class StatScriptsWindow : Window
 {
-    public StatAutoScriptsWindow()
+    public StatScriptsWindow()
     {
         InitializeComponent();
     }
@@ -31,7 +31,7 @@ public partial class StatAutoScriptsWindow : Window
         });
 
         // STAT列表
-        foreach (var item in StatDataClass)
+        foreach (var item in StatData.StatDataClass)
         {
             ListBox_STATList.Items.Add(item.ClassName);
         }
@@ -52,41 +52,10 @@ public partial class StatAutoScriptsWindow : Window
 
     private void AppendTextBox(string str)
     {
-        Application.Current.Dispatcher.Invoke(() =>
+        this.Dispatcher.Invoke(() =>
         {
             TextBox_Result.AppendText($"[{DateTime.Now:T}] {str}\r\n");
             TextBox_Result.ScrollToEnd();
-        });
-    }
-
-    private void AutoScript(string statClassName)
-    {
-        TextBox_Result.Clear();
-
-        Task.Run(() =>
-        {
-            try
-            {
-                int index = StatDataClass.FindIndex(t => t.ClassName == statClassName);
-                if (index != -1)
-                {
-                    AppendTextBox($"正在执行 {StatDataClass[index].ClassName} 脚本代码");
-
-                    for (int i = 0; i < StatDataClass[index].StatInfo.Count; i++)
-                    {
-                        AppendTextBox($"正在执行 第 {i + 1}/{StatDataClass[index].StatInfo.Count} 条代码");
-
-                        Hacks.WriteStat(StatDataClass[index].StatInfo[i].Hash, StatDataClass[index].StatInfo[i].Value);
-                        Task.Delay(500).Wait();
-                    }
-
-                    AppendTextBox($"{StatDataClass[index].ClassName} 脚本代码执行完毕");
-                }
-            }
-            catch (Exception ex)
-            {
-                AppendTextBox($"错误：{ex.Message}");
-            }
         });
     }
 
@@ -99,5 +68,36 @@ public partial class StatAutoScriptsWindow : Window
         {
             AutoScript(ListBox_STATList.SelectedItem.ToString());
         }
+    }
+
+    private void AutoScript(string statClassName)
+    {
+        TextBox_Result.Clear();
+
+        Task.Run(() =>
+        {
+            try
+            {
+                int index = StatData.StatDataClass.FindIndex(t => t.ClassName == statClassName);
+                if (index != -1)
+                {
+                    AppendTextBox($"正在执行 {StatData.StatDataClass[index].ClassName} 脚本代码");
+
+                    for (int i = 0; i < StatData.StatDataClass[index].StatInfo.Count; i++)
+                    {
+                        AppendTextBox($"正在执行 第 {i + 1}/{StatData.StatDataClass[index].StatInfo.Count} 条代码");
+
+                        Hacks.WriteStat(StatData.StatDataClass[index].StatInfo[i].Hash, StatData.StatDataClass[index].StatInfo[i].Value);
+                        Task.Delay(500).Wait();
+                    }
+
+                    AppendTextBox($"{StatData.StatDataClass[index].ClassName} 脚本代码执行完毕");
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendTextBox($"错误：{ex.Message}");
+            }
+        });
     }
 }

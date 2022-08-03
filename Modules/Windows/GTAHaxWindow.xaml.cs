@@ -1,5 +1,6 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Features.Core;
+using GTA5OnlineTools.Features.Data;
 
 namespace GTA5OnlineTools.Modules.Windows;
 
@@ -8,7 +9,7 @@ namespace GTA5OnlineTools.Modules.Windows;
 /// </summary>
 public partial class GTAHaxWindow : Window
 {
-    private string GTAHax_MP = "$MPx";
+    private const string GTAHax_MP = "$MPx";
 
     public GTAHaxWindow()
     {
@@ -17,14 +18,19 @@ public partial class GTAHaxWindow : Window
 
     private void Window_GTAHax_Loaded(object sender, RoutedEventArgs e)
     {
-        TextBox_GTAHaxCodePreview.Text = "INT32\n";
+        TextBox_GTAHaxCodePreview.Text = "INT32\r\n";
 
-        ListBox_GTAHaxCode_FuncList.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+        // STAT列表
+        foreach (var item in StatData.StatDataClass)
+        {
+            ListBox_GTAHaxCode_ClassList.Items.Add(item.ClassName);
+        }
+        ListBox_GTAHaxCode_ClassList.SelectedIndex = 0;
     }
 
     private void Window_GTAHax_Closing(object sender, CancelEventArgs e)
     {
-        
+
     }
 
     private void Button_Read_Stat_Click(object sender, RoutedEventArgs e)
@@ -32,8 +38,6 @@ public partial class GTAHaxWindow : Window
         AudioUtil.ClickSound();
 
         FileUtil.ReadTextToTextBox(TextBox_GTAHaxCodePreview, FileUtil.GTAHaxStat_Path);
-
-        //MessageBox.Show("读取stat.txt文件成功", " 提示", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private void Button_Write_Stat_Click(object sender, RoutedEventArgs e)
@@ -44,7 +48,7 @@ public partial class GTAHaxWindow : Window
         {
             File.WriteAllText(FileUtil.GTAHaxStat_Path, string.Empty);
 
-            using (StreamWriter sw = new StreamWriter(FileUtil.GTAHaxStat_Path, true))
+            using (var sw = new StreamWriter(FileUtil.GTAHaxStat_Path, true))
             {
                 sw.Write(TextBox_GTAHaxCodePreview.Text);
 
@@ -56,8 +60,7 @@ public partial class GTAHaxWindow : Window
         }
         catch (Exception ex)
         {
-            MessageBox.Show("写入stat.txt文件失败！\n\n" + "错误提示：\n" + ex.Message,
-                "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            MsgBoxUtil.ExceptionMsgBox(ex);
         }
     }
 
@@ -103,9 +106,7 @@ public partial class GTAHaxWindow : Window
                             WinAPI.SendMessage(child_handle, WinAPI.WM_LBUTTONDOWN, IntPtr.Zero, null);
                             WinAPI.SendMessage(child_handle, WinAPI.WM_LBUTTONUP, IntPtr.Zero, null);
 
-                            MessageBox.Show("导入到GTAHax成功！代码正在执行，请返回GTAHax和GTA5游戏查看\n\n" +
-                                "如果未执行，请重新点击\"导入GTAHax\"",
-                                "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MsgBoxUtil.InformationMsgBox("导入到GTAHax成功！代码正在执行，请返回GTAHax和GTA5游戏查看\n\n如果未执行，请重新点击\"导入GTAHax\"");
                         }
                         else
                         {
@@ -125,482 +126,54 @@ public partial class GTAHaxWindow : Window
         });
     }
 
-    private void Button_ToMPx_TextBox_Click(object sender, RoutedEventArgs e)
+    private void TextBox_AppendText_MP(string str, string value)
     {
-        AudioUtil.ClickSound();
-
-        TextBox_GTAHaxCodePreview.Text = TextBox_GTAHaxCodePreview.Text.Replace("$MP0", "$MPx");
-        TextBox_GTAHaxCodePreview.Text = TextBox_GTAHaxCodePreview.Text.Replace("$MP1", "$MPx");
-
-        //MessageBox.Show("替换角色为自动成功", " 提示", MessageBoxButton.OK, MessageBoxImage.Information);
+        TextBox_GTAHaxCodePreview.AppendText($"\r\n{GTAHax_MP}{str}");
+        TextBox_GTAHaxCodePreview.AppendText($"\r\n{value}");
     }
 
-    void TextBox_AppendText_MP(string str, string value)
+    private void TextBox_AppendText_NoMP(string str, string value)
     {
-        TextBox_GTAHaxCodePreview.AppendText("\r\n" + GTAHax_MP + str);
-        TextBox_GTAHaxCodePreview.AppendText("\r\n" + value);
+        TextBox_GTAHaxCodePreview.AppendText($"\r\n${str}");
+        TextBox_GTAHaxCodePreview.AppendText($"\r\n{value}");
     }
 
-    void TextBox_AppendText_NoMP(string str, string value)
-    {
-        TextBox_GTAHaxCodePreview.AppendText("\r\n" + str);
-        TextBox_GTAHaxCodePreview.AppendText("\r\n" + value);
-    }
-
-    string SelectedItemContent(ListBox listBox)
+    private string SelectedItemContent(ListBox listBox)
     {
         return (listBox.SelectedItem as ListBoxItem).Content.ToString();
     }
 
-    /**********************************************************************************/
-
-    private void ListBox_GTAHaxCode_FuncList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void ListBox_GTAHaxCode_ClassList_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Dispatcher.BeginInvoke(new Action(delegate
+        var statClassName = ListBox_GTAHaxCode_ClassList.SelectedItem.ToString();
+        int index = StatData.StatDataClass.FindIndex(t => t.ClassName == statClassName);
+        if (index != -1)
         {
-            if (RadioButton_MPx.IsChecked == true)
-            {
-                GTAHax_MP = "$MPx";
-            }
-            else if (RadioButton_MP0.IsChecked == true)
-            {
-                GTAHax_MP = "$MP0";
-            }
-            else if (RadioButton_MP1.IsChecked == true)
-            {
-                GTAHax_MP = "$MP1";
-            }
-
             TextBox_GTAHaxCodePreview.Clear();
             TextBox_GTAHaxCodePreview.AppendText("INT32");
 
-            if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-属性全满")
+            for (int i = 0; i < StatData.StatDataClass[index].StatInfo.Count; i++)
             {
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_STAM", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_SHO", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_STRN", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_STL", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_FLY", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_DRIV", "100");
-                TextBox_AppendText_MP("_SCRIPT_INCREASE_LUNG", "100");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-隐藏属性全满")
-            {
-                TextBox_AppendText_MP("_CHAR_ABILITY_1_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_ABILITY_2_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_ABILITY_3_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_ABILITY_1_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_ABILITY_2_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_ABILITY_3_UNLCK", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-性别更改（去重新捏脸）")
-            {
-                TextBox_AppendText_MP("_ALLOW_GENDER_CHANGE", "52");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-等级修改为1级")
-            {
-                TextBox_AppendText_MP("_CHAR_SET_RP_GIFT_ADMIN", "0");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-等级修改为30级")
-            {
-                TextBox_AppendText_MP("_CHAR_SET_RP_GIFT_ADMIN", "177100");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-等级修改为90级")
-            {
-                TextBox_AppendText_MP("_CHAR_SET_RP_GIFT_ADMIN", "1308100");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-等级修改为120级")
-            {
-                TextBox_AppendText_MP("_CHAR_SET_RP_GIFT_ADMIN", "2165850");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-零食全满")
-            {
-                TextBox_AppendText_MP("_NO_BOUGHT_YUM_SNACKS", "99");
-                TextBox_AppendText_MP("_NO_BOUGHT_HEALTH_SNACKS", "99");
-                TextBox_AppendText_MP("_NO_BOUGHT_EPIC_SNACKS", "99");
-                TextBox_AppendText_MP("_NUMBER_OF_ORANGE_BOUGHT", "99");
-                TextBox_AppendText_MP("_NUMBER_OF_BOURGE_BOUGHT", "99");
-                TextBox_AppendText_MP("_CIGARETTES_BOUGHT", "99");
-                TextBox_AppendText_MP("_NUMBER_OF_CHAMP_BOUGHT", "99");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "角色-护甲全满")
-            {
-                TextBox_AppendText_MP("_MP_CHAR_ARMOUR_1_COUNT", "99");
-                TextBox_AppendText_MP("_MP_CHAR_ARMOUR_2_COUNT", "99");
-                TextBox_AppendText_MP("_MP_CHAR_ARMOUR_3_COUNT", "99");
-                TextBox_AppendText_MP("_MP_CHAR_ARMOUR_4_COUNT", "99");
-                TextBox_AppendText_MP("_MP_CHAR_ARMOUR_5_COUNT", "99");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "公寓抢劫-跳过准备任务（看动画过程中输入）")
-            {
-                TextBox_AppendText_MP("_HEIST_PLANNING_STAGE", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-解锁/重玩全部流程（切换战局，打给莱斯特取消末日浩劫任务3次）")
-            {
-                TextBox_AppendText_MP("_GANGOPS_HEIST_STATUS", "-1");
-                TextBox_AppendText_MP("_GANGOPS_FLOW_NOTIFICATIONS", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-跳过前置及准备任务（M键-设施管理-关闭/开启策划大屏）")
-            {
-                TextBox_AppendText_MP("_GANGOPS_FLOW_MISSION_PROG", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-1重置末日一冷却时间")
-            {
-                TextBox_AppendText_MP("_HEISTCOOLDOWNTIMER0", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-2重置末日二冷却时间")
-            {
-                TextBox_AppendText_MP("_HEISTCOOLDOWNTIMER1", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-3重置末日三冷却时间")
-            {
-                TextBox_AppendText_MP("_HEISTCOOLDOWNTIMER2", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-载具批发价格解锁")
-            {
-                TextBox_AppendText_MP("_GANGOPS_FLOW_BITSET_MISS0", "48326");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-跳过前置-1数据泄露（M键-设施管理-关闭/开启策划大屏）")
-            {
-                TextBox_AppendText_MP("_GANGOPS_FLOW_MISSION_PROG", "503");
-                TextBox_AppendText_MP("_GANGOPS_HEIST_STATUS", "229383");
-                TextBox_AppendText_MP("_GANGOPS_FLOW_NOTIFICATIONS", "1557");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-跳过前置-2波格丹危机（M键-设施管理-关闭/开启策划大屏）")
-            {
-                TextBox_AppendText_MP("_GANGOPS_FLOW_MISSION_PROG", "240");
-                TextBox_AppendText_MP("_GANGOPS_HEIST_STATUS", "229378");
-                TextBox_AppendText_MP("_GANGOPS_FLOW_NOTIFICATIONS", "1557");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "末日抢劫-跳过前置-3末日将至（M键-设施管理-关闭/开启策划大屏）")
-            {
-                TextBox_AppendText_MP("_GANGOPS_FLOW_MISSION_PROG", "16368");
-                TextBox_AppendText_MP("_GANGOPS_HEIST_STATUS", "229380");
-                TextBox_AppendText_MP("_GANGOPS_FLOW_NOTIFICATIONS", "1557");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "解锁-限定载具节日涂装")
-            {
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES0", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES1", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES2", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES3", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES4", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES5", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES6", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES7", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES8", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES9", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES10", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES11", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES12", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES13", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES14", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES15", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES16", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES17", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES18", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES19", "-1");
-                TextBox_AppendText_NoMP("$MPPLY_XMASLIVERIES20", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "解锁-全部游艇任务")
-            {
-                TextBox_AppendText_MP("_YACHT_MISSION_PROG", "0");
-                TextBox_AppendText_MP("_YACHT_MISSION_FLOW", "21845");
-                TextBox_AppendText_MP("_CASINO_DECORATION_GIFT_1", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "解锁-外星人纹身")
-            {
-                TextBox_AppendText_MP("_TATTOO_FM_CURRENT_32", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "解锁-载具金属质感喷漆与铬合金轮毂")
-            {
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_1_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_2_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_3_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_4_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_5_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_6_UNLCK", "-1");
-                TextBox_AppendText_MP("_CHAR_FM_CARMOD_7_UNLCK", "-1");
-                TextBox_AppendText_MP("_NUMBER_TURBO_STARTS_IN_RACE", "50");
-                TextBox_AppendText_MP("_USJS_COMPLETED", "50");
-                TextBox_AppendText_MP("_AWD_FM_RACES_FASTEST_LAP", "50");
-                TextBox_AppendText_MP("_NUMBER_SLIPSTREAMS_IN_RACE", "100");
-                TextBox_AppendText_MP("_AWD_WIN_CAPTURES", "50");
-                TextBox_AppendText_MP("_AWD_DROPOFF_CAP_PACKAGES", "1");
-                TextBox_AppendText_MP("_AWD_KILL_CARRIER_CAPTURE", "1");
-                TextBox_AppendText_MP("_AWD_FINISH_HEISTS", "50");
-                TextBox_AppendText_MP("_AWD_FINISH_HEIST_SETUP_JOB", "50");
-                TextBox_AppendText_MP("_AWD_NIGHTVISION_KILLS", "1");
-                TextBox_AppendText_MP("_AWD_WIN_LAST_TEAM_STANDINGS", "50");
-                TextBox_AppendText_MP("_AWD_ONLY_PLAYER_ALIVE_LTS", "50");
-                TextBox_AppendText_MP("_AWD_FMRALLYWONDRIVE", "1");
-                TextBox_AppendText_MP("_AWD_FMRALLYWONNAV", "1");
-                TextBox_AppendText_MP("_AWD_FMWINSEARACE", "1");
-                TextBox_AppendText_MP("_AWD_FMWINAIRRACE", "1");
-                TextBox_AppendText_MP("_AWD_RACES_WON", "50");
-                TextBox_AppendText_MP("_RACES_WON", "50");
-                TextBox_AppendText_NoMP("$MPPLY_TOTAL_RACES_WON", "50");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "解锁-全部联系人")
-            {
-                TextBox_AppendText_MP("_FM_ACT_PHN", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH2", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH3", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH4", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH5", "-1");
-                TextBox_AppendText_MP("_FM_VEH_TX1", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH6", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH7", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH8", "-1");
-                TextBox_AppendText_MP("_FM_ACT_PH9", "-1");
-                TextBox_AppendText_MP("_FM_CUT_DONE", "-1");
-                TextBox_AppendText_MP("_FM_CUT_DONE_2", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "杂项-天基炮无冷却")
-            {
-                TextBox_AppendText_MP("_ORBITAL_CANNON_COOLDOWN", "0");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "杂项-跳过过场动画（地堡、摩托帮、办公室等）")
-            {
-                TextBox_AppendText_MP("_FM_CUT_DONE", "-1");
-                TextBox_AppendText_MP("_FM_CUT_DONE_2", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-25级解锁出租车")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "24");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "280");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-50级解锁推土机")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "49");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "530");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-75级解锁小丑花车")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "74");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "780");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-100级解锁垃圾大王")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "99");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "1030");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-200级解锁地霸王拖车")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "199");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "2030");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-300级解锁混凝土搅拌车")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "299");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "3030");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-500级解锁星际码头")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "499");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "5030");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-1000级解锁老式拖拉机")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_AP_TIER", "999");
-                TextBox_AppendText_MP("_ARENAWARS_AP", "10030");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "竞技场-解锁冲冲猴旅行家购买权限")
-            {
-                TextBox_AppendText_MP("_ARENAWARS_SKILL_LEVEL", "19");
-                TextBox_AppendText_MP("_ARENAWARS_SP", "209");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "游戏厅-解锁隐藏骇客（50个干扰器）")
-            {
-                TextBox_AppendText_MP("_CAS_HISIT_Flow", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "游戏厅-解锁所有的探查点")
-            {
-                TextBox_AppendText_MP("_H3OPT_ACCESSPOINTS", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "游戏厅-解锁所有的兴趣点")
-            {
-                TextBox_AppendText_MP("_H3OPT_POI", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "赌场抢劫-重置抢劫冷却时间")
-            {
-                TextBox_AppendText_MP("_H3_COMPLETEDPOSIX", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "赌场抢劫-枪手车手枪手工具人0分红（拿完东西出金库门后写入）")
-            {
-                TextBox_AppendText_MP("_H3OPT_CREWWEAP", "6");
-                TextBox_AppendText_MP("_H3OPT_CREWDRIVER", "6");
-                TextBox_AppendText_MP("_H3OPT_CREWHACKER", "6");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "赌场抢劫-重置第一第二块面板")
-            {
-                TextBox_AppendText_MP("_H3OPT_BITSET1", "0");
-                TextBox_AppendText_MP("_H3OPT_BITSET0", "0");
-                TextBox_AppendText_MP("_H3OPT_POI", "0");
-                TextBox_AppendText_MP("_H3OPT_ACCESSPOINTS", "0");
-                TextBox_AppendText_MP("_CAS_HEIST_FLOW", "0");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-重置海岛面板")
-            {
-                TextBox_AppendText_MP("_H4_MISSIONS", "0");
-                TextBox_AppendText_MP("_H4_PROGRESS", "0");
-                TextBox_AppendText_MP("_H4_PLAYTHROUGH_STATUS", "0");
-                TextBox_AppendText_MP("_H4CNF_APPROACH", "0");
-                TextBox_AppendText_MP("_H4CNF_BS_ENTR", "0");
-                TextBox_AppendText_MP("_H4CNF_BS_GEN", "0");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-重置次要目标")
-            {
-                TextBox_AppendText_MP("_H4LOOT_CASH_I", "0");
-                TextBox_AppendText_MP("_H4LOOT_CASH_C", "0");
-                TextBox_AppendText_MP("_H4LOOT_CASH_I_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_CASH_C_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_CASH_V", "0");
-                TextBox_AppendText_MP("_H4LOOT_WEED_I", "0");
-                TextBox_AppendText_MP("_H4LOOT_WEED_C", "0");
-                TextBox_AppendText_MP("_H4LOOT_WEED_I_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_WEED_C_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_WEED_V", "0");
-                TextBox_AppendText_MP("_H4LOOT_COKE_I", "0");
-                TextBox_AppendText_MP("_H4LOOT_COKE_C", "0");
-                TextBox_AppendText_MP("_H4LOOT_COKE_I_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_COKE_C_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_COKE_V", "0");
-                TextBox_AppendText_MP("_H4LOOT_GOLD_I", "0");
-                TextBox_AppendText_MP("_H4LOOT_GOLD_C", "0");
-                TextBox_AppendText_MP("_H4LOOT_GOLD_I_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_GOLD_C_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_GOLD_V", "0");
-                TextBox_AppendText_MP("_H4LOOT_PAINT", "0");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_SCOPED", "0");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_V", "0");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-玩家x1/100%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x2）")
-            {
-                TextBox_AppendText_MP("_H4CNF_BS_GEN", "131071");
-                TextBox_AppendText_MP("_H4CNF_BS_ENTR", "63");
-                TextBox_AppendText_MP("_H4CNF_BS_ABIL", "63");
-                TextBox_AppendText_MP("_H4CNF_APPROACH", "-1");
-                TextBox_AppendText_MP("_H4_PROGRESS", "131055");
-                TextBox_AppendText_MP("_H4CNF_TARGET", "3");
-                TextBox_AppendText_MP("_H4LOOT_PAINT", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_SCOPED", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_V", "677045");
-                TextBox_AppendText_MP("_H4_MISSIONS", "65535");
-                TextBox_AppendText_MP("_H4CNF_WEAPONS", "2");
-                TextBox_AppendText_MP("_H4CNF_WEP_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_ARM_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_HEL_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_GRAPPEL", "-1");
-                TextBox_AppendText_MP("_H4CNF_UNIFORM", "-1");
-                TextBox_AppendText_MP("_H4CNF_BOLTCUT", "-1");
-                TextBox_AppendText_MP("_H4CNF_TROJAN", "4");
-                TextBox_AppendText_MP("_H4_PLAYTHROUGH_STATUS", "10");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-玩家x2/50%50%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x4）")
-            {
-                TextBox_AppendText_MP("_H4CNF_BS_GEN", "131071");
-                TextBox_AppendText_MP("_H4CNF_BS_ENTR", "63");
-                TextBox_AppendText_MP("_H4CNF_BS_ABIL", "63");
-                TextBox_AppendText_MP("_H4CNF_APPROACH", "-1");
-                TextBox_AppendText_MP("_H4_PROGRESS", "131055");
-                TextBox_AppendText_MP("_H4CNF_TARGET", "3");
-                TextBox_AppendText_MP("_H4LOOT_PAINT", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_SCOPED", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_V", "1034545");
-                TextBox_AppendText_MP("_H4_MISSIONS", "65535");
-                TextBox_AppendText_MP("_H4CNF_WEAPONS", "2");
-                TextBox_AppendText_MP("_H4CNF_WEP_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_ARM_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_HEL_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_GRAPPEL", "-1");
-                TextBox_AppendText_MP("_H4CNF_UNIFORM", "-1");
-                TextBox_AppendText_MP("_H4CNF_BOLTCUT", "-1");
-                TextBox_AppendText_MP("_H4CNF_TROJAN", "4");
-                TextBox_AppendText_MP("_H4_PLAYTHROUGH_STATUS", "10");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-玩家x3/35%35%30%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x6）")
-            {
-                TextBox_AppendText_MP("_H4CNF_BS_GEN", "131071");
-                TextBox_AppendText_MP("_H4CNF_BS_ENTR", "63");
-                TextBox_AppendText_MP("_H4CNF_BS_ABIL", "63");
-                TextBox_AppendText_MP("_H4CNF_APPROACH", "-1");
-                TextBox_AppendText_MP("_H4_PROGRESS", "131055");
-                TextBox_AppendText_MP("_H4CNF_TARGET", "3");
-                TextBox_AppendText_MP("_H4LOOT_PAINT", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_SCOPED", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_V", "1087424");
-                TextBox_AppendText_MP("_H4_MISSIONS", "65535");
-                TextBox_AppendText_MP("_H4CNF_WEAPONS", "2");
-                TextBox_AppendText_MP("_H4CNF_WEP_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_ARM_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_HEL_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_GRAPPEL", "-1");
-                TextBox_AppendText_MP("_H4CNF_UNIFORM", "-1");
-                TextBox_AppendText_MP("_H4CNF_BOLTCUT", "-1");
-                TextBox_AppendText_MP("_H4CNF_TROJAN", "4");
-                TextBox_AppendText_MP("_H4_PLAYTHROUGH_STATUS", "10");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "佩里科岛抢劫-玩家x4/人均25%分红/困难模式/无精英/不拿保险柜/人均245W（粉钻x1+画作x7）")
-            {
-                TextBox_AppendText_MP("_H4CNF_BS_GEN", "131071");
-                TextBox_AppendText_MP("_H4CNF_BS_ENTR", "63");
-                TextBox_AppendText_MP("_H4CNF_BS_ABIL", "63");
-                TextBox_AppendText_MP("_H4CNF_APPROACH", "-1");
-                TextBox_AppendText_MP("_H4_PROGRESS", "131055");
-                TextBox_AppendText_MP("_H4CNF_TARGET", "3");
-                TextBox_AppendText_MP("_H4LOOT_PAINT", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_SCOPED", "-1");
-                TextBox_AppendText_MP("_H4LOOT_PAINT_V", "1213295");
-                TextBox_AppendText_MP("_H4_MISSIONS", "65535");
-                TextBox_AppendText_MP("_H4CNF_WEAPONS", "2");
-                TextBox_AppendText_MP("_H4CNF_WEP_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_ARM_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_HEL_DISRP", "3");
-                TextBox_AppendText_MP("_H4CNF_GRAPPEL", "-1");
-                TextBox_AppendText_MP("_H4CNF_UNIFORM", "-1");
-                TextBox_AppendText_MP("_H4CNF_BOLTCUT", "-1");
-                TextBox_AppendText_MP("_H4CNF_TROJAN", "4");
-                TextBox_AppendText_MP("_H4_PLAYTHROUGH_STATUS", "10");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "杂项-取消抢劫并重新开始")
-            {
-                TextBox_AppendText_MP("_CAS_HEIST_NOTS", "-1");
-                TextBox_AppendText_MP("_CAS_HEIST_FLOW", "-1");
-            }
-            else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "赌场抢劫-解决侦察拍照发不了莱斯特")
-            {
-                TextBox_AppendText_MP("_H3OPT_ACCESSPOINTS", "0");
-                TextBox_AppendText_MP("_H3OPT_POI", "0");
-            }
-            //else if (SelectedItemContent(ListBox_GTAHaxCode_FuncList) == "")
-            //{
-            //    TextBox_AppendText_MP("", "");                    
-            //    TextBox_AppendText_NoMP("", "");
-            //}
+                var hash = StatData.StatDataClass[index].StatInfo[i].Hash;
+                var value = StatData.StatDataClass[index].StatInfo[i].Value;
 
-            TextBox_GTAHaxCodePreview.AppendText("\n");
-        }));
+                if (hash.IndexOf("_") == 0)
+                {
+                    TextBox_AppendText_MP(hash, value.ToString());
+                }
+                else
+                {
+                    TextBox_AppendText_NoMP(hash, value.ToString());
+                }
+            }
+        }
     }
 
-    /**********************************************************************************/
+    ////////////////////////////////////////////////////////////////////////
 
     private void Button_Create_HaxCode_Click(object sender, RoutedEventArgs e)
     {
         AudioUtil.ClickSound();
-
-        if (RadioButton_MPx.IsChecked == true)
-        {
-            GTAHax_MP = "$MPx";
-        }
-        else if (RadioButton_MP0.IsChecked == true)
-        {
-            GTAHax_MP = "$MP0";
-        }
-        else if (RadioButton_MP1.IsChecked == true)
-        {
-            GTAHax_MP = "$MP1";
-        }
 
         TextBox_GTAHaxCodePreview.Clear();
         TextBox_GTAHaxCodePreview.AppendText("INT32");
