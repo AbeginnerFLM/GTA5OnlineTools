@@ -60,7 +60,7 @@ public static class Online
     /// 模型变更
     /// </summary>
     /// <param name="hash"></param>
-    public static void ModelChanger(long hash)
+    public static void ModelChange(long hash)
     {
         Hacks.WriteGA<int>(Offsets.oVGETIn + 59, 1);                // triggerModelChange   Global_2671449.f_59
         Hacks.WriteGA<long>(Offsets.oVGETIn + 46, hash);            // modelChangeHash      Global_2671449.f_46

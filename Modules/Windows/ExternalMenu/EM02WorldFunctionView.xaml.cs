@@ -13,6 +13,13 @@ public partial class EM02WorldFunctionView : UserControl
     {
         InitializeComponent();
 
+        // Ped列表
+        foreach (var item in PedData.PedDataClass)
+        {
+            ListBox_PedModel.Items.Add(item.DisplayName);
+        }
+        ListBox_PedModel.SelectedIndex = 0;
+
         ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
@@ -127,5 +134,16 @@ public partial class EM02WorldFunctionView : UserControl
         int index = MiscData.REPxNs.FindIndex(t => t.Name == str);
         if (index != -1)
             Online.REPMultiplier(MiscData.REPxNs[index].ID);
+    }
+
+    private void Button_ModelChange_Click(object sender, RoutedEventArgs e)
+    {
+        AudioUtil.ClickSound();
+
+        int index = ListBox_PedModel.SelectedIndex;
+        if (index != -1)
+        {
+            Online.ModelChange(PedData.PedDataClass[index].Hash);
+        }
     }
 }
