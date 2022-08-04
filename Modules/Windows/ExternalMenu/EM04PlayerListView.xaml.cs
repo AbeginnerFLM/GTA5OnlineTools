@@ -86,7 +86,7 @@ public partial class EM04PlayerListView : UserControl
 
                 PlayerInfo = new PlayerInfo()
                 {
-                    Host = Hacks.ReadGA<int>(1893548 + 1 + (i * 600) + 10) == 1 ? true : false,
+                    Host = Hacks.ReadGA<int>(1892703 + (i * 599) + 10) == 1 ? true : false,
                     Health = Memory.Read<float>(pCPed + 0x280),
                     MaxHealth = Memory.Read<float>(pCPed + 0x2A0),
                     GodMode = Memory.Read<byte>(pCPed + 0x189) == 0x01 ? true : false,

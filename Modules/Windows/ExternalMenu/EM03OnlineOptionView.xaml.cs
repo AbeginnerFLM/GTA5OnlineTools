@@ -154,7 +154,7 @@ public partial class EM03OnlineOptionView : UserControl
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    ListBox_PersonalVehicle.Items.Add($"{item.Name} [{item.plate}]");
+                    ListBox_PersonalVehicle.Items.Add($"[{item.plate}]\t{item.Name}");
                 });
             }
         });

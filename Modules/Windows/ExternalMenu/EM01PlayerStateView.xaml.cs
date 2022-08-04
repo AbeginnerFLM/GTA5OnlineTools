@@ -34,7 +34,7 @@ public partial class EM01PlayerStateView : UserControl
         MainHotKeys.AddKey(WinVK.F6);
         MainHotKeys.AddKey(WinVK.F7);
         MainHotKeys.AddKey(WinVK.F8);
-        MainHotKeys.AddKey(WinVK.RSHIFT);
+        MainHotKeys.AddKey(WinVK.Oem0);
         MainHotKeys.AddKey(WinVK.DELETE);
         MainHotKeys.KeyDownEvent += new HotKeys.KeyHandler(MyKeyDownEvent);
 
@@ -91,7 +91,7 @@ public partial class EM01PlayerStateView : UserControl
                         Player.WantedLevel(0x00);
                     }
                     break;
-                case (int)WinVK.RSHIFT:
+                case (int)WinVK.Oem0:
                     if (CheckBox_NoCollision.IsChecked == true)
                     {
                         NoCollisionToggle = !NoCollisionToggle;

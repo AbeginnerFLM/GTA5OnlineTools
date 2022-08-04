@@ -296,13 +296,7 @@
                 <CheckBox
                     x:Name="CheckBox_NoCollision"
                     Click="CheckBox_NoCollision_Click"
-                    Content="[RShift] 玩家无碰撞体积（穿墙）" />
-                <TextBlock
-                    Margin="5"
-                    Foreground="Green"
-                    TextWrapping="Wrap">
-                    提示：RShift是右Shift键，也就是回车键下面的那个
-                </TextBlock>
+                    Content="[数字0] 玩家无碰撞体积（穿墙）" />
             </StackPanel>
 
             <Label
