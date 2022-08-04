@@ -33,8 +33,7 @@ public partial class EM02WorldFunctionView : UserControl
         AudioUtil.ClickSound();
 
         var str = (e.OriginalSource as Button).Content.ToString();
-
-        int index = MiscData.Sessions.FindIndex(t => t.Name == str);
+        var index = MiscData.Sessions.FindIndex(t => t.Name == str);
         if (index != -1)
             Online.LoadSession(MiscData.Sessions[index].ID);
     }
@@ -51,8 +50,7 @@ public partial class EM02WorldFunctionView : UserControl
         AudioUtil.ClickSound();
 
         var str = (e.OriginalSource as Button).Content.ToString();
-
-        int index = MiscData.LocalWeathers.FindIndex(t => t.Name == str);
+        var index = MiscData.LocalWeathers.FindIndex(t => t.Name == str);
         if (index != -1)
         {
             World.Set_Local_Weather(MiscData.LocalWeathers[index].ID);
@@ -119,8 +117,7 @@ public partial class EM02WorldFunctionView : UserControl
         AudioUtil.ClickSound();
 
         var str = (e.OriginalSource as Button).Content.ToString();
-
-        int index = MiscData.RPxNs.FindIndex(t => t.Name == str);
+        var index = MiscData.RPxNs.FindIndex(t => t.Name == str);
         if (index != -1)
             Online.RPMultiplier(MiscData.RPxNs[index].ID);
     }
@@ -130,8 +127,7 @@ public partial class EM02WorldFunctionView : UserControl
         AudioUtil.ClickSound();
 
         var str = (e.OriginalSource as Button).Content.ToString();
-
-        int index = MiscData.REPxNs.FindIndex(t => t.Name == str);
+        var index = MiscData.REPxNs.FindIndex(t => t.Name == str);
         if (index != -1)
             Online.REPMultiplier(MiscData.REPxNs[index].ID);
     }
@@ -140,10 +136,8 @@ public partial class EM02WorldFunctionView : UserControl
     {
         AudioUtil.ClickSound();
 
-        int index = ListBox_PedModel.SelectedIndex;
+        var index = ListBox_PedModel.SelectedIndex;
         if (index != -1)
-        {
             Online.ModelChange(PedData.PedDataClass[index].Hash);
-        }
     }
 }

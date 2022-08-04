@@ -139,16 +139,22 @@
         </StackPanel>
         <!--  面板3  -->
         <DockPanel>
-            <Button
-                x:Name="Button_RefushPersonalVehicleList"
-                Click="Button_RefushPersonalVehicleList_Click"
-                Content="刷新个人载具列表"
-                DockPanel.Dock="Top" />
-            <Button
-                x:Name="Button_SpawnPersonalVehicle"
-                Click="Button_SpawnPersonalVehicle_Click"
-                Content="呼叫个人载具"
-                DockPanel.Dock="Top" />
+            <StackPanel DockPanel.Dock="Top">
+                <Label
+                    attached:Icon.Value="☕"
+                    Content="随身技工"
+                    Style="{StaticResource LabelStyle_Title}" />
+                <UniformGrid Columns="2">
+                    <Button
+                        x:Name="Button_RefushPersonalVehicleList"
+                        Click="Button_RefushPersonalVehicleList_Click"
+                        Content="刷新个人载具列表" />
+                    <Button
+                        x:Name="Button_SpawnPersonalVehicle"
+                        Click="Button_SpawnPersonalVehicle_Click"
+                        Content="呼叫个人载具" />
+                </UniformGrid>
+            </StackPanel>
             <ListBox
                 x:Name="ListBox_PersonalVehicle"
                 Margin="5"

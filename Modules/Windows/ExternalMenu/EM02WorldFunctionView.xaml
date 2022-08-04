@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attached="clr-namespace:GTA5OnlineTools.Assets.Styles.Attached"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="600"
     d:DesignWidth="900"
@@ -154,11 +155,30 @@
         </StackPanel>
         <!--  面板3  -->
         <DockPanel>
-            <Button
-                x:Name="Button_ModelChange"
-                Click="Button_ModelChange_Click"
-                Content="修改线上角色模型"
-                DockPanel.Dock="Top" />
+            <StackPanel DockPanel.Dock="Top">
+                <Label
+                    attached:Icon.Value="☕"
+                    Content="模型修改"
+                    Style="{StaticResource LabelStyle_Title}" />
+                <Button
+                    x:Name="Button_ModelChange"
+                    Click="Button_ModelChange_Click"
+                    Content="修改线上角色模型" />
+                <emoji:TextBlock
+                    Margin="5"
+                    Foreground="Green"
+                    Text=" 📖 鼠标悬浮我查看使用说明"
+                    TextWrapping="Wrap">
+                    <TextBlock.ToolTip>
+                        <TextBlock>
+                            1. 此功能仅供尝鲜使用，部分人物模型显示怪异<LineBreak />
+                            2. 如果人物没有刷出来，请多尝试几次<LineBreak />
+                            3. 刷出的人物没有武器，可以拾取地上掉落武器<LineBreak />
+                            4. 人物死亡复活后会变透明，重新刷人物即可<LineBreak />
+                            5. 如果要恢复线上角色，请切换战局或者回到故事模式然后重新进入线上</TextBlock>
+                    </TextBlock.ToolTip>
+                </emoji:TextBlock>
+            </StackPanel>
             <ListBox
                 x:Name="ListBox_PedModel"
                 Margin="5"
