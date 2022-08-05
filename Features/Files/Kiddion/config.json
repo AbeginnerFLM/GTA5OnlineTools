@@ -18,6 +18,12 @@
     }
   ],
   "Menu": {
+    "BackgroundColor": "F2F3F4",
+    "FontName": "Segoe UI Symbol",
+    "ItemColor": "093145",
+    "ItemHeight": 20,
+    "ItemSpacing": 0,
+    "ItemWidth": 350,
     "KeyBindings": {
       "BackKey": 96,
       "DownKey": 98,
@@ -28,6 +34,10 @@
       "UpKey": 104
     },
     "Opacity": 192,
+    "SelectedItemColor": "EFD469",
+    "SelectedTextColor": "373D3F",
+    "TextColor": "F2F3F4",
+    "TransparencyColorKey": "000000",
     "ViewableItems": 50,
     "XPosition": 240,
     "YPosition": 40
@@ -47,6 +57,7 @@
     "Waterproof": false
   },
   "Protection": {
+    "DisableCameraControl": false,
     "DisableSendToIsland": false,
     "DisableSendToJob": false,
     "DisableTeleportToApartment": false,
@@ -91,6 +102,7 @@
     "RemoveOppressorCooldown": false,
     "RemoveOrbitalCooldown": false,
     "RemovePassiveModeCooldown": false,
+    "RemovePayphoneCooldown": false,
     "RemoveVehicleDeliveryDelay": false,
     "ScrambleMultiplier": 1.000000,
     "StreetRaceMultiplier": 1.000000,

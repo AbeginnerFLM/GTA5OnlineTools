@@ -1,5 +1,5 @@
 ﻿using GTA5OnlineTools.Models;
-using Microsoft.Toolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace GTA5OnlineTools.Views;
 

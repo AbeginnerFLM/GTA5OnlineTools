@@ -1,7 +1,7 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Modules.Kits;
 
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Views;
 

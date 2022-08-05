@@ -5,8 +5,8 @@ using GTA5OnlineTools.Common.Data;
 using GTA5OnlineTools.Common.Http;
 using GTA5OnlineTools.Common.Utils;
 
-using Microsoft.Toolkit.Mvvm.Input;
-using Microsoft.Toolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Hardcodet.Wpf.TaskbarNotification;
 
 namespace GTA5OnlineTools;

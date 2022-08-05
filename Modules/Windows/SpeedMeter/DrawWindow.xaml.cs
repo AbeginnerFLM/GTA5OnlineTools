@@ -1,7 +1,7 @@
 ﻿using GTA5OnlineTools.Features.SDK;
 using GTA5OnlineTools.Features.Core;
 
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace GTA5OnlineTools.Modules.Windows.SpeedMeter;
 

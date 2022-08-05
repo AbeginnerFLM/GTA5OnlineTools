@@ -4,7 +4,7 @@ using GTA5OnlineTools.Features.SDK;
 using GTA5OnlineTools.Features.Core;
 using GTA5OnlineTools.Features.Data;
 
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Modules.Windows.ExternalMenu;
 

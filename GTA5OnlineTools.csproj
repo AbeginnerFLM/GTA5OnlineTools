@@ -70,11 +70,11 @@
 
   <ItemGroup>
     <PackageReference Include="Chinese" Version="0.5.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="Downloader" Version="2.3.5" />
     <PackageReference Include="Emoji.Wpf" Version="0.3.3" />
     <PackageReference Include="GameOverlay.Net" Version="4.3.1" />
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="XamlAnimatedGif" Version="2.0.2" />
   </ItemGroup>

@@ -15,7 +15,9 @@ public class HotKeys
 
     private bool isRun = true;
 
-    // Init 初始化
+    /// <summary>
+    /// Init 初始化
+    /// </summary>
     public HotKeys()
     {
         keys = new Dictionary<int, MyKeys>();
@@ -24,12 +26,19 @@ public class HotKeys
         thread.Start();
     }
 
+    /// <summary>
+    /// 释放按键监听线程
+    /// </summary>
     public void Dispose()
     {
         isRun = false;
     }
 
-    // Key Up 键弹起
+    /// <summary>
+    /// Key Up 键弹起
+    /// </summary>
+    /// <param name="Id"></param>
+    /// <param name="Name"></param>
     protected void OnKeyUp(int Id, string Name)
     {
         if (KeyUpEvent != null)
@@ -38,7 +47,11 @@ public class HotKeys
         }
     }
 
-    // Key Down 键按下
+    /// <summary>
+    /// Key Down 键按下
+    /// </summary>
+    /// <param name="Id"></param>
+    /// <param name="Name"></param>
     protected void OnKeyDown(int Id, string Name)
     {
         if (KeyDownEvent != null)
@@ -47,7 +60,11 @@ public class HotKeys
         }
     }
 
-    // Add key 增加键
+    /// <summary>
+    /// Add key 增加键
+    /// </summary>
+    /// <param name="keyId"></param>
+    /// <param name="keyName"></param>
     public void AddKey(int keyId, string keyName)
     {
         if (!keys.ContainsKey(keyId))
@@ -56,7 +73,10 @@ public class HotKeys
         }
     }
 
-    // Add key 增加键
+    /// <summary>
+    /// Add key 增加键
+    /// </summary>
+    /// <param name="key"></param>
     public void AddKey(WinVK key)
     {
         int keyId = (int)key;
@@ -66,7 +86,11 @@ public class HotKeys
         }
     }
 
-    // Is Key Down 键是否按下
+    /// <summary>
+    /// Is Key Down 键是否按下
+    /// </summary>
+    /// <param name="keyId"></param>
+    /// <returns></returns>
     public bool IsKeyDown(int keyId)
     {
         if (keys.TryGetValue(keyId, out MyKeys value))
@@ -76,7 +100,10 @@ public class HotKeys
         return false;
     }
 
-    // Update Thread 更新线程
+    /// <summary>
+    /// Update Thread 更新线程
+    /// </summary>
+    /// <param name="sender"></param>
     private void Update(object sender)
     {
         while (isRun)

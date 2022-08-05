@@ -3,7 +3,7 @@ using GTA5OnlineTools.Modules.Windows;
 using GTA5OnlineTools.Modules.Windows.SpeedMeter;
 using GTA5OnlineTools.Modules.Windows.ExternalMenu;
 
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Views;
 
