@@ -40,6 +40,8 @@ public partial class LoadWindow : Window
                     FileUtil.ExtractResFile(FileUtil.Resource_Kiddion_Path + "teleports.json", FileUtil.Kiddion_Path + "teleports.json");
                 if (!File.Exists(FileUtil.Kiddion_Path + "vehicles.json"))
                     FileUtil.ExtractResFile(FileUtil.Resource_Kiddion_Path + "vehicles.json", FileUtil.Kiddion_Path + "vehicles.json");
+                if (!File.Exists(FileUtil.Kiddion_Path + "themes.json"))
+                    FileUtil.ExtractResFile(FileUtil.Resource_Kiddion_Path + "themes.json", FileUtil.Kiddion_Path + "themes.json");
 
                 // Kiddion Lua脚本
                 FileUtil.ExtractResFile(FileUtil.Resource_Kiddion_Path + "scripts.Readme.api", FileUtil.KiddionScripts_Path + "Readme.api");
