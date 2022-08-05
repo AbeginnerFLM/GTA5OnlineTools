@@ -141,15 +141,13 @@ public partial class UC1HacksView : UserControl
                             // 拿到Kiddion进程
                             var pKiddion = Process.GetProcessesByName("Kiddion").ToList()[0];
                             // 获取Kiddion窗口句柄
-                            IntPtr Menu_handle = pKiddion.MainWindowHandle;
-                            IntPtr child_handle = WinAPI.FindWindowEx(Menu_handle, IntPtr.Zero, "Static", null);
-                            child_handle = WinAPI.FindWindowEx(Menu_handle, child_handle, "Static", null);
+                            var caption_handle = WinAPI.FindWindowEx(pKiddion.MainWindowHandle, IntPtr.Zero, "Static", null);
 
-                            int length = WinAPI.GetWindowTextLength(child_handle);
-                            StringBuilder windowName = new StringBuilder(length + 1);
-                            WinAPI.GetWindowText(child_handle, windowName, windowName.Capacity);
+                            var length = WinAPI.GetWindowTextLength(caption_handle);
+                            var windowName = new StringBuilder(length + 1);
+                            WinAPI.GetWindowText(caption_handle, windowName, windowName.Capacity);
 
-                            if (windowName.ToString() == "Kiddion's Modest Menu v0.9.3")
+                            if (windowName.ToString() == "Kiddion's Modest Menu v0.9.4")
                             {
                                 isShow = true;
                                 ProcessUtil.OpenProcess("Kiddion_Chs", true);

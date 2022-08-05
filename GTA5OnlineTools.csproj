@@ -38,7 +38,7 @@
     <None Remove="Features\Files\GTAHax.exe" />
     <None Remove="Features\Files\Kiddion\key87\config.json" />
     <None Remove="Features\Files\Kiddion.exe" />
-    <None Remove="Features\Files\Kiddion_Chs.exe" />
+    <None Remove="Features\Files\Kiddion\themes.json" />
     <None Remove="Features\Files\LSCHax.exe" />
     <None Remove="Features\Files\MyMenu.dll" />
     <None Remove="Features\Files\Kiddion\scripts\Readme.api" />
@@ -54,6 +54,7 @@
     <EmbeddedResource Include="Features\Files\Kiddion\config.json" />
     <EmbeddedResource Include="Features\Files\dControl.exe" />
     <EmbeddedResource Include="Features\Files\dControl.ini" />
+    <EmbeddedResource Include="Features\Files\Kiddion\themes.json" />
     <EmbeddedResource Include="Features\Files\MyMenu.dll" />
     <EmbeddedResource Include="Features\Files\GTAHax.exe" />
     <EmbeddedResource Include="Features\Files\Kiddion\key87\config.json" />
