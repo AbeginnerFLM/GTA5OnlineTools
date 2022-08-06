@@ -32,7 +32,7 @@
     <None Remove="Assets\Images\Tips\PericoHeist02.png" />
     <None Remove="Assets\Images\Tips\PlayerName.png" />
     <None Remove="Features\Files\BincoHax.exe" />
-    <None Remove="Features\Files\BlcokSpamMsg.dll" />
+    <None Remove="Features\Files\BlcokMsg.dll" />
     <None Remove="Features\Files\config.json" />
     <None Remove="Features\Files\dControl.exe" />
     <None Remove="Features\Files\dControl.ini" />
@@ -51,7 +51,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Features\Files\BincoHax.exe" />
-    <EmbeddedResource Include="Features\Files\Inject\BlcokSpamMsg.dll" />
+    <EmbeddedResource Include="Features\Files\Inject\BlcokMsg.dll" />
     <EmbeddedResource Include="Features\Files\Kiddion\config.json" />
     <EmbeddedResource Include="Features\Files\dControl.exe" />
     <EmbeddedResource Include="Features\Files\dControl.ini" />

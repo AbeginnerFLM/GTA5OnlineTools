@@ -12,7 +12,7 @@ public static class FileUtil
 
     public const string Config_Path = Default_Path + @"Config\";
     public static string CustomTPList_Path = Config_Path + "CustomTPList.json";
-    public static string SensitiveWord_Path = Config_Path + "SensitiveWord.txt";
+    public static string BlockWords_Path = Config_Path + "BlockWords.txt";
 
     public const string Inject_Path = Default_Path + @"Inject\";
 

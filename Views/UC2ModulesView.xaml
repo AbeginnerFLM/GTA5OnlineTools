@@ -69,11 +69,11 @@
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button
-                attached:Icon.Value="&#xe666;"
-                attached:Text.Value="Session Chat Filter"
+                attached:Icon.Value="&#xe632;"
+                attached:Text.Value="Block Spam Message"
                 Command="{Binding ModelsClickCommand}"
-                CommandParameter="SessionChatFilter"
-                Content="战局聊天过滤"
+                CommandParameter="BlcokMsg"
+                Content="战局垃圾信息拦截"
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button

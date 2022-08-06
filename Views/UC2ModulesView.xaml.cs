@@ -19,7 +19,7 @@ public partial class UC2ModulesView : UserControl
     private StatScriptsWindow StatAutoScriptsWindow = null;
     private HeistPrepsWindow HeistPrepsWindow = null;
     private CasinoHackWindow CasinoHackWindow = null;
-    private ChatFilterWindow ChatFilterWindow = null;
+    private BlcokMsgWindow BlcokMsgWindow = null;
 
     private BigBaseV2Window BigBaseV2Window = null;
 
@@ -64,8 +64,8 @@ public partial class UC2ModulesView : UserControl
                 case "CasinoHack":
                     CasinoHackClick();
                     break;
-                case "SessionChatFilter":
-                    SessionChatFilterClick();
+                case "BlcokMsg":
+                    BlcokMsgClick();
                     break;
                 case "BigBaseV2":
                     BigBaseV2Click();
@@ -250,26 +250,26 @@ public partial class UC2ModulesView : UserControl
         }
     }
 
-    private void SessionChatFilterClick()
+    private void BlcokMsgClick()
     {
-        if (ChatFilterWindow == null)
+        if (BlcokMsgWindow == null)
         {
-            ChatFilterWindow = new ChatFilterWindow();
-            ChatFilterWindow.Show();
+            BlcokMsgWindow = new BlcokMsgWindow();
+            BlcokMsgWindow.Show();
         }
         else
         {
-            if (ChatFilterWindow.IsVisible)
+            if (BlcokMsgWindow.IsVisible)
             {
-                ChatFilterWindow.Topmost = true;
-                ChatFilterWindow.Topmost = false;
-                ChatFilterWindow.WindowState = WindowState.Normal;
+                BlcokMsgWindow.Topmost = true;
+                BlcokMsgWindow.Topmost = false;
+                BlcokMsgWindow.WindowState = WindowState.Normal;
             }
             else
             {
-                ChatFilterWindow = null;
-                ChatFilterWindow = new ChatFilterWindow();
-                ChatFilterWindow.Show();
+                BlcokMsgWindow = null;
+                BlcokMsgWindow = new BlcokMsgWindow();
+                BlcokMsgWindow.Show();
             }
         }
     }
