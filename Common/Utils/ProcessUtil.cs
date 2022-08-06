@@ -53,7 +53,6 @@ public static class ProcessUtil
                 else
                     path = FileUtil.Cache_Path;
 
-                Directory.SetCurrentDirectory(path);
                 path = Path.Combine(path, processName + ".exe");
                 Process.Start(new ProcessStartInfo(path)
                 {
@@ -102,7 +101,7 @@ public static class ProcessUtil
     public static void CloseProcess(string processName)
     {
         var appProcess = Process.GetProcesses();
-        foreach (Process targetPro in appProcess)
+        foreach (var targetPro in appProcess)
         {
             if (targetPro.ProcessName.Equals(processName))
                 targetPro.Kill();
@@ -119,6 +118,6 @@ public static class ProcessUtil
         CloseProcess("GTAHax");
         CloseProcess("BincoHax");
         CloseProcess("LSCHax");
-        CloseProcess("DefenderControl");
+        CloseProcess("dControl");
     }
 }

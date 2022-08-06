@@ -119,18 +119,18 @@ public static class FileUtil
     {
         try
         {
-            DirectoryInfo dir = new DirectoryInfo(srcPath);
-            FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();   // 返回目录中所有文件和子目录
-            foreach (FileSystemInfo i in fileinfo)
+            var dir = new DirectoryInfo(srcPath);
+            var fileinfo = dir.GetFileSystemInfos();   // 返回目录中所有文件和子目录
+            foreach (var file in fileinfo)
             {
-                if (i is DirectoryInfo)                             // 判断是否文件夹
+                if (file is DirectoryInfo)                             // 判断是否文件夹
                 {
-                    DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                    var subdir = new DirectoryInfo(file.FullName);
                     subdir.Delete(true);                            // 删除子目录和文件
                 }
                 else
                 {
-                    File.Delete(i.FullName);                        // 删除指定文件
+                    File.Delete(file.FullName);                        // 删除指定文件
                 }
             }
         }

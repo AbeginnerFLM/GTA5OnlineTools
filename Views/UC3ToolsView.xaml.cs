@@ -162,7 +162,7 @@ public partial class UC3ToolsView : UserControl
     /// </summary>
     private void DefenderControlClick()
     {
-        ProcessUtil.OpenProcess("DefenderControl", false);
+        ProcessUtil.OpenProcess("dControl", false);
     }
 
     /// <summary>
@@ -428,7 +428,7 @@ public partial class UC3ToolsView : UserControl
             if (MessageBox.Show("你确定要初始化配置文件吗？", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 ProcessUtil.CloseTheseProcess();
-
+                Thread.Sleep(20);
                 FileUtil.DelectDir(FileUtil.Default_Path);
 
                 App.AppMainMutex.Dispose();
