@@ -262,62 +262,7 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <!--  面板3  -->
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
 
-            <Grid Margin="5">
-                <Border Style="{StaticResource BorderStyle_DropShadowEffect}" />
-                <DockPanel LastChildFill="True">
-                    <StackPanel
-                        Margin="10,10,0,0"
-                        DockPanel.Dock="Top"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Margin="0,0,5,0"
-                            Style="{StaticResource TextBlockStyle_IconFontInfo}"
-                            Text="&#xe624;" />
-                        <TextBlock
-                            FontSize="18"
-                            FontWeight="Bold"
-                            Text="操作日志" />
-                    </StackPanel>
-                    <TextBox
-                        x:Name="TextBox_Log"
-                        Margin="5"
-                        AcceptsReturn="False"
-                        BorderBrush="Gray"
-                        BorderThickness="0"
-                        Style="{StaticResource TextBoxStyle_Normal}"
-                        TextWrapping="WrapWithOverflow" />
-                </DockPanel>
-            </Grid>
-
-            <StackPanel Grid.Row="1">
-                <Button
-                    x:Name="Button_InjectMenu"
-                    Margin="5,5,5,10"
-                    Click="Button_InjectMenu_Click"
-                    Content="启用注入式ESP功能（已禁用）"
-                    DockPanel.Dock="Right"
-                    IsEnabled="False"
-                    Style="{StaticResource ButtonStyle_Normal}" />
-                <TextBlock
-                    Margin="5"
-                    Foreground="Green"
-                    Text="提示：此注入式ESP功能仅Hook游戏D3D11函数绘图，并不调用内部Native函数，仅仅只有EPS功能，几乎没有风险"
-                    TextWrapping="Wrap" />
-                <TextBlock
-                    Margin="5"
-                    Foreground="Green"
-                    Text="提示：请在完全进入游戏后再启用此功能，否则可能出现游戏闪退问题，当前版本还处于测试状态"
-                    TextWrapping="Wrap" />
-                <TextBlock />
-            </StackPanel>
-
-        </Grid>
     </UniformGrid>
 
 </UserControl>

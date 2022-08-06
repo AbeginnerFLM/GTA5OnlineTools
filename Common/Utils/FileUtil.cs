@@ -10,6 +10,7 @@ public static class FileUtil
     public const string GTAHaxStat_Path = Cache_Path + @"stat.txt";
 
     public static string CustomTPList_Path = Config_Path + "CustomTPList.json";
+    public static string SensitiveWord_Path = Config_Path + "SensitiveWord.txt";
 
     public const string Resource_Path = "GTA5OnlineTools.Features.Files.";
     public const string Resource_Kiddion_Path = "GTA5OnlineTools.Features.Files.Kiddion.";

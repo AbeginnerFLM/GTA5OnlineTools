@@ -69,6 +69,14 @@
                 Style="{StaticResource ButtonStyle_FunctionSelf}" />
 
             <Button
+                attached:Icon.Value="&#xe666;"
+                attached:Text.Value="Session Chat Filter"
+                Command="{Binding ModelsClickCommand}"
+                CommandParameter="SessionChatFilter"
+                Content="战局聊天过滤"
+                Style="{StaticResource ButtonStyle_FunctionSelf}" />
+
+            <Button
                 attached:Icon.Value="&#xe63b;"
                 attached:Text.Value="BigBaseV2"
                 Command="{Binding ModelsClickCommand}"

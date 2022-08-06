@@ -1,6 +1,5 @@
 ﻿using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Modules.Windows;
-using GTA5OnlineTools.Modules.Windows.SpeedMeter;
 using GTA5OnlineTools.Modules.Windows.ExternalMenu;
 
 using CommunityToolkit.Mvvm.Input;
@@ -20,6 +19,8 @@ public partial class UC2ModulesView : UserControl
     private StatScriptsWindow StatAutoScriptsWindow = null;
     private HeistPrepsWindow HeistPrepsWindow = null;
     private CasinoHackWindow CasinoHackWindow = null;
+    private ChatFilterWindow ChatFilterWindow = null;
+
     private BigBaseV2Window BigBaseV2Window = null;
 
     public RelayCommand<string> ModelsClickCommand { get; private set; }
@@ -62,6 +63,9 @@ public partial class UC2ModulesView : UserControl
                     break;
                 case "CasinoHack":
                     CasinoHackClick();
+                    break;
+                case "SessionChatFilter":
+                    SessionChatFilterClick();
                     break;
                 case "BigBaseV2":
                     BigBaseV2Click();
@@ -242,6 +246,30 @@ public partial class UC2ModulesView : UserControl
                 CasinoHackWindow = null;
                 CasinoHackWindow = new CasinoHackWindow();
                 CasinoHackWindow.Show();
+            }
+        }
+    }
+
+    private void SessionChatFilterClick()
+    {
+        if (ChatFilterWindow == null)
+        {
+            ChatFilterWindow = new ChatFilterWindow();
+            ChatFilterWindow.Show();
+        }
+        else
+        {
+            if (ChatFilterWindow.IsVisible)
+            {
+                ChatFilterWindow.Topmost = true;
+                ChatFilterWindow.Topmost = false;
+                ChatFilterWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                ChatFilterWindow = null;
+                ChatFilterWindow = new ChatFilterWindow();
+                ChatFilterWindow.Show();
             }
         }
     }

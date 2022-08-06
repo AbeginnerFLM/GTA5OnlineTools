@@ -18,28 +18,12 @@ public partial class EM08ExternalOverlayView : UserControl
     {
         InitializeComponent();
 
-        InjectInfo = new InjectInfo();
-        InjectInfo.DLLPath = FileUtil.Cache_Path + "MyMenu.dll";
-
-        var process = Process.GetProcessesByName("GTA5")[0];
-        InjectInfo.PID = process.Id;
-        InjectInfo.PName = process.ProcessName;
-        InjectInfo.MWindowHandle = process.MainWindowHandle;
-
-        AppendTextBox("等待用户操作...");
-
         ExternalMenuWindow.ClosingDisposeEvent += ExternalMenuView_ClosingDisposeEvent;
     }
 
     private void ExternalMenuView_ClosingDisposeEvent()
     {
         overlay?.Dispose();
-    }
-
-    private void AppendTextBox(string str)
-    {
-        TextBox_Log.AppendText($"[{DateTime.Now:T}] {str}\r\n");
-        TextBox_Log.ScrollToEnd();
     }
 
     private void Button_Overaly_Run_Click(object sender, RoutedEventArgs e)
@@ -333,42 +317,5 @@ public partial class EM08ExternalOverlayView : UserControl
     private void CheckBox_NoTOPMostHide_Click(object sender, RoutedEventArgs e)
     {
         Settings.Overlay.IsNoTOPMostHide = CheckBox_NoTOPMostHide.IsChecked == true;
-    }
-
-    private void Button_InjectMenu_Click(object sender, RoutedEventArgs e)
-    {
-        AudioUtil.ClickSound();
-
-        if (InjectInfo.PID == 0)
-        {
-            AppendTextBox("未找到GTA5进程");
-            return;
-        }
-        else if (string.IsNullOrEmpty(InjectInfo.DLLPath))
-        {
-            AppendTextBox("DLL路径为空");
-            return;
-        }
-
-        foreach (ProcessModule module in Process.GetProcessById(InjectInfo.PID).Modules)
-        {
-            if (module.FileName == InjectInfo.DLLPath)
-            {
-                AppendTextBox("该DLL已经被注入过了");
-                return;
-            }
-        }
-
-        try
-        {
-            BaseInjector.SetForegroundWindow(InjectInfo.MWindowHandle);
-
-            BaseInjector.DLLInjector(InjectInfo.PID, InjectInfo.DLLPath);
-            AppendTextBox($"DLL注入到进程 {InjectInfo.PName} 成功");
-        }
-        catch (Exception ex)
-        {
-            AppendTextBox($"发生错误：{ex.Message}");
-        }
     }
 }

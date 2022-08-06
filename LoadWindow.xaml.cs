@@ -57,7 +57,7 @@ public partial class LoadWindow : Window
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.exe", FileUtil.Cache_Path + "dControl.exe");
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.ini", FileUtil.Cache_Path + "dControl.ini");
 
-                FileUtil.ExtractResFile(FileUtil.Resource_Path + "MyMenu.dll", FileUtil.Cache_Path + "MyMenu.dll");
+                FileUtil.ExtractResFile(FileUtil.Resource_Path + "BlcokSpamMsg.dll", FileUtil.Cache_Path + "BlcokSpamMsg.dll");
             }
             catch (Exception) { }
 

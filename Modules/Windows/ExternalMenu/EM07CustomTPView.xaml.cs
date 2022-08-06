@@ -17,7 +17,7 @@ public partial class EM07CustomTPView : UserControl
         // 读取自定义传送坐标文件
         try
         {
-            using (StreamReader streamReader = new StreamReader(FileUtil.CustomTPList_Path))
+            using (var streamReader = new StreamReader(FileUtil.CustomTPList_Path))
             {
                 List<TeleportData.TeleportInfo> teleportPreviews = JsonUtil.JsonDese<List<TeleportData.TeleportInfo>>(streamReader.ReadToEnd());
 
