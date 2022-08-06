@@ -46,22 +46,7 @@ public partial class ChatFilterWindow : Window
 
     private void Window_ChatFilter_Closing(object sender, CancelEventArgs e)
     {
-        try
-        {
-            using var fs = new FileStream(FileUtil.SensitiveWord_Path, FileMode.Create);
-            using var sw = new StreamWriter(fs, Encoding.UTF8);
-            for (int i = 0; i < ListBox_SensitiveWord.Items.Count; i++)
-            {
-                sw.WriteLine(ListBox_SensitiveWord.Items[i].ToString());
-            }
-            sw.Flush();
-            sw.Close();
-            fs.Close();
-        }
-        catch (Exception ex)
-        {
-            MsgBoxUtil.ExceptionMsgBox(ex);
-        }
+        Save();
     }
 
     private void Button_AddSensitiveWord_Click(object sender, RoutedEventArgs e)
@@ -129,6 +114,33 @@ public partial class ChatFilterWindow : Window
         {
             BaseInjector.SetForegroundWindow(InjectInfo.MWindowHandle);
             BaseInjector.DLLInjector(InjectInfo.PID, InjectInfo.DLLPath);
+        }
+        catch (Exception ex)
+        {
+            MsgBoxUtil.ExceptionMsgBox(ex);
+        }
+    }
+
+    private void Button_SaveSensitiveWord_Click(object sender, RoutedEventArgs e)
+    {
+        AudioUtil.ClickSound();
+
+        Save();
+    }
+
+    private void Save()
+    {
+        try
+        {
+            using var fs = new FileStream(FileUtil.SensitiveWord_Path, FileMode.Create);
+            using var sw = new StreamWriter(fs, Encoding.Default);
+            for (int i = 0; i < ListBox_SensitiveWord.Items.Count; i++)
+            {
+                sw.WriteLine(ListBox_SensitiveWord.Items[i].ToString());
+            }
+            sw.Flush();
+            sw.Close();
+            fs.Close();
         }
         catch (Exception ex)
         {

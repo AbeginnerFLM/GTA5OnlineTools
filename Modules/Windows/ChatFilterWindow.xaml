@@ -42,6 +42,12 @@
                 x:Name="Button_RemoveSensitiveWord"
                 Click="Button_RemoveSensitiveWord_Click"
                 Content="删除选中项"
+                Foreground="#FF8C00"
+                Style="{StaticResource ButtonStyle_Normal}" />
+            <Button
+                x:Name="Button_SaveSensitiveWord"
+                Click="Button_SaveSensitiveWord_Click"
+                Content="保存敏感词列表"
                 Style="{StaticResource ButtonStyle_Normal}" />
 
             <Label
@@ -53,6 +59,16 @@
                 Click="Button_InjectGameProcess_Click"
                 Content="注入游戏进程"
                 Style="{StaticResource ButtonStyle_Normal}" />
+            <TextBlock
+                Margin="5"
+                Foreground="Green"
+                Text="提示：注入成功后会有滴一声提示音，按END键卸载注入"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Margin="5"
+                Foreground="Green"
+                Text="提示：如果要修改过滤关键词，请卸载注入后重新注入"
+                TextWrapping="Wrap" />
 
         </StackPanel>
     </UniformGrid>
