@@ -216,7 +216,7 @@ public partial class UC1HacksView : UserControl
         }
 
         var InjectInfo = new InjectInfo();
-        InjectInfo.DLLPath = FileUtil.Cache_Path + "YimMenu.dll";
+        InjectInfo.DLLPath = FileUtil.Inject_Path + "YimMenu.dll";
 
         if (string.IsNullOrEmpty(InjectInfo.DLLPath))
         {

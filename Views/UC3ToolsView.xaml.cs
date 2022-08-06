@@ -427,6 +427,7 @@ public partial class UC3ToolsView : UserControl
         {
             if (MessageBox.Show("你确定要初始化配置文件吗？", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
+                Directory.SetCurrentDirectory(FileUtil.CurrentDirectory_Path);
                 ProcessUtil.CloseTheseProcess();
                 Thread.Sleep(20);
                 FileUtil.DelectDir(FileUtil.Default_Path);

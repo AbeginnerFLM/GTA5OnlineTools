@@ -28,6 +28,7 @@ public partial class LoadWindow : Window
                 Directory.CreateDirectory(FileUtil.Config_Path);
                 Directory.CreateDirectory(FileUtil.Kiddion_Path);
                 Directory.CreateDirectory(FileUtil.KiddionScripts_Path);
+                Directory.CreateDirectory(FileUtil.Inject_Path);
 
                 // 释放必要文件
                 FileUtil.ExtractResFile(FileUtil.Resource_Kiddion_Path + "Kiddion.exe", FileUtil.Kiddion_Path + "Kiddion.exe");
@@ -52,12 +53,12 @@ public partial class LoadWindow : Window
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "stat.txt", FileUtil.Cache_Path + "stat.txt");
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "BincoHax.exe", FileUtil.Cache_Path + "BincoHax.exe");
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "LSCHax.exe", FileUtil.Cache_Path + "LSCHax.exe");
-                FileUtil.ExtractResFile(FileUtil.Resource_Path + "YimMenu.dll", FileUtil.Cache_Path + "YimMenu.dll");
 
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.exe", FileUtil.Cache_Path + "dControl.exe");
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.ini", FileUtil.Cache_Path + "dControl.ini");
 
-                FileUtil.ExtractResFile(FileUtil.Resource_Path + "BlcokSpamMsg.dll", FileUtil.Cache_Path + "BlcokSpamMsg.dll");
+                FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "YimMenu.dll", FileUtil.Inject_Path + "YimMenu.dll");
+                FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "BlcokSpamMsg.dll", FileUtil.Inject_Path + "BlcokSpamMsg.dll");
             }
             catch (Exception) { }
 

@@ -3,17 +3,22 @@
 public static class FileUtil
 {
     public const string Default_Path = @"C:\ProgramData\GTA5OnlineTools\";
-    public const string Config_Path = Default_Path + @"Config\";
-    public const string Cache_Path = Default_Path + @"Cache\";
+
     public const string Kiddion_Path = Default_Path + @"Kiddion\";
     public const string KiddionScripts_Path = Kiddion_Path + @"scripts\";
+
+    public const string Cache_Path = Default_Path + @"Cache\";
     public const string GTAHaxStat_Path = Cache_Path + @"stat.txt";
 
+    public const string Config_Path = Default_Path + @"Config\";
     public static string CustomTPList_Path = Config_Path + "CustomTPList.json";
     public static string SensitiveWord_Path = Config_Path + "SensitiveWord.txt";
 
+    public const string Inject_Path = Default_Path + @"Inject\";
+
     public const string Resource_Path = "GTA5OnlineTools.Features.Files.";
     public const string Resource_Kiddion_Path = "GTA5OnlineTools.Features.Files.Kiddion.";
+    public const string Resource_Inject_Path = "GTA5OnlineTools.Features.Files.Inject.";
 
     /// <summary>
     /// 获取当前运行文件完整路径

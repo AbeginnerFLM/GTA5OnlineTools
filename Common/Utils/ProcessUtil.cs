@@ -53,6 +53,7 @@ public static class ProcessUtil
                 else
                     path = FileUtil.Cache_Path;
 
+                Directory.SetCurrentDirectory(path);
                 path = Path.Combine(path, processName + ".exe");
                 Process.Start(new ProcessStartInfo(path)
                 {

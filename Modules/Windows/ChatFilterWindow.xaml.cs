@@ -88,7 +88,7 @@ public partial class ChatFilterWindow : Window
         AudioUtil.ClickSound();
 
         var InjectInfo = new InjectInfo();
-        InjectInfo.DLLPath = FileUtil.Cache_Path + "BlcokSpamMsg.dll";
+        InjectInfo.DLLPath = FileUtil.Inject_Path + "BlcokSpamMsg.dll";
 
         if (string.IsNullOrEmpty(InjectInfo.DLLPath))
         {

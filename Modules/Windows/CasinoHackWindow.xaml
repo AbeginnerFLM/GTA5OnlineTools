@@ -7,9 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Name="Window_CasinoHack"
     Title="GTA5线上小助手 赌场黑客"
+    Width="1000"
+    Height="600"
+    MinWidth="1000"
+    MinHeight="600"
     Closing="Window_CasinoHack_Closing"
     Loaded="Window_CasinoHack_Loaded"
-    Style="{StaticResource WindowStyle_Normal}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
@@ -34,20 +37,17 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Image
+        <UniformGrid
             Height="100"
-            DockPanel.Dock="Top"
-            Source="/Assets/Images/Poster/Casino01.jpg"
-            Stretch="UniformToFill" />
-        <Image
-            Height="100"
-            DockPanel.Dock="Bottom"
-            Source="/Assets/Images/Poster/Casino02.jpg"
-            Stretch="UniformToFill" />
+            Columns="2"
+            DockPanel.Dock="Top">
+            <Image Source="/Assets/Images/Poster/Casino01.jpg" Stretch="UniformToFill" />
+            <Image Source="/Assets/Images/Poster/Casino02.jpg" Stretch="UniformToFill" />
+        </UniformGrid>
         <UniformGrid
             Margin="5"
-            Columns="3"
-            DockPanel.Dock="Top">
+            Columns="2"
+            DockPanel.Dock="Bottom">
             <!--  面板1  -->
             <StackPanel Margin="5">
                 <TextBlock Style="{StaticResource TextBlockStyle_Title000}" Text="黑杰克（21点）" />
@@ -186,45 +186,6 @@
                         <ComboBoxItem Content="载具奖品" />
                         <ComboBoxItem Content="50000美元" />
                     </ComboBox>
-                </UniformGrid>
-            </StackPanel>
-            <!--  面板3  -->
-            <StackPanel HorizontalAlignment="Center">
-                <UniformGrid Columns="2">
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="💶"
-                        TextAlignment="Center" />
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="💎"
-                        TextAlignment="Center" />
-                </UniformGrid>
-                <UniformGrid Columns="2">
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="💰"
-                        TextAlignment="Center" />
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="💳"
-                        TextAlignment="Center" />
-                </UniformGrid>
-                <UniformGrid Columns="2">
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="🕹"
-                        TextAlignment="Center" />
-                    <emoji:TextBlock
-                        Margin="5"
-                        FontSize="100"
-                        Text="🛒"
-                        TextAlignment="Center" />
                 </UniformGrid>
             </StackPanel>
 

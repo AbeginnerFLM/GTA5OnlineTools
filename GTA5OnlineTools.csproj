@@ -7,8 +7,8 @@
     <UseWPF>true</UseWPF>
     <Platforms>x64</Platforms>
     <StartupObject>GTA5OnlineTools.App</StartupObject>
-    <AssemblyVersion>3.0.4.4</AssemblyVersion>
-    <FileVersion>3.0.4.4</FileVersion>
+    <AssemblyVersion>3.0.4.3</AssemblyVersion>
+    <FileVersion>3.0.4.3</FileVersion>
     <ApplicationIcon>Assets\Images\Favicon.ico</ApplicationIcon>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
     <DebugType>full</DebugType>
@@ -51,7 +51,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Features\Files\BincoHax.exe" />
-    <EmbeddedResource Include="Features\Files\BlcokSpamMsg.dll" />
+    <EmbeddedResource Include="Features\Files\Inject\BlcokSpamMsg.dll" />
     <EmbeddedResource Include="Features\Files\Kiddion\config.json" />
     <EmbeddedResource Include="Features\Files\dControl.exe" />
     <EmbeddedResource Include="Features\Files\dControl.ini" />
@@ -66,7 +66,7 @@
     <EmbeddedResource Include="Features\Files\stat.txt" />
     <EmbeddedResource Include="Features\Files\Kiddion\teleports.json" />
     <EmbeddedResource Include="Features\Files\Kiddion\vehicles.json" />
-    <EmbeddedResource Include="Features\Files\YimMenu.dll" />
+    <EmbeddedResource Include="Features\Files\Inject\YimMenu.dll" />
   </ItemGroup>
 
   <ItemGroup>
