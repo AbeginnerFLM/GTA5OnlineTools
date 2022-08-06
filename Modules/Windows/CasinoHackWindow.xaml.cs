@@ -76,7 +76,7 @@ public partial class CasinoHackWindow : Window
 
                     ///////////////////////////////////////////////////////
 
-                    int current_table = Memory.Read<int>(pointer + (1769 + (1 + Hacks.ReadGA<int>(2681762 + 1) * 8) + 4) * 8);
+                    int current_table = Memory.Read<int>(pointer + (1769 + (1 + Hacks.ReadGA<int>(2703735) * 8) + 4) * 8);
                     int nums = Memory.Read<int>(pointer + (109 + 1 + (1 + current_table * 211) + 209) * 8);
 
                     index = Memory.Read<int>(pointer + (2026 + 2 + 1 + nums * 1) * 8);
