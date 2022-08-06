@@ -43,7 +43,7 @@ public static class ProcessUtil
         {
             if (IsAppRun(processName))
             {
-                MsgBoxUtil.WarningMsgBox($"请不要重复打开，{processName} 已经在运行了");
+                MsgBoxUtil.Warning($"请不要重复打开，{processName} 已经在运行了");
             }
             else
             {
@@ -64,7 +64,7 @@ public static class ProcessUtil
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -77,7 +77,7 @@ public static class ProcessUtil
         {
             if (!IsAppRun(processName))
             {
-                MsgBoxUtil.WarningMsgBox($"未发现 {processName} 进程");
+                MsgBoxUtil.Warning($"未发现 {processName} 进程");
                 return;
             }
 
@@ -91,7 +91,7 @@ public static class ProcessUtil
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 

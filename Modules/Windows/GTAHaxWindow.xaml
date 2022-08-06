@@ -13,7 +13,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -682,23 +682,18 @@
                     </Hyperlink>
                 </TextBlock>
                 <Button
-                    x:Name="Button_Read_Stat"
-                    Click="Button_Read_Stat_Click"
-                    Content="读取stat.txt"
-                    Style="{StaticResource ButtonStyle_Web}" />
-                <Button
-                    x:Name="Button_Create_HaxCode"
-                    Click="Button_Create_HaxCode_Click"
+                    x:Name="Button_CreateHaxCode"
+                    Click="Button_CreateHaxCode_Click"
                     Content="① 生成Hax代码"
                     Style="{StaticResource ButtonStyle_Web}" />
                 <Button
-                    x:Name="Button_Write_Stat"
-                    Click="Button_Write_Stat_Click"
+                    x:Name="Button_WriteStat"
+                    Click="Button_WriteStat_Click"
                     Content="② 写入stat.txt"
                     Style="{StaticResource ButtonStyle_Web}" />
                 <Button
-                    x:Name="Button_Import_Stat"
-                    Click="Button_Import_Stat_Click"
+                    x:Name="Button_ImportStat"
+                    Click="Button_ImportStat_Click"
                     Content="③ 导入GTAHax"
                     Style="{StaticResource ButtonStyle_Web}" />
             </StackPanel>

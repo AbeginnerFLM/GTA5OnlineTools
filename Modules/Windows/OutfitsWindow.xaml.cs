@@ -110,7 +110,7 @@ public partial class OutfitsWindow : Window
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -173,7 +173,7 @@ public partial class OutfitsWindow : Window
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
 
     }

@@ -33,14 +33,7 @@ public partial class GTAHaxWindow : Window
 
     }
 
-    private void Button_Read_Stat_Click(object sender, RoutedEventArgs e)
-    {
-        AudioUtil.ClickSound();
-
-        FileUtil.ReadTextToTextBox(TextBox_GTAHaxCodePreview, FileUtil.GTAHaxStat_Path);
-    }
-
-    private void Button_Write_Stat_Click(object sender, RoutedEventArgs e)
+    private void Button_WriteStat_Click(object sender, RoutedEventArgs e)
     {
         AudioUtil.ClickSound();
 
@@ -52,19 +45,16 @@ public partial class GTAHaxWindow : Window
             {
                 sw.Write(TextBox_GTAHaxCodePreview.Text);
 
-                if (MessageBox.Show("写入成功！\n\n点击<是>确认结果，点击<否>打开stat.txt查看", " 提示", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.No)
-                {
-                    ProcessUtil.OpenLink(FileUtil.GTAHaxStat_Path);
-                }
+                MsgBoxUtil.Information("写入到stat.txt文件成功，现在可以打开GTAHax导入代码执行了");
             }
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
-    private void Button_Import_Stat_Click(object sender, RoutedEventArgs e)
+    private void Button_ImportStat_Click(object sender, RoutedEventArgs e)
     {
         AudioUtil.ClickSound();
 
@@ -106,7 +96,7 @@ public partial class GTAHaxWindow : Window
                             WinAPI.SendMessage(child_handle, WinAPI.WM_LBUTTONDOWN, IntPtr.Zero, null);
                             WinAPI.SendMessage(child_handle, WinAPI.WM_LBUTTONUP, IntPtr.Zero, null);
 
-                            MsgBoxUtil.InformationMsgBox("导入到GTAHax成功！代码正在执行，请返回GTAHax和GTA5游戏查看\n\n如果未执行，请重新点击\"导入GTAHax\"");
+                            MsgBoxUtil.Information("导入到GTAHax成功！代码正在执行，请返回GTAHax和GTA5游戏查看\n\n如果未执行，请重新点击\"导入GTAHax\"\n如果执行成功游戏内会出现大受好评奖章");
                         }
                         else
                         {
@@ -171,7 +161,7 @@ public partial class GTAHaxWindow : Window
 
     ////////////////////////////////////////////////////////////////////////
 
-    private void Button_Create_HaxCode_Click(object sender, RoutedEventArgs e)
+    private void Button_CreateHaxCode_Click(object sender, RoutedEventArgs e)
     {
         AudioUtil.ClickSound();
 
@@ -752,23 +742,22 @@ public partial class GTAHaxWindow : Window
             }
 
             TextBox_GTAHaxCodePreview.AppendText("\n");
-            //MessageBox.Show("生成Hax代码成功", " 提示", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 
     private void TabControl_Main_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Dispatcher.BeginInvoke(new Action(delegate
+        if (Button_CreateHaxCode == null)
+            return;
+
+        if (TabControl_Main.SelectedIndex == 0)
         {
-            if (TabControl_Main.SelectedIndex == 0)
-            {
-                Button_Create_HaxCode.IsEnabled = false;
-            }
-            else
-            {
-                Button_Create_HaxCode.IsEnabled = true;
-            }
-        }));
+            Button_CreateHaxCode.IsEnabled = false;
+        }
+        else
+        {
+            Button_CreateHaxCode.IsEnabled = true;
+        }
     }
 
     private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

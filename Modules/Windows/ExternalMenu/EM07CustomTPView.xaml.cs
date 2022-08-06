@@ -226,7 +226,7 @@ public partial class EM07CustomTPView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 }

@@ -60,7 +60,7 @@ public partial class EM09SessionChatView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -81,7 +81,7 @@ public partial class EM09SessionChatView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -138,7 +138,7 @@ public partial class EM09SessionChatView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -197,11 +197,11 @@ public partial class EM09SessionChatView : UserControl
             Memory.WriteString(Globals.PlayerChatterNamePTR + 0xBC, null, TextBox_ChatName.Text + "\0");
             Memory.WriteString(Globals.PlayerExternalDisplayNamePTR + 0x84, null, TextBox_ExternalDisplay.Text + "\0");
 
-            MsgBoxUtil.InformationMsgBox("写入成功，请切换战局生效");
+            MsgBoxUtil.Information("写入成功，请切换战局生效");
         }
         else
         {
-            MsgBoxUtil.WarningMsgBox("内容不能为空");
+            MsgBoxUtil.Warning("内容不能为空");
         }
     }
 

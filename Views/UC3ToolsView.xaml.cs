@@ -230,12 +230,12 @@ public partial class UC3ToolsView : UserControl
             }
             else
             {
-                MsgBoxUtil.InformationMsgBox("程序文件名已经符合英文命名标准，无需继续重命名");
+                MsgBoxUtil.Information("程序文件名已经符合英文命名标准，无需继续重命名");
             }
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -258,12 +258,12 @@ public partial class UC3ToolsView : UserControl
             }
             else
             {
-                MsgBoxUtil.InformationMsgBox("程序文件名已经符合中文命名标准，无需继续重命名");
+                MsgBoxUtil.Information("程序文件名已经符合中文命名标准，无需继续重命名");
             }
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -326,7 +326,7 @@ public partial class UC3ToolsView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -338,7 +338,7 @@ public partial class UC3ToolsView : UserControl
         var path = Path.Combine(FileUtil.MyDocuments_Path, @"Rockstar Games\GTA V\Profiles");
         if (!Directory.Exists(path))
         {
-            MsgBoxUtil.ErrorMsgBox("GTA5故事模式存档路径不存在");
+            MsgBoxUtil.Error("GTA5故事模式存档路径不存在");
             return;
         }
 
@@ -354,11 +354,11 @@ public partial class UC3ToolsView : UserControl
                     FileUtil.ExtractResFile(FileUtil.Resource_Path + "Other.SGTA50000", fullName);
                 }
 
-                MsgBoxUtil.InformationMsgBox($"GTA5故事模式存档替换成功，请前往我的文档查看\n\n{path}");
+                MsgBoxUtil.Information($"GTA5故事模式存档替换成功，请前往我的文档查看\n\n{path}");
             }
             catch (Exception ex)
             {
-                MsgBoxUtil.ExceptionMsgBox(ex);
+                MsgBoxUtil.Exception(ex);
             }
         }
     }
@@ -403,7 +403,7 @@ public partial class UC3ToolsView : UserControl
         }
         else
         {
-            MsgBoxUtil.InformationMsgBox("请先启动 Kiddion 程序");
+            MsgBoxUtil.Information("请先启动 Kiddion 程序");
         }
     }
 
@@ -439,7 +439,7 @@ public partial class UC3ToolsView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 

@@ -74,7 +74,7 @@ public partial class UC2ModulesView : UserControl
         }
         else
         {
-            MsgBoxUtil.ErrorMsgBox(HintMsg);
+            MsgBoxUtil.Error(HintMsg);
         }
     }
 

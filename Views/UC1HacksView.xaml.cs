@@ -211,7 +211,7 @@ public partial class UC1HacksView : UserControl
     {
         if (!ProcessUtil.IsAppRun(CoreUtil.TargetAppName))
         {
-            MsgBoxUtil.WarningMsgBox("未发现GTA5进程，请先运行GTA5游戏");
+            MsgBoxUtil.Warning("未发现GTA5进程，请先运行GTA5游戏");
             return;
         }
 
@@ -220,7 +220,7 @@ public partial class UC1HacksView : UserControl
 
         if (string.IsNullOrEmpty(InjectInfo.DLLPath))
         {
-            MsgBoxUtil.WarningMsgBox("发生异常，DLL路径为空");
+            MsgBoxUtil.Warning("发生异常，DLL路径为空");
             return;
         }
 
@@ -233,7 +233,7 @@ public partial class UC1HacksView : UserControl
         {
             if (module.FileName == InjectInfo.DLLPath)
             {
-                MsgBoxUtil.WarningMsgBox("该DLL已经被注入过了，请勿重复注入，游戏中按 Ins 键显示菜单");
+                MsgBoxUtil.Warning("该DLL已经被注入过了，请勿重复注入，游戏中按 Ins 键显示菜单");
                 return;
             }
         }
@@ -245,7 +245,7 @@ public partial class UC1HacksView : UserControl
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 

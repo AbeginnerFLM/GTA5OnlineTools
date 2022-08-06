@@ -31,7 +31,7 @@ public partial class ChatFilterWindow : Window
             }
             catch (Exception ex)
             {
-                MsgBoxUtil.ExceptionMsgBox(ex);
+                MsgBoxUtil.Exception(ex);
             }
         }
         else
@@ -60,7 +60,7 @@ public partial class ChatFilterWindow : Window
             {
                 if (item.Equals(txt))
                 {
-                    MsgBoxUtil.InformationMsgBox($"关键词 {txt} 已经添加过了，请勿重复添加");
+                    MsgBoxUtil.Information($"关键词 {txt} 已经添加过了，请勿重复添加");
                     return;
                 }
             }
@@ -92,7 +92,7 @@ public partial class ChatFilterWindow : Window
 
         if (string.IsNullOrEmpty(InjectInfo.DLLPath))
         {
-            MsgBoxUtil.WarningMsgBox("发生异常，DLL路径为空");
+            MsgBoxUtil.Warning("发生异常，DLL路径为空");
             return;
         }
 
@@ -105,7 +105,7 @@ public partial class ChatFilterWindow : Window
         {
             if (module.FileName == InjectInfo.DLLPath)
             {
-                MsgBoxUtil.WarningMsgBox("该DLL已经被注入过了，请勿重复注入");
+                MsgBoxUtil.Warning("该DLL已经被注入过了，请勿重复注入");
                 return;
             }
         }
@@ -117,7 +117,7 @@ public partial class ChatFilterWindow : Window
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 
@@ -144,7 +144,7 @@ public partial class ChatFilterWindow : Window
         }
         catch (Exception ex)
         {
-            MsgBoxUtil.ExceptionMsgBox(ex);
+            MsgBoxUtil.Exception(ex);
         }
     }
 }
