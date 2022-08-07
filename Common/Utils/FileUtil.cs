@@ -73,7 +73,7 @@ public static class FileUtil
         {
             string path = Config_Path + "ErrorLog";
             Directory.CreateDirectory(path);
-            path += $@"\#ErrorLog# { DateTime.Now:yyyyMMdd_HH-mm-ss_ffff}.log";
+            path += $@"\#ErrorLog# {DateTime.Now:yyyyMMdd_HH-mm-ss_ffff}.log";
             File.WriteAllText(path, logContent);
         }
         catch (Exception) { }
@@ -126,23 +126,49 @@ public static class FileUtil
         try
         {
             var dir = new DirectoryInfo(srcPath);
-            var fileinfo = dir.GetFileSystemInfos();   // 返回目录中所有文件和子目录
+            var fileinfo = dir.GetFileSystemInfos();                    // 返回目录中所有文件和子目录
             foreach (var file in fileinfo)
             {
-                if (file is DirectoryInfo)                             // 判断是否文件夹
+                if (file is DirectoryInfo)                              // 判断是否文件夹
                 {
                     var subdir = new DirectoryInfo(file.FullName);
-                    subdir.Delete(true);                            // 删除子目录和文件
+                    subdir.Delete(true);                                // 删除子目录和文件
                 }
                 else
                 {
-                    File.Delete(file.FullName);                        // 删除指定文件
+                    File.Delete(file.FullName);                         // 删除指定文件
                 }
             }
         }
         catch (Exception ex)
         {
             MsgBoxUtil.Exception(ex);
+        }
+    }
+
+    /// <summary>
+    /// 判断文件是否被占用
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    public static bool IsOccupied(string filePath)
+    {
+        FileStream stream = null;
+        try
+        {
+            stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+            return false;
+        }
+        catch
+        {
+            return true;
+        }
+        finally
+        {
+            if (stream != null)
+            {
+                stream.Close();
+            }
         }
     }
 }

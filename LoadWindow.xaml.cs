@@ -57,10 +57,36 @@ public partial class LoadWindow : Window
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.exe", FileUtil.Cache_Path + "dControl.exe");
                 FileUtil.ExtractResFile(FileUtil.Resource_Path + "dControl.ini", FileUtil.Cache_Path + "dControl.ini");
 
-                FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "YimMenu.dll", FileUtil.Inject_Path + "YimMenu.dll");
-                FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "BlcokMsg.dll", FileUtil.Inject_Path + "BlcokMsg.dll");
+                // 判断DLL文件是否存在以及是否被占用
+                if (!File.Exists(FileUtil.Inject_Path + "YimMenu.dll"))
+                {
+                    FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "YimMenu.dll", FileUtil.Inject_Path + "YimMenu.dll");
+                }
+                else
+                {
+                    if (!FileUtil.IsOccupied(FileUtil.Inject_Path + "YimMenu.dll"))
+                        FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "YimMenu.dll", FileUtil.Inject_Path + "YimMenu.dll");
+                }
+
+                if (!File.Exists(FileUtil.Inject_Path + "BlcokMsg.dll"))
+                {
+                    FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "BlcokMsg.dll", FileUtil.Inject_Path + "BlcokMsg.dll");
+                }
+                else
+                {
+                    if (!FileUtil.IsOccupied(FileUtil.Inject_Path + "BlcokMsg.dll"))
+                        FileUtil.ExtractResFile(FileUtil.Resource_Inject_Path + "BlcokMsg.dll", FileUtil.Inject_Path + "BlcokMsg.dll");
+                }
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    TextBlock_ErrorLog.Text = $"初始化错误：{ex.Message}";
+                });
+
+                Task.Delay(2000).Wait();
+            }
 
             // 提前预加载转换字库
             ChineseConverter.ToTraditional("免费，跨平台，开源！");

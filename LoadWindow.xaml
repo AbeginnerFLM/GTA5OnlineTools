@@ -60,6 +60,12 @@
                 HorizontalAlignment="Right"
                 DockPanel.Dock="Bottom"
                 Text="DS By CrazyZhang And Aure" />
+            <TextBlock
+                x:Name="TextBlock_ErrorLog"
+                Margin="5"
+                DockPanel.Dock="Bottom"
+                Foreground="Red"
+                TextWrapping="Wrap" />
             <StackPanel
                 Margin="0,0,0,10"
                 HorizontalAlignment="Center"
