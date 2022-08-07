@@ -155,6 +155,11 @@
                     Command="{Binding ToolsButtonClickCommand}"
                     CommandParameter="SwitchAudio"
                     Content="切换按键音效" />
+                <Button
+                    attached:Icon.Value="&#xe882;"
+                    Command="{Binding ToolsButtonClickCommand}"
+                    CommandParameter="GetKiddionText"
+                    Content="获取Kiddion UI文本" />
             </WrapPanel>
         </ScrollViewer>
 

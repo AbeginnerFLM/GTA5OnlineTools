@@ -108,6 +108,9 @@ public partial class UC3ToolsView : UserControl
             case "SwitchAudio":
                 SwitchAudioClick();
                 break;
+            case "GetKiddionText":
+                GetKiddionTextClick();
+                break;
         }
     }
 
@@ -464,5 +467,13 @@ public partial class UC3ToolsView : UserControl
             AudioUtil.ClickSoundIndex = 0;
 
         AudioUtil.ClickSound();
+    }
+
+    /// <summary>
+    /// 获取Kiddion UI文本
+    /// </summary>
+    private void GetKiddionTextClick()
+    {
+        ProcessUtil.OpenProcess("GetKidTxt", false);
     }
 }

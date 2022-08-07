@@ -120,5 +120,6 @@ public static class ProcessUtil
         CloseProcess("BincoHax");
         CloseProcess("LSCHax");
         CloseProcess("dControl");
+        CloseProcess("GetKidTxt");
     }
 }

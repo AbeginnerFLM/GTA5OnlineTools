@@ -36,6 +36,7 @@
     <None Remove="Features\Files\config.json" />
     <None Remove="Features\Files\dControl.exe" />
     <None Remove="Features\Files\dControl.ini" />
+    <None Remove="Features\Files\GetKidTxt.exe" />
     <None Remove="Features\Files\GTAHax.exe" />
     <None Remove="Features\Files\Kiddion\key87\config.json" />
     <None Remove="Features\Files\Kiddion.exe" />
@@ -51,6 +52,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Features\Files\BincoHax.exe" />
+    <EmbeddedResource Include="Features\Files\GetKidTxt.exe" />
     <EmbeddedResource Include="Features\Files\Inject\BlcokMsg.dll" />
     <EmbeddedResource Include="Features\Files\Kiddion\config.json" />
     <EmbeddedResource Include="Features\Files\dControl.exe" />

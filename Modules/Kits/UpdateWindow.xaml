@@ -98,7 +98,7 @@
                         Margin="5"
                         DockPanel.Dock="Right"
                         Foreground="Green"
-                        Text="提示：上述节点选择任意一个下载更新即可" />
+                        Text="提示：建议大家手动下载更新，在线更新速度可能不理想" />
                     <TextBlock
                         x:Name="TextBlock_Info"
                         Margin="5"
