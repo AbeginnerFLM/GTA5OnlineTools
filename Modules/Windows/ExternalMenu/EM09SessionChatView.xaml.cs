@@ -28,7 +28,7 @@ public partial class EM09SessionChatView : UserControl
 
     private void ExternalMenuView_ClosingDisposeEvent()
     {
-        
+
     }
 
     private void Button_Translate_Click(object sender, RoutedEventArgs e)
@@ -123,18 +123,21 @@ public partial class EM09SessionChatView : UserControl
         {
             var stringBuilder = new StringBuilder();
 
-            string str = await HttpHelper.HttpClientGET(youdaoAPI + TextBox_InputMessage.Text);
-            var rb = JsonUtil.JsonDese<ReceiveObj>(str);
-
-            foreach (var item in rb.translateResult)
+            string result = await HttpHelper.HttpClientGET(youdaoAPI + TextBox_InputMessage.Text);
+            if (!string.IsNullOrEmpty(result))
             {
-                foreach (var t in item)
-                {
-                    stringBuilder.Append(t.tgt);
-                }
-            }
+                var rb = JsonUtil.JsonDese<ReceiveObj>(result);
 
-            TextBox_InputMessage.Text = stringBuilder.ToString();
+                foreach (var item in rb.translateResult)
+                {
+                    foreach (var t in item)
+                    {
+                        stringBuilder.Append(t.tgt);
+                    }
+                }
+
+                TextBox_InputMessage.Text = stringBuilder.ToString();
+            }
         }
         catch (Exception ex)
         {
@@ -225,10 +228,9 @@ public class ReceiveObj
     public int errorCode { get; set; }
     public int elapsedTime { get; set; }
     public List<List<TranslateResultItemItem>> translateResult { get; set; }
-}
-
-public class TranslateResultItemItem
-{
-    public string src { get; set; }
-    public string tgt { get; set; }
+    public class TranslateResultItemItem
+    {
+        public string src { get; set; }
+        public string tgt { get; set; }
+    }
 }

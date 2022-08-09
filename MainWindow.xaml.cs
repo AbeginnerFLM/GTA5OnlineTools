@@ -245,35 +245,43 @@ public partial class MainWindow : Window
             CoreUtil.CMD_Code("ipconfig /flushdns");
             // 检查更新
             string webConfig = await HttpHelper.HttpClientGET(CoreUtil.ConfigAddress);
-            // 解析web返回的数据
-            GlobalData.ServerData = JsonUtil.JsonDese<ServerData>(webConfig);
-            // 获取对应数据
-            CoreUtil.ServerVersionInfo = Version.Parse(GlobalData.ServerData.Version);
-            CoreUtil.NoticeAddress = GlobalData.ServerData.Address.Notice;
-            CoreUtil.ChangeAddress = GlobalData.ServerData.Address.Change;
-            // 获取最新公告
-            await HttpHelper.HttpClientGET(CoreUtil.NoticeAddress).ContinueWith((t) =>
+            if (!string.IsNullOrEmpty(webConfig))
             {
-                if (t != null)
-                    WeakReferenceMessenger.Default.Send(t.Result, "Notice");
-                else
-                    WeakReferenceMessenger.Default.Send("获取最新公告内容失败！", "Notice");
-            });
-            // 获取更新日志
-            await HttpHelper.HttpClientGET(CoreUtil.ChangeAddress).ContinueWith((t) =>
-            {
-                if (t != null)
-                    WeakReferenceMessenger.Default.Send(t.Result, "Change");
-                else
-                    WeakReferenceMessenger.Default.Send("获取更新日志信息失败！", "Change");
-            });
+                // 解析web返回的数据
+                GlobalData.ServerData = JsonUtil.JsonDese<ServerData>(webConfig);
+                // 获取对应数据
+                CoreUtil.ServerVersionInfo = Version.Parse(GlobalData.ServerData.Version);
+                CoreUtil.NoticeAddress = GlobalData.ServerData.Address.Notice;
+                CoreUtil.ChangeAddress = GlobalData.ServerData.Address.Change;
+                // 获取最新公告
+                await HttpHelper.HttpClientGET(CoreUtil.NoticeAddress).ContinueWith((t) =>
+                {
+                    if (t != null)
+                        WeakReferenceMessenger.Default.Send(t.Result, "Notice");
+                    else
+                        WeakReferenceMessenger.Default.Send("获取最新公告内容失败！", "Notice");
+                });
+                // 获取更新日志
+                await HttpHelper.HttpClientGET(CoreUtil.ChangeAddress).ContinueWith((t) =>
+                {
+                    if (t != null)
+                        WeakReferenceMessenger.Default.Send(t.Result, "Change");
+                    else
+                        WeakReferenceMessenger.Default.Send("获取更新日志信息失败！", "Change");
+                });
 
-            // 如果线上版本号大于本地版本号，则提示更新
-            if (CoreUtil.ServerVersionInfo > CoreUtil.ClientVersionInfo)
+                // 如果线上版本号大于本地版本号，则提示更新
+                if (CoreUtil.ServerVersionInfo > CoreUtil.ClientVersionInfo)
+                {
+                    AudioUtil.SP_GTA5_Email.Play();
+                    // 打开更新对话框
+                    OpenUpateWindow();
+                }
+            }
+            else
             {
-                AudioUtil.SP_GTA5_Email.Play();
-                // 打开更新对话框
-                OpenUpateWindow();
+                WeakReferenceMessenger.Default.Send("获取最新公告内容失败！", "Notice");
+                WeakReferenceMessenger.Default.Send("获取更新日志信息失败！", "Change");
             }
         }
         catch (Exception ex)
